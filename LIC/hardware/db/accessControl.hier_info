@@ -1,0 +1,250 @@
+|key_decode
+Mclk => clkdiv:u_clk.clk_in
+reset => key_scan:u_key_scan.reset
+reset => key_control:u_key_control.reset
+Kack => key_control:u_key_control.Kack
+Lines[0] => key_scan:u_key_scan.L[0]
+Lines[1] => key_scan:u_key_scan.L[1]
+Lines[2] => key_scan:u_key_scan.L[2]
+Lines[3] => key_scan:u_key_scan.L[3]
+Columns[0] << key_scan:u_key_scan.C[0]
+Columns[1] << key_scan:u_key_scan.C[1]
+Columns[2] << key_scan:u_key_scan.C[2]
+K[0] << key_scan:u_key_scan.K[0]
+K[1] << key_scan:u_key_scan.K[1]
+K[2] << key_scan:u_key_scan.K[2]
+K[3] << key_scan:u_key_scan.K[3]
+Kval << key_control:u_key_control.Kval
+
+
+|key_decode|key_scan:u_key_scan
+kscan => counter:u_counter.ce
+clk => counter:u_counter.clk
+reset => counter:u_counter.reset
+L[0] => mux:u_mux.A[0]
+L[1] => mux:u_mux.A[1]
+L[2] => mux:u_mux.A[2]
+L[3] => mux:u_mux.A[3]
+K[0] <= counter:u_counter.Q[0]
+K[1] <= counter:u_counter.Q[1]
+K[2] <= counter:u_counter.Q[2]
+K[3] <= counter:u_counter.Q[3]
+C[0] <= dec:u_dec.CL[0]
+C[1] <= dec:u_dec.CL[1]
+C[2] <= dec:u_dec.CL[2]
+kpress <= mux:u_mux.Y
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter
+ce => reg:u_reg.CE
+clk => reg:u_reg.CLK
+Q[0] <= reg:u_reg.Q[0]
+Q[1] <= reg:u_reg.Q[1]
+Q[2] <= reg:u_reg.Q[2]
+Q[3] <= reg:u_reg.Q[3]
+reset => reg:u_reg.reset
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder
+A[0] => fulladder:u_fulladder0.A
+A[1] => fulladder:u_fulladder1.A
+A[2] => fulladder:u_fulladder2.A
+A[3] => fulladder:u_fulladder3.A
+B[0] => fulladder:u_fulladder0.B
+B[1] => fulladder:u_fulladder1.B
+B[2] => fulladder:u_fulladder2.B
+B[3] => fulladder:u_fulladder3.B
+Cin => fulladder:u_fulladder0.Cin
+S[0] <= fulladder:u_fulladder0.S
+S[1] <= fulladder:u_fulladder1.S
+S[2] <= fulladder:u_fulladder2.S
+S[3] <= fulladder:u_fulladder3.S
+Cout <= fulladder:u_fulladder3.Cout
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder0
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder1
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder2
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder3
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|dec:u_dec
+S[0] => CL.IN0
+S[0] => CL.IN0
+S[0] => CL.IN0
+S[1] => CL.IN1
+S[1] => CL.IN1
+S[1] => CL.IN1
+CL[0] <= CL.DB_MAX_OUTPUT_PORT_TYPE
+CL[1] <= CL.DB_MAX_OUTPUT_PORT_TYPE
+CL[2] <= CL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_scan:u_key_scan|mux:u_mux
+S[0] => Y.IN0
+S[0] => Y.IN0
+S[0] => Y.IN0
+S[0] => Y.IN0
+S[1] => Y.IN1
+S[1] => Y.IN1
+S[1] => Y.IN1
+S[1] => Y.IN1
+A[0] => Y.IN1
+A[1] => Y.IN1
+A[2] => Y.IN1
+A[3] => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|key_control:u_key_control
+clk => currentState~1.DATAIN
+reset => currentState~3.DATAIN
+Kack => generateNextState.IN0
+Kack => Selector2.IN2
+Kack => Selector0.IN1
+Kpress => Selector1.IN2
+Kpress => Kscan.IN0
+Kpress => Selector0.IN2
+Kpress => generateNextState.IN1
+Kval <= Kval.DB_MAX_OUTPUT_PORT_TYPE
+Kscan <= Kscan.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|key_decode|clkdiv:u_clk
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
