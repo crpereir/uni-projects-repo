@@ -21,11 +21,11 @@ object HAL { // Virtualiza o acesso ao sistema UsbPort
 
     // Escreve nos bits representados por mask o valor de value
     fun writeBits(mask: Int, value: Int) {
-        val valueUnderMask = mask and value// para ter o valor(led ligado) do value na gama dos valores da mask
-        val outMaskOn = mask.inv() and state //o state é tudo que tenho no outport (10001001, IMAGEM DO SLIDE)
-        // o inv é o inverso, é para termos acesso a todos os valores fora da mascara
+        val valueUnderMask = mask and value  // para ter o valor(led ligado) do value na gama dos valores da mask
+        val outMaskOn = mask.inv() and state // o state é tudo que tenho no outport (10001001, IMAGEM DO SLIDE)
+                                             // o inv é o inverso, é para termos acesso a todos os valores fora da mascara
         val result = valueUnderMask or outMaskOn // temos todos os valores ligados
-        UsbPort.write(result)// aqui tou a escrever o outport, da a cor aos led's
+        UsbPort.write(result) // aqui tou a escrever o outport, da a cor aos led's
         state = result // guardar o estado
     }
 
@@ -49,3 +49,5 @@ object HAL { // Virtualiza o acesso ao sistema UsbPort
         UsbPort.write(state)
     }
 }
+
+
