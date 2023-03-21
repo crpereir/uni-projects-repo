@@ -1,37 +1,55 @@
-P16 assembler v1.4.0 (Mar  6 2023)	.\tp01.lst	Mon Mar 20 16:42:54 2023
+P16 assembler v1.4.0 (Mar  6 2023)	.\tp01.lst	Tue Mar 21 21:44:23 2023
 
 Sections
 Index   Name            Address   Size
 0       startup         0000      0012 18
-1       .text           0012      0040 64
-2       .data           0052      0014 20
-3       .bss            0066      0001 1
-4       .stack          0068      0040 64
+1       .text           0012      0106 262
+2       .data           0118      0014 20
+3       .bss            012C      0001 1
+4       .stack          012E      0040 64
 
 Symbols
 Name                    Type      Value       Section
 _start                  LABEL     0004 4      startup
-char2nat                LABEL     0014 20     .text
-else_if                 LABEL     002A 42     .text
-error                   LABEL     0066 102    .bss
-if                      LABEL     0018 24     .text
-if_2                    LABEL     0048 72     .text
-if_cond1                LABEL     003C 60     .text
-if_cond2                LABEL     0044 68     .text
-if_end                  LABEL     004C 76     .text
-line#103                LABEL     0050 80     .text
+char2nat                LABEL     00DA 218    .text
+else_if                 LABEL     00F0 240    .text
+error                   LABEL     012C 300    .bss
+error_addr              LABEL     007E 126    .text
+if                      LABEL     00DE 222    .text
+if_2                    LABEL     010E 270    .text
+if_cond1                LABEL     0102 258    .text
+if_cond2                LABEL     010A 266    .text
+if_end                  LABEL     0112 274    .text
+if_end_str2nat          LABEL     00C8 200    .text
+if_str2nat              LABEL     00B2 178    .text
+line#112                LABEL     0074 116    .text
+line#242                LABEL     0116 278    .text
 line#33                 LABEL     0002 2      startup
 line#39                 LABEL     000C 12     startup
 main                    LABEL     0012 18     .text
 main_addr               LABEL     0010 16     startup
+main_if_cond1           LABEL     001C 28     .text
+main_if_cond2           LABEL     0036 54     .text
+main_if_cond3           LABEL     0050 80     .text
+main_return             LABEL     006A 106    .text
+multiply                LABEL     00B8 184    .text
 NAN                     ABSOLUTE  FFFF 65535  startup
-result                  LABEL     0060 96     .data
 sp_addr                 LABEL     000E 14     startup
-stack_addr              LABEL     00A8 168    .stack
+stack_addr              LABEL     016E 366    .stack
 STACK_SIZE              ABSOLUTE  0040 64     startup
-tst_str0                LABEL     0052 82     .data
-tst_str1                LABEL     0058 88     .data
-tst_str2                LABEL     005C 92     .data
+str2nat                 LABEL     0082 130    .text
+str2nat_loop            LABEL     0094 148    .text
+str2nat_return          LABEL     00CC 204    .text
+tst_results             LABEL     0126 294    .data
+tst_results_addr        LABEL     007C 124    .text
+tst_str0                LABEL     0118 280    .data
+tst_str0_addr           LABEL     0076 118    .text
+tst_str1                LABEL     011E 286    .data
+tst_str1_addr           LABEL     0078 120    .text
+tst_str2                LABEL     0122 290    .data
+tst_str2_addr           LABEL     007A 122    .text
+while                   LABEL     00BA 186    .text
+while_end               LABEL     00C6 198    .text
 
 Code listing
    1           	
@@ -74,7 +92,7 @@ Code listing
   38 000A 2F 0C	    ldr pc, main_addr   ; pc <- main()
   39 000C FF 5B	    b .
   40           	sp_addr:
-  41 000E A8 00	    .word stack_addr
+  41 000E 6E 01	    .word stack_addr
   42           	main_addr:
   43 0010 12 00	    .word main
   44           	
@@ -85,91 +103,230 @@ Code listing
   49           	
   50           	; ---------------------------------------------
   51           	; int main (void) 
-  52           	
+  52           	; R0 = error, R1 = temp, R2 = temp, r3 = temp, r4 = temp, r5 = temp, r6 = temp
   53           	
-  54           	main: 
-  55           	    
-  56           	; ---------------------------------------------
-  57           	; uint16_t str2nat (char numeral [ ] , uint16_t radix )
-  58           	
-  59           	
-  60           	; ---------------------------------------------
-  61           	; uint16_t char2nat(char symbol, uint16_t radix)
-  62           	; r0 = symbol, r1 = radix, r2 = number, r3 = temp
-  63           	; r4 = temp, r5 = temp
-  64           	
-  65 0012 0E 24	    push lr
-  66           	char2nat:
-  67 0014 F2 6F	    mov r2, #NAN &0xFF
-  68 0016 F2 7F	    movt r2, #NAN & 0xFF
-  69           	if:
-  70 0018 03 63	    mov r3, #'0'
-  71 001A 80 B9	    cmp r0, r3          ; symbol >= '0'
-  72 001C 06 48	    blo else_if
-  73 001E 93 63	    mov r3, #'9'         
-  74 0020 30 B8	    cmp r3, r0          ; symbol <= '9'
-  75 0022 03 48	    blo else_if
-  76 0024 03 63	    mov r3, #'0'
-  77 0026 82 89	    sub r2, r0, r3      ; number = symbol - '0'
-  78 0028 09 58	    b if_cond1
-  79           	else_if: 
-  80 002A 13 64	    mov r3, #'A'         
-  81 002C 80 B9	    cmp r0, r3          ; symbol >= 'A'
-  82 002E 06 48	    blo if_cond1
-  83 0030 63 64	    mov r3, #'F' 
-  84 0032 30 B8	    cmp r3, r0          ; symbol <= 'F'
-  85 0034 03 48	    blo if_cond1
-  86 0036 13 64	    mov r3, #'A' 
-  87 0038 82 89	    sub r2, r0, r3      ; number = symbol - 'A'
-  88 003A 22 A5	    add r2, r2, #10     ; number = r5 + 10
-  89           	if_cond1:
-  90 003C 03 61	    mov r3, #16
-  91 003E B0 B8	    cmp r3, r1          ; radix > 16
-  92 0040 01 4C	    bhs if_cond2
-  93 0042 02 58	    b if_2
-  94           	if_cond2:
-  95 0044 A0 B8	    cmp r2, r1          ; number >= radix
-  96 0046 02 48	    blo if_end
-  97           	if_2:
-  98 0048 F2 6F	    mov r2, #NAN & 0xFF
-  99 004A F2 7F	    movt r2, #NAN & 0xFF  
- 100           	if_end:
- 101 004C 00 B1	    mov r0, r2          ; return number
- 102 004E 0F 04	    pop pc
- 103 0050 FF 5B	    b .
- 104           	
+  54           	main:
+  55 0012 0E 24	    push lr
+  56 0014 04 24	    push r4
+  57 0016 05 24	    push r5
+  58 0018 06 24	    push r6
+  59 001A 00 60	    mov r0, #0
+  60           	
+  61           	main_if_cond1:
+  62 001C C1 0E	    ldr r1, tst_str0_addr
+  63 001E 22 60	    mov r2, #2
+  64 0020 06 B0	    mov r6, r0
+  65 0022 2F 5C	    bl str2nat
+  66 0024 03 B0	    mov r3, r0
+  67 0026 00 B3	    mov r0, r6
+  68 0028 06 60	    mov r6, #0
+  69 002A 84 0E	    ldr r4, tst_results_addr
+  70 002C 45 13	    ldr r5, [r4, r6]
+  71 002E B0 BA	    cmp r3, r5
+  72 0030 02 40	    beq main_if_cond2
+  73 0032 16 60	    mov r6, #1
+  74 0034 00 CB	    orr r0, r0, r6                       ; bla = bla | 1
+  75           	
+  76           	main_if_cond2:
+  77 0036 01 0E	    ldr r1, tst_str1_addr
+  78 0038 82 60	    mov r2, #8
+  79 003A 06 B0	    mov r6, r0
+  80 003C 22 5C	    bl str2nat
+  81 003E 03 B0	    mov r3, r0
+  82 0040 00 B3	    mov r0, r6
+  83 0042 16 60	    mov r6, #1
+  84 0044 B4 0D	    ldr r4, tst_results_addr
+  85 0046 45 13	    ldr r5, [r4, r6]
+  86 0048 B0 BA	    cmp r3, r5
+  87 004A 02 40	    beq main_if_cond3
+  88 004C 26 60	    mov r6, #2
+  89 004E 00 CB	    orr r0, r0, r6                       ; bla = bla | 1
+  90           	
+  91           	main_if_cond3:
+  92 0050 31 0D	    ldr r1, tst_str1_addr
+  93 0052 02 61	    mov r2, #16
+  94 0054 06 B0	    mov r6, r0
+  95 0056 15 5C	    bl str2nat
+  96 0058 03 B0	    mov r3, r0
+  97 005A 00 B3	    mov r0, r6
+  98 005C 26 60	    mov r6, #2
+  99 005E E4 0C	    ldr r4, tst_results_addr
+ 100 0060 45 13	    ldr r5, [r4, r6]
+ 101 0062 B0 BA	    cmp r3, r5
+ 102 0064 02 40	    beq main_return
+ 103 0066 46 60	    mov r6, #4
+ 104 0068 00 CB	    orr r0, r0, r6                       ; bla = bla | 1
  105           	
- 106           	; ----------------------------------------------------------------------------
- 107           	; data = INITIALIZED GLOBAL DATA
- 108           	    .data
- 109           	
- 110           	tst_str0:
- 111          	    .byte  '0', '1', '0', '1', '1'
- 111 0052 30 31 30 31 31
- 112 0057 00  	    .align 1
- 113           	tst_str1:
- 114          	    .byte  '7', '0', '9'
- 114 0058 37 30 39
- 115 005B 00  	    .align 1
- 116           	tst_str2:
- 117          	    .byte  '9', 'A', '0', 'F'
- 117 005C 39 41 30 46
+ 106           	main_return:
+ 107 006A 00 60	    mov r0, #0
+ 108 006C 06 04	    pop r6
+ 109 006E 05 04	    pop r5
+ 110 0070 04 04	    pop r4
+ 111 0072 0F 04	    pop pc 
+ 112 0074 FF 5B	    b .
+ 113           	
+ 114           	
+ 115           	; addresses for indirect jumps
+ 116           	tst_str0_addr:
+ 117 0076 18 01	    .word tst_str0
  118           	
- 119           	result: 
- 120          	    .word 0x000B, 0x01C9, 0x9A0F   ; 11, 457, 39439
- 120 0060 0B 00 C9 01 0F 9A
+ 119           	tst_str1_addr:
+ 120 0078 1E 01	    .word tst_str1
  121           	
- 122           	; ----------------------------------------------------------------------------
- 123           	; bss = NON INITIALIZED GLOBAL DATA
- 124           	    .section .bss
- 125           	error:
- 126 0066 00   	    .space 1   ; porque são 8 bits 
+ 122           	tst_str2_addr:
+ 123 007A 22 01	    .word tst_str2
+ 124           	
+ 125           	tst_results_addr:
+ 126 007C 26 01	    .word tst_results
  127           	
- 128           	
- 129           	; ----------------------------------------------------------------------------
- 130           	; stack = STACK STARTS HERE
- 131           	    .section .stack
- 132 0068 00   	    .space STACK_SIZE
- 132 .... ..
- 132 00A7 00
- 133           	stack_addr:
+ 128           	error_addr:
+ 129 007E 2C 01	    .word error
+ 130           	
+ 131           	; ---------------------------------------------
+ 132           	; uint16_t str2nat(char numeral [] , uint16_t radix)
+ 133           	; r0 = &numeral[0], r1 = radix, r2 = number, r3 = error
+ 134           	; r4 = idx, r5 = temp, r6 = temp, r7 = temp
+ 135           	
+ 136 0080 0E 24	    push lr
+ 137           	str2nat:
+ 138 0082 04 24	    push r4
+ 139 0084 05 24	    push r5
+ 140 0086 06 24	    push r6
+ 141 0088 07 24	    push r7
+ 142           	
+ 143 008A 02 60	    mov r2, #0                ; number = 0
+ 144 008C 03 60	    mov r3, #0                ; error = 0
+ 145 008E 04 60	    mov r4, #0                ; idx = 0
+ 146 0090 05 60	    mov r5, #0                ; tmp = 0  ? 
+ 147 0092 06 60	    mov r6, #0                ; temp = 0 
+ 148           	
+ 149           	str2nat_loop:
+ 150 0094 30 BB	    cmp r3, r6                ; error == 0 
+ 151 0096 1A 44	    bne str2nat_return
+ 152 0098 C6 E0	    lsl r6, r4, #1 
+ 153 009A 06 13	    ldr r6, [r0, r6] 
+ 154 009C 07 60	    mov r7, #'\0'             ; temp = '\0'
+ 155 009E E0 BB	    cmp r6, r7  
+ 156 00A0 15 44	    bne str2nat_return
+ 157 00A2 00 B3	    mov r0, r6
+ 158 00A4 1A 5C	    bl char2nat
+ 159           	    ; r0 = number (char2nat)
+ 160 00A6 05 B0	    mov r5, r0          
+ 161 00A8 F7 6F	    mov r7, #NAN & 0xFF       ; temp = NAN
+ 162 00AA F7 7F	    movt r7, #NAN & 0xFF
+ 163 00AC D0 BB	    cmp r5, r7
+ 164 00AE 04 44	    bne multiply
+ 165 00B0 00 58	    b if_str2nat
+ 166           	
+ 167           	if_str2nat:
+ 168 00B2 82 B3	    mov r2, r7 
+ 169 00B4 13 60	    mov r3, #1
+ 170 00B6 08 58	    b if_end_str2nat
+ 171           	
+ 172           	multiply:
+ 173 00B8 06 60	    mov r6, #0 
+ 174           	
+ 175           	while:
+ 176 00BA 07 60	    mov r7, #0           
+ 177 00BC F0 B8	    cmp r7, r1        
+ 178 00BE 03 50	    bge while_end
+ 179 00C0 66 81	    add r6, r6, r2           ; r2 -> multiplicando
+ 180 00C2 91 A8	    sub r1, r1, #1           ; r1 -> multiplicador
+ 181 00C4 FA 5B	    b while
+ 182           	
+ 183           	while_end:
+ 184 00C6 E2 82	    add r2, r6, r5           ; r6 -> resultado da multiplicação
+ 185           	
+ 186           	if_end_str2nat:
+ 187 00C8 C4 A0	    add r4, r4, #1
+ 188 00CA E4 5B	    b str2nat_loop
+ 189           	
+ 190           	str2nat_return:
+ 191 00CC 00 B1	    mov r0, r2
+ 192           	
+ 193 00CE 07 04	    pop r7
+ 194 00D0 06 04	    pop r6
+ 195 00D2 05 04	    pop r5
+ 196 00D4 04 04	    pop r4
+ 197 00D6 0F 04	    pop pc
+ 198           	
+ 199           	; ---------------------------------------------
+ 200           	; uint16_t char2nat(char symbol, uint16_t radix)
+ 201           	; r0 = symbol, r1 = radix, r2 = number, r3 = temp
+ 202           	; r4 = temp, r5 = temp
+ 203           	
+ 204 00D8 0E 24	    push lr
+ 205           	char2nat:
+ 206 00DA F2 6F	    mov r2, #NAN &0xFF
+ 207 00DC F2 7F	    movt r2, #NAN & 0xFF
+ 208           	if:
+ 209 00DE 03 63	    mov r3, #'0'
+ 210 00E0 80 B9	    cmp r0, r3          ; symbol >= '0'
+ 211 00E2 06 48	    blo else_if
+ 212 00E4 93 63	    mov r3, #'9'         
+ 213 00E6 30 B8	    cmp r3, r0          ; symbol <= '9'
+ 214 00E8 03 48	    blo else_if
+ 215 00EA 03 63	    mov r3, #'0'
+ 216 00EC 82 89	    sub r2, r0, r3      ; number = symbol - '0'
+ 217 00EE 09 58	    b if_cond1
+ 218           	else_if: 
+ 219 00F0 13 64	    mov r3, #'A'         
+ 220 00F2 80 B9	    cmp r0, r3          ; symbol >= 'A'
+ 221 00F4 06 48	    blo if_cond1
+ 222 00F6 63 64	    mov r3, #'F' 
+ 223 00F8 30 B8	    cmp r3, r0          ; symbol <= 'F'
+ 224 00FA 03 48	    blo if_cond1
+ 225 00FC 13 64	    mov r3, #'A' 
+ 226 00FE 82 89	    sub r2, r0, r3      ; number = symbol - 'A'
+ 227 0100 22 A5	    add r2, r2, #10     ; number = r5 + 10
+ 228           	if_cond1:
+ 229 0102 03 61	    mov r3, #16
+ 230 0104 B0 B8	    cmp r3, r1          ; radix > 16
+ 231 0106 01 4C	    bhs if_cond2
+ 232 0108 02 58	    b if_2
+ 233           	if_cond2:
+ 234 010A A0 B8	    cmp r2, r1          ; number >= radix
+ 235 010C 02 48	    blo if_end
+ 236           	if_2:
+ 237 010E F2 6F	    mov r2, #NAN & 0xFF
+ 238 0110 F2 7F	    movt r2, #NAN & 0xFF  
+ 239           	if_end:
+ 240 0112 00 B1	    mov r0, r2          ; return number
+ 241 0114 0F 04	    pop pc
+ 242 0116 FF 5B	    b .
+ 243           	
+ 244           	
+ 245           	; ----------------------------------------------------------------------------
+ 246           	; data = INITIALIZED GLOBAL DATA
+ 247           	    .data
+ 248           	
+ 249           	tst_str0:
+ 250          	    .byte  '0', '1', '0', '1', '1'
+ 250 0118 30 31 30 31 31
+ 251 011D 00  	    .align 1
+ 252           	tst_str1:
+ 253          	    .byte  '7', '0', '9'
+ 253 011E 37 30 39
+ 254 0121 00  	    .align 1
+ 255           	tst_str2:
+ 256          	    .byte  '9', 'A', '0', 'F'
+ 256 0122 39 41 30 46
+ 257           	
+ 258           	tst_results: 
+ 259          	    .word 0x000B, 0x01C9, 0x9A0F   ; 11, 457, 39439
+ 259 0126 0B 00 C9 01 0F 9A
+ 260           	
+ 261           	; ----------------------------------------------------------------------------
+ 262           	; bss = NON INITIALIZED GLOBAL DATA
+ 263           	    .section .bss
+ 264           	error:
+ 265 012C 00   	    .space 1   ; porque são 8 bits 
+ 266           	
+ 267           	
+ 268           	; ----------------------------------------------------------------------------
+ 269           	; stack = STACK STARTS HERE
+ 270           	    .section .stack
+ 271 012E 00   	    .space STACK_SIZE
+ 271 .... ..
+ 271 016D 00
+ 272           	stack_addr:

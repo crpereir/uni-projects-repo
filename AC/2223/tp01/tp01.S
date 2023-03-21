@@ -49,12 +49,152 @@ main_addr:
 
 ; ---------------------------------------------
 ; int main (void) 
+; R0 = error, R1 = temp, R2 = temp, r3 = temp, r4 = temp, r5 = temp, r6 = temp
+
+main:
+    push lr
+    push r4
+    push r5
+    push r6
+    mov r0, #0
+    strb r0, error_addr
+main_if_cond1:
+    ldr r1, tst_str0_addr
+    mov r2, #2
+    mov r6, r0
+    bl str2nat
+    mov r3, r0
+    mov r0, r6
+    mov r6, #0
+    ldr r4, tst_results_addr
+    ldr r5, [r4, r6]
+    cmp r3, r5
+    beq main_if_cond2
+    mov r6, #1
+    orr r0, r0, r6                       ; bla = bla | 1
+
+main_if_cond2:
+    ldr r1, tst_str1_addr
+    mov r2, #8
+    mov r6, r0
+    bl str2nat
+    mov r3, r0
+    mov r0, r6
+    mov r6, #1
+    ldr r4, tst_results_addr
+    ldr r5, [r4, r6]
+    cmp r3, r5
+    beq main_if_cond3
+    mov r6, #2
+    orr r0, r0, r6                       ; bla = bla | 1
+
+main_if_cond3:
+    ldr r1, tst_str1_addr
+    mov r2, #16
+    mov r6, r0
+    bl str2nat
+    mov r3, r0
+    mov r0, r6
+    mov r6, #2
+    ldr r4, tst_results_addr
+    ldr r5, [r4, r6]
+    cmp r3, r5
+    beq main_return
+    mov r6, #4
+    orr r0, r0, r6                       ; bla = bla | 1
+
+main_return:
+    mov r0, #0
+    pop r6
+    pop r5
+    pop r4
+    pop pc 
+    b .
 
 
-    
+; addresses for indirect jumps
+tst_str0_addr:
+    .word tst_str0
+
+tst_str1_addr:
+    .word tst_str1
+
+tst_str2_addr:
+    .word tst_str2
+
+tst_results_addr:
+    .word tst_results
+
+error_addr:
+    .word error
+
 ; ---------------------------------------------
-; uint16_t str2nat (char numeral [ ] , uint16_t radix )
+; uint16_t str2nat(char numeral [] , uint16_t radix)
+; r0 = &numeral[0], r1 = radix, r2 = number, r3 = error
+; r4 = idx, r5 = temp, r6 = temp, r7 = temp
 
+    push lr
+str2nat:
+    push r4
+    push r5
+    push r6
+    push r7
+
+    mov r2, #0                ; number = 0
+    mov r3, #0                ; error = 0
+    mov r4, #0                ; idx = 0
+    mov r5, #0                ; tmp = 0  ? 
+    mov r6, #0                ; temp = 0 
+
+str2nat_loop:
+    cmp r3, r6                ; error == 0 
+    bne str2nat_return
+    lsl r6, r4, #1 
+    ldr r6, [r0, r6] 
+    mov r7, #'\0'             ; temp = '\0'
+    cmp r6, r7  
+    bne str2nat_return
+    mov r0, r6
+    bl char2nat
+    ; r0 = number (char2nat)
+    mov r5, r0          
+    mov r7, #NAN & 0xFF       ; temp = NAN
+    movt r7, #NAN & 0xFF
+    cmp r5, r7
+    bne multiply
+    b if_str2nat
+
+if_str2nat:
+    mov r2, r7 
+    mov r3, #1
+    b if_end_str2nat
+
+multiply:
+    mov r6, #0 
+
+while:
+    mov r7, #0           
+    cmp r7, r1        
+    bge while_end
+    add r6, r6, r2           ; r2 -> multiplicando
+    sub r1, r1, #1           ; r1 -> multiplicador
+    b while
+
+while_end:
+    add r2, r6, r5           ; r6 -> resultado da multiplicação
+
+if_end_str2nat:
+    add r4, r4, #1
+    b str2nat_loop
+
+str2nat_return:
+    mov r0, r2
+
+    pop r7
+    pop r6
+    pop r5
+    pop r4
+    pop pc
 
 ; ---------------------------------------------
 ; uint16_t char2nat(char symbol, uint16_t radix)
@@ -115,7 +255,7 @@ tst_str1:
 tst_str2:
     .byte  '9', 'A', '0', 'F'
 
-result: 
+tst_results: 
     .word 0x000B, 0x01C9, 0x9A0F   ; 11, 457, 39439
 
 ; ----------------------------------------------------------------------------
