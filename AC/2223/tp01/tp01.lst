@@ -1,55 +1,54 @@
-P16 assembler v1.4.0 (Mar  6 2023)	.\tp01.lst	Tue Mar 21 21:44:23 2023
+P16 assembler v1.4.0 (Mar  6 2023)	.\tp01.lst	Wed Mar 22 23:15:44 2023
 
 Sections
 Index   Name            Address   Size
 0       startup         0000      0012 18
-1       .text           0012      0106 262
-2       .data           0118      0014 20
-3       .bss            012C      0001 1
-4       .stack          012E      0040 64
+1       .text           0012      0116 278
+2       .data           0128      0015 21
+3       .bss            013E      0001 1
+4       .stack          0140      0040 64
 
 Symbols
 Name                    Type      Value       Section
 _start                  LABEL     0004 4      startup
-char2nat                LABEL     00DA 218    .text
-else_if                 LABEL     00F0 240    .text
-error                   LABEL     012C 300    .bss
-error_addr              LABEL     007E 126    .text
-if                      LABEL     00DE 222    .text
-if_2                    LABEL     010E 270    .text
-if_cond1                LABEL     0102 258    .text
-if_cond2                LABEL     010A 266    .text
-if_end                  LABEL     0112 274    .text
-if_end_str2nat          LABEL     00C8 200    .text
-if_str2nat              LABEL     00B2 178    .text
-line#112                LABEL     0074 116    .text
-line#242                LABEL     0116 278    .text
+char2nat                LABEL     00EC 236    .text
+else_if                 LABEL     0102 258    .text
+else_str2nat            LABEL     00AE 174    .text
+error                   LABEL     013E 318    .bss
+error_addr              LABEL     0062 98     .text
+if                      LABEL     00F0 240    .text
+if_2                    LABEL     0120 288    .text
+if_cond1                LABEL     0114 276    .text
+if_cond2                LABEL     011C 284    .text
+if_end                  LABEL     0124 292    .text
+if_end_str2nat          LABEL     00DA 218    .text
+line#105                LABEL     0060 96     .text
 line#33                 LABEL     0002 2      startup
 line#39                 LABEL     000C 12     startup
 main                    LABEL     0012 18     .text
 main_addr               LABEL     0010 16     startup
-main_if_cond1           LABEL     001C 28     .text
-main_if_cond2           LABEL     0036 54     .text
-main_if_cond3           LABEL     0050 80     .text
-main_return             LABEL     006A 106    .text
-multiply                LABEL     00B8 184    .text
+main_if_cond1           LABEL     001A 26     .text
+main_if_cond2           LABEL     0030 48     .text
+main_if_cond3           LABEL     0046 70     .text
+main_return             LABEL     005C 92     .text
+multiply                LABEL     00C8 200    .text
 NAN                     ABSOLUTE  FFFF 65535  startup
 sp_addr                 LABEL     000E 14     startup
-stack_addr              LABEL     016E 366    .stack
+stack_addr              LABEL     0180 384    .stack
 STACK_SIZE              ABSOLUTE  0040 64     startup
-str2nat                 LABEL     0082 130    .text
-str2nat_loop            LABEL     0094 148    .text
-str2nat_return          LABEL     00CC 204    .text
-tst_results             LABEL     0126 294    .data
-tst_results_addr        LABEL     007C 124    .text
-tst_str0                LABEL     0118 280    .data
-tst_str0_addr           LABEL     0076 118    .text
-tst_str1                LABEL     011E 286    .data
-tst_str1_addr           LABEL     0078 120    .text
-tst_str2                LABEL     0122 290    .data
-tst_str2_addr           LABEL     007A 122    .text
-while                   LABEL     00BA 186    .text
-while_end               LABEL     00C6 198    .text
+str2nat                 LABEL     006C 108    .text
+str2nat_loop            LABEL     007C 124    .text
+str2nat_return          LABEL     00DE 222    .text
+tst_results             LABEL     0128 296    .data
+tst_results_addr        LABEL     006A 106    .text
+tst_str0                LABEL     012E 302    .data
+tst_str0_addr           LABEL     0064 100    .text
+tst_str1                LABEL     0134 308    .data
+tst_str1_addr           LABEL     0066 102    .text
+tst_str2                LABEL     0138 312    .data
+tst_str2_addr           LABEL     0068 104    .text
+while                   LABEL     00CA 202    .text
+while_end               LABEL     00D6 214    .text
 
 Code listing
    1           	
@@ -92,7 +91,7 @@ Code listing
   38 000A 2F 0C	    ldr pc, main_addr   ; pc <- main()
   39 000C FF 5B	    b .
   40           	sp_addr:
-  41 000E 6E 01	    .word stack_addr
+  41 000E 80 01	    .word stack_addr
   42           	main_addr:
   43 0010 12 00	    .word main
   44           	
@@ -107,226 +106,245 @@ Code listing
   53           	
   54           	main:
   55 0012 0E 24	    push lr
-  56 0014 04 24	    push r4
-  57 0016 05 24	    push r5
-  58 0018 06 24	    push r6
-  59 001A 00 60	    mov r0, #0
-  60           	
-  61           	main_if_cond1:
-  62 001C C1 0E	    ldr r1, tst_str0_addr
-  63 001E 22 60	    mov r2, #2
-  64 0020 06 B0	    mov r6, r0
-  65 0022 2F 5C	    bl str2nat
-  66 0024 03 B0	    mov r3, r0
-  67 0026 00 B3	    mov r0, r6
-  68 0028 06 60	    mov r6, #0
-  69 002A 84 0E	    ldr r4, tst_results_addr
-  70 002C 45 13	    ldr r5, [r4, r6]
-  71 002E B0 BA	    cmp r3, r5
-  72 0030 02 40	    beq main_if_cond2
-  73 0032 16 60	    mov r6, #1
-  74 0034 00 CB	    orr r0, r0, r6                       ; bla = bla | 1
+  56 0014 64 0E	    ldr r4, error_addr              ; movo para r4 o endereço de error
+  57 0016 05 60	    mov r5, #0
+  58 0018 45 28	    strb r5, [r4, #0]               ; error = 0
+  59           	    ;mov r6, #0
+  60           	    ;mov r7, #0
+  61           	    ;mov r8, #0
+  62           	    ;mov r9, #0
+  63           	main_if_cond1:
+  64 001A 40 0E	    ldr r0, tst_str0_addr           ; vou buscar o endereço do tst_str0
+  65 001C 21 60	    mov r1, #2 
+  66 001E 26 5C	    bl str2nat                 
+  67 0020 46 0E	    ldr r6, tst_results_addr        ; vou buscar o endereço do tst_results
+  68 0022 67 00	    ldr r7, [r6, #0]                ; tst_results [0]
+  69 0024 80 BB	    cmp r0, r7                      ; str2nat(tst_str0,2) != tst_results [0]
+  70 0026 04 40	    beq main_if_cond2
+  71 0028 14 60	    mov r4, #1                         
+  72 002A 55 CA	    orr r5, r5, r4                  ; error |= 1
+  73 002C A4 0D	    ldr r4, error_addr              ; vou buscar o endereço do error
+  74 002E 45 28	    strb r5, [r4, #0]               ; escrevo o valor da operação no error
   75           	
   76           	main_if_cond2:
-  77 0036 01 0E	    ldr r1, tst_str1_addr
-  78 0038 82 60	    mov r2, #8
-  79 003A 06 B0	    mov r6, r0
-  80 003C 22 5C	    bl str2nat
-  81 003E 03 B0	    mov r3, r0
-  82 0040 00 B3	    mov r0, r6
-  83 0042 16 60	    mov r6, #1
-  84 0044 B4 0D	    ldr r4, tst_results_addr
-  85 0046 45 13	    ldr r5, [r4, r6]
-  86 0048 B0 BA	    cmp r3, r5
-  87 004A 02 40	    beq main_if_cond3
-  88 004C 26 60	    mov r6, #2
-  89 004E 00 CB	    orr r0, r0, r6                       ; bla = bla | 1
-  90           	
-  91           	main_if_cond3:
-  92 0050 31 0D	    ldr r1, tst_str1_addr
-  93 0052 02 61	    mov r2, #16
-  94 0054 06 B0	    mov r6, r0
-  95 0056 15 5C	    bl str2nat
-  96 0058 03 B0	    mov r3, r0
-  97 005A 00 B3	    mov r0, r6
-  98 005C 26 60	    mov r6, #2
-  99 005E E4 0C	    ldr r4, tst_results_addr
- 100 0060 45 13	    ldr r5, [r4, r6]
- 101 0062 B0 BA	    cmp r3, r5
- 102 0064 02 40	    beq main_return
- 103 0066 46 60	    mov r6, #4
- 104 0068 00 CB	    orr r0, r0, r6                       ; bla = bla | 1
- 105           	
- 106           	main_return:
- 107 006A 00 60	    mov r0, #0
- 108 006C 06 04	    pop r6
- 109 006E 05 04	    pop r5
- 110 0070 04 04	    pop r4
- 111 0072 0F 04	    pop pc 
- 112 0074 FF 5B	    b .
- 113           	
- 114           	
- 115           	; addresses for indirect jumps
- 116           	tst_str0_addr:
- 117 0076 18 01	    .word tst_str0
+  77 0030 A0 0D	    ldr r0, tst_str1_addr           ; vou buscar o endereço do tst_str0
+  78 0032 81 60	    mov r1, #8 
+  79 0034 1B 5C	    bl str2nat                 
+  80 0036 96 0D	    ldr r6, tst_results_addr        ; vou buscar o endereço do tst_results
+  81 0038 E7 00	    ldr r7, [r6, #2]                ; tst_results [0]
+  82 003A 80 BB	    cmp r0, r7                      ; str2nat(tst_str0,2) != tst_results [0]
+  83 003C 04 40	    beq main_if_cond3
+  84 003E 24 60	    mov r4, #2                         
+  85 0040 55 CA	    orr r5, r5, r4                  ; error |= 1
+  86 0042 F4 0C	    ldr r4, error_addr              ; vou buscar o endereço do error
+  87 0044 45 28	    strb r5, [r4, #0]               ; escrevo o valor da operação no error
+  88           	
+  89           	main_if_cond3:
+  90 0046 00 0D	    ldr r0, tst_str2_addr           ; vou buscar o endereço do tst_str0
+  91 0048 01 61	    mov r1, #16 
+  92 004A 10 5C	    bl str2nat                 
+  93 004C E6 0C	    ldr r6, tst_results_addr        ; vou buscar o endereço do tst_results
+  94 004E 67 01	    ldr r7, [r6, #4]                ; tst_results [0]
+  95 0050 80 BB	    cmp r0, r7                      ; str2nat(tst_str0,2) != tst_results [0]
+  96 0052 04 40	    beq main_return
+  97 0054 44 60	    mov r4, #4                         
+  98 0056 55 CA	    orr r5, r5, r4                  ; error |= 1
+  99 0058 44 0C	    ldr r4, error_addr              ; vou buscar o endereço do error
+ 100 005A 45 28	    strb r5, [r4, #0]               ; escrevo o valor da operação no error
+ 101           	
+ 102           	main_return:
+ 103 005C 00 60	    mov r0, #0
+ 104 005E 0F 04	    pop pc 
+ 105 0060 FF 5B	    b .
+ 106           	
+ 107           	
+ 108           	; addresses for indirect jumps
+ 109           	
+ 110           	error_addr:
+ 111 0062 3E 01	    .word error
+ 112           	
+ 113           	tst_str0_addr:
+ 114 0064 2E 01	    .word tst_str0
+ 115           	
+ 116           	tst_str1_addr:
+ 117 0066 34 01	    .word tst_str1
  118           	
- 119           	tst_str1_addr:
- 120 0078 1E 01	    .word tst_str1
+ 119           	tst_str2_addr:
+ 120 0068 38 01	    .word tst_str2
  121           	
- 122           	tst_str2_addr:
- 123 007A 22 01	    .word tst_str2
+ 122           	tst_results_addr:
+ 123 006A 28 01	    .word tst_results
  124           	
- 125           	tst_results_addr:
- 126 007C 26 01	    .word tst_results
- 127           	
- 128           	error_addr:
- 129 007E 2C 01	    .word error
- 130           	
- 131           	; ---------------------------------------------
- 132           	; uint16_t str2nat(char numeral [] , uint16_t radix)
- 133           	; r0 = &numeral[0], r1 = radix, r2 = number, r3 = error
- 134           	; r4 = idx, r5 = temp, r6 = temp, r7 = temp
- 135           	
- 136 0080 0E 24	    push lr
- 137           	str2nat:
- 138 0082 04 24	    push r4
- 139 0084 05 24	    push r5
- 140 0086 06 24	    push r6
- 141 0088 07 24	    push r7
- 142           	
- 143 008A 02 60	    mov r2, #0                ; number = 0
- 144 008C 03 60	    mov r3, #0                ; error = 0
- 145 008E 04 60	    mov r4, #0                ; idx = 0
- 146 0090 05 60	    mov r5, #0                ; tmp = 0  ? 
- 147 0092 06 60	    mov r6, #0                ; temp = 0 
- 148           	
- 149           	str2nat_loop:
- 150 0094 30 BB	    cmp r3, r6                ; error == 0 
- 151 0096 1A 44	    bne str2nat_return
- 152 0098 C6 E0	    lsl r6, r4, #1 
- 153 009A 06 13	    ldr r6, [r0, r6] 
- 154 009C 07 60	    mov r7, #'\0'             ; temp = '\0'
- 155 009E E0 BB	    cmp r6, r7  
- 156 00A0 15 44	    bne str2nat_return
- 157 00A2 00 B3	    mov r0, r6
- 158 00A4 1A 5C	    bl char2nat
- 159           	    ; r0 = number (char2nat)
- 160 00A6 05 B0	    mov r5, r0          
- 161 00A8 F7 6F	    mov r7, #NAN & 0xFF       ; temp = NAN
- 162 00AA F7 7F	    movt r7, #NAN & 0xFF
- 163 00AC D0 BB	    cmp r5, r7
- 164 00AE 04 44	    bne multiply
- 165 00B0 00 58	    b if_str2nat
- 166           	
- 167           	if_str2nat:
- 168 00B2 82 B3	    mov r2, r7 
- 169 00B4 13 60	    mov r3, #1
- 170 00B6 08 58	    b if_end_str2nat
- 171           	
- 172           	multiply:
- 173 00B8 06 60	    mov r6, #0 
- 174           	
- 175           	while:
- 176 00BA 07 60	    mov r7, #0           
- 177 00BC F0 B8	    cmp r7, r1        
- 178 00BE 03 50	    bge while_end
- 179 00C0 66 81	    add r6, r6, r2           ; r2 -> multiplicando
- 180 00C2 91 A8	    sub r1, r1, #1           ; r1 -> multiplicador
- 181 00C4 FA 5B	    b while
- 182           	
- 183           	while_end:
- 184 00C6 E2 82	    add r2, r6, r5           ; r6 -> resultado da multiplicação
- 185           	
- 186           	if_end_str2nat:
- 187 00C8 C4 A0	    add r4, r4, #1
- 188 00CA E4 5B	    b str2nat_loop
- 189           	
- 190           	str2nat_return:
- 191 00CC 00 B1	    mov r0, r2
- 192           	
- 193 00CE 07 04	    pop r7
- 194 00D0 06 04	    pop r6
- 195 00D2 05 04	    pop r5
- 196 00D4 04 04	    pop r4
- 197 00D6 0F 04	    pop pc
- 198           	
- 199           	; ---------------------------------------------
- 200           	; uint16_t char2nat(char symbol, uint16_t radix)
- 201           	; r0 = symbol, r1 = radix, r2 = number, r3 = temp
- 202           	; r4 = temp, r5 = temp
- 203           	
- 204 00D8 0E 24	    push lr
- 205           	char2nat:
- 206 00DA F2 6F	    mov r2, #NAN &0xFF
- 207 00DC F2 7F	    movt r2, #NAN & 0xFF
- 208           	if:
- 209 00DE 03 63	    mov r3, #'0'
- 210 00E0 80 B9	    cmp r0, r3          ; symbol >= '0'
- 211 00E2 06 48	    blo else_if
- 212 00E4 93 63	    mov r3, #'9'         
- 213 00E6 30 B8	    cmp r3, r0          ; symbol <= '9'
- 214 00E8 03 48	    blo else_if
- 215 00EA 03 63	    mov r3, #'0'
- 216 00EC 82 89	    sub r2, r0, r3      ; number = symbol - '0'
- 217 00EE 09 58	    b if_cond1
- 218           	else_if: 
- 219 00F0 13 64	    mov r3, #'A'         
- 220 00F2 80 B9	    cmp r0, r3          ; symbol >= 'A'
- 221 00F4 06 48	    blo if_cond1
- 222 00F6 63 64	    mov r3, #'F' 
- 223 00F8 30 B8	    cmp r3, r0          ; symbol <= 'F'
- 224 00FA 03 48	    blo if_cond1
- 225 00FC 13 64	    mov r3, #'A' 
- 226 00FE 82 89	    sub r2, r0, r3      ; number = symbol - 'A'
- 227 0100 22 A5	    add r2, r2, #10     ; number = r5 + 10
- 228           	if_cond1:
- 229 0102 03 61	    mov r3, #16
- 230 0104 B0 B8	    cmp r3, r1          ; radix > 16
- 231 0106 01 4C	    bhs if_cond2
- 232 0108 02 58	    b if_2
- 233           	if_cond2:
- 234 010A A0 B8	    cmp r2, r1          ; number >= radix
- 235 010C 02 48	    blo if_end
- 236           	if_2:
- 237 010E F2 6F	    mov r2, #NAN & 0xFF
- 238 0110 F2 7F	    movt r2, #NAN & 0xFF  
- 239           	if_end:
- 240 0112 00 B1	    mov r0, r2          ; return number
- 241 0114 0F 04	    pop pc
- 242 0116 FF 5B	    b .
- 243           	
- 244           	
- 245           	; ----------------------------------------------------------------------------
- 246           	; data = INITIALIZED GLOBAL DATA
- 247           	    .data
- 248           	
- 249           	tst_str0:
- 250          	    .byte  '0', '1', '0', '1', '1'
- 250 0118 30 31 30 31 31
- 251 011D 00  	    .align 1
- 252           	tst_str1:
- 253          	    .byte  '7', '0', '9'
- 253 011E 37 30 39
- 254 0121 00  	    .align 1
- 255           	tst_str2:
- 256          	    .byte  '9', 'A', '0', 'F'
- 256 0122 39 41 30 46
- 257           	
- 258           	tst_results: 
- 259          	    .word 0x000B, 0x01C9, 0x9A0F   ; 11, 457, 39439
- 259 0126 0B 00 C9 01 0F 9A
+ 125           	
+ 126           	
+ 127           	; ---------------------------------------------
+ 128           	; uint16_t str2nat(char numeral [] , uint16_t radix)
+ 129           	; r0 = &numeral[0], r1 = radix, r2 = number, r3 = error
+ 130           	; r4 = idx, r5 = tmp, r6 = temp, r7 = temp, r8 = temp
+ 131           	
+ 132           	    
+ 133           	str2nat:
+ 134 006C 04 24	    push r4
+ 135 006E 05 24	    push r5
+ 136 0070 06 24	    push r6
+ 137 0072 07 24	    push r7
+ 138 0074 08 24	    push r8
+ 139           	
+ 140 0076 02 60	    mov r2, #0                ; number = 0
+ 141 0078 03 60	    mov r3, #0                ; error = 0
+ 142 007A 04 60	    mov r4, #0                ; idx = 0  
+ 143           	    
+ 144           	
+ 145           	str2nat_loop:
+ 146 007C 06 60	    mov r6, #0                ; temp = 0 
+ 147 007E 30 BB	    cmp r3, r6                ; error == 0 
+ 148 0080 2E 44	    bne str2nat_return
+ 149           	    ;lsl r6, r4, #1 
+ 150 0082 06 1A	    ldrb r6, [r0, r4]
+ 151           	    ;mov r6, r6 
+ 152 0084 07 60	    mov r7, #'\0'             ; temp = '\0'
+ 153 0086 E0 BB	    cmp r6, r7  
+ 154 0088 2A 40	    beq str2nat_return
+ 155 008A 07 B0	    mov r7, r0
+ 156 008C 00 B3	    mov r0, r6
+ 157 008E 86 B1	    mov r6, r3                ; guardar valor do error
+ 158 0090 08 B1	    mov r8, r2
+ 159 0092 0E 24	    push lr
+ 160 0094 2B 5C	    bl char2nat
+ 161 0096 0E 04	    pop lr
+ 162 0098 02 B4	    mov r2, r8
+ 163 009A 03 B3	    mov r3, r6                ; restaurar valor do error 
+ 164 009C 05 B0	    mov r5, r0  
+ 165 009E 80 B3	    mov r0, r7        
+ 166 00A0 F7 6F	    mov r7, #NAN & 0xFF       ; temp = NAN
+ 167 00A2 F7 7F	    movt r7, #NAN & 0xFF
+ 168 00A4 D0 BB	    cmp r5, r7
+ 169 00A6 03 44	    bne else_str2nat
+ 170 00A8 82 B3	    mov r2, r7 
+ 171 00AA 13 60	    mov r3, #1
+ 172 00AC E7 5B	    b str2nat_loop
+ 173           	else_str2nat:
+ 174 00AE 06 B0	    mov r6, r0                ; guardar valor do endereço da str
+ 175 00B0 87 B1	    mov r7, r3                ; guardar valor do error
+ 176 00B2 00 B1	    mov r0, r2
+ 177 00B4 88 B0	    mov r8, r1
+ 178 00B6 0E 24	    push lr
+ 179 00B8 07 5C	    bl multiply
+ 180 00BA 0E 04	    pop lr
+ 181 00BC 02 B0	    mov r2, r0
+ 182 00BE 83 B3	    mov r3, r7
+ 183 00C0 00 B3	    mov r0, r6
+ 184 00C2 01 B4	    mov r1, r8
+ 185 00C4 A2 82	    add r2, r2, r5
+ 186 00C6 09 58	    b if_end_str2nat
+ 187           	
+ 188           	multiply:
+ 189 00C8 02 60	    mov r2, #0
+ 190           	while:
+ 191 00CA 03 60	    mov r3, #0
+ 192 00CC B0 B8	    cmp r3, r1
+ 193 00CE 03 4C	    bhs while_end
+ 194 00D0 22 80	    add r2, r2, r0
+ 195 00D2 91 A8	    sub r1, r1, #1
+ 196 00D4 FA 5B	    b while
+ 197           	while_end:
+ 198 00D6 00 B1	    mov r0, r2
+ 199 00D8 0F B7	    mov pc, lr
+ 200           	
+ 201           	if_end_str2nat:
+ 202 00DA C4 A0	    add r4, r4, #1
+ 203 00DC CF 5B	    b str2nat_loop
+ 204           	
+ 205           	str2nat_return:
+ 206 00DE 00 B1	    mov r0, r2
+ 207           	
+ 208 00E0 08 04	    pop r8
+ 209 00E2 07 04	    pop r7
+ 210 00E4 06 04	    pop r6
+ 211 00E6 05 04	    pop r5
+ 212 00E8 04 04	    pop r4
+ 213 00EA 0F B7	    mov pc, lr
+ 214           	
+ 215           	; ---------------------------------------------
+ 216           	; uint16_t char2nat(char symbol, uint16_t radix)
+ 217           	; r0 = symbol, r1 = radix, r2 = number, r3 = temp
+ 218           	; r4 = temp, r5 = temp
+ 219           	
+ 220           	    
+ 221           	char2nat:
+ 222 00EC F2 6F	    mov r2, #NAN & 0xFF
+ 223 00EE F2 7F	    movt r2, #NAN & 0xFF
+ 224           	if:
+ 225 00F0 03 63	    mov r3, #'0'
+ 226 00F2 80 B9	    cmp r0, r3          ; symbol >= '0'
+ 227 00F4 06 48	    blo else_if
+ 228 00F6 93 63	    mov r3, #'9'         
+ 229 00F8 30 B8	    cmp r3, r0          ; symbol <= '9'
+ 230 00FA 03 48	    blo else_if
+ 231 00FC 03 63	    mov r3, #'0'
+ 232 00FE 82 89	    sub r2, r0, r3      ; number = symbol - '0'
+ 233 0100 09 58	    b if_cond1
+ 234           	else_if: 
+ 235 0102 13 64	    mov r3, #'A'         
+ 236 0104 80 B9	    cmp r0, r3          ; symbol >= 'A'
+ 237 0106 06 48	    blo if_cond1
+ 238 0108 63 64	    mov r3, #'F' 
+ 239 010A 30 B8	    cmp r3, r0          ; symbol <= 'F'
+ 240 010C 03 48	    blo if_cond1
+ 241 010E 13 64	    mov r3, #'A' 
+ 242 0110 82 89	    sub r2, r0, r3      ; number = symbol - 'A'
+ 243 0112 22 A5	    add r2, r2, #10     ; number = r5 + 10
+ 244           	if_cond1:
+ 245 0114 03 61	    mov r3, #16
+ 246 0116 B0 B8	    cmp r3, r1          ; radix > 16
+ 247 0118 01 4C	    bhs if_cond2
+ 248 011A 02 58	    b if_2
+ 249           	if_cond2:
+ 250 011C A0 B8	    cmp r2, r1          ; number >= radix
+ 251 011E 02 48	    blo if_end
+ 252           	if_2:
+ 253 0120 F2 6F	    mov r2, #NAN & 0xFF
+ 254 0122 F2 7F	    movt r2, #NAN & 0xFF  
+ 255           	if_end:
+ 256 0124 00 B1	    mov r0, r2          ; return number
+ 257 0126 0F B7	    mov pc, lr
+ 258           	
+ 259           	
  260           	
  261           	; ----------------------------------------------------------------------------
- 262           	; bss = NON INITIALIZED GLOBAL DATA
- 263           	    .section .bss
- 264           	error:
- 265 012C 00   	    .space 1   ; porque são 8 bits 
- 266           	
+ 262           	; data = INITIALIZED GLOBAL DATA
+ 263           	    .data
+ 264           	
+ 265           	tst_results: 
+ 266          	    .word 0x000B, 0x01C9, 0x9A0F   ; 11, 457, 39439
+ 266 0128 0B 00 C9 01 0F 9A
  267           	
- 268           	; ----------------------------------------------------------------------------
- 269           	; stack = STACK STARTS HERE
- 270           	    .section .stack
- 271 012E 00   	    .space STACK_SIZE
- 271 .... ..
- 271 016D 00
- 272           	stack_addr:
+ 268           	tst_str0:
+ 269          	    .asciz  "01011"
+ 269 012E 30 31 30 31 31 00
+ 270          	    .align 1
+ 271           	tst_str1:
+ 272          	    .asciz  "709"
+ 272 0134 37 30 39 00
+ 273          	    .align 1
+ 274           	tst_str2:
+ 275          	    .asciz  "9A0F"
+ 275 0138 39 41 30 46 00
+ 276           	
+ 277           	
+ 278           	
+ 279           	; ----------------------------------------------------------------------------
+ 280           	; bss = NON INITIALIZED GLOBAL DATA
+ 281           	    .section .bss
+ 282           	
+ 283           	error:
+ 284 013E 00   	    .space 1   ; porque são 8 bits 
+ 285           	
+ 286           	
+ 287           	; ----------------------------------------------------------------------------
+ 288           	; stack = STACK STARTS HERE
+ 289           	    .section .stack
+ 290 0140 00   	    .space STACK_SIZE
+ 290 .... ..
+ 290 017F 00
+ 291           	stack_addr:

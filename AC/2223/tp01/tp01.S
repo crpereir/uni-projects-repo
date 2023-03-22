@@ -53,66 +53,63 @@ main_addr:
 
 main:
     push lr
-    push r4
-    push r5
-    push r6
-    mov r0, #0
-    strb r0, error_addr
+    ldr r4, error_addr              ; movo para r4 o endereço de error
+    mov r5, #0
+    strb r5, [r4, #0]               ; error = 0
+    ;mov r6, #0
+    ;mov r7, #0
+    ;mov r8, #0
+    ;mov r9, #0
 main_if_cond1:
-    ldr r1, tst_str0_addr
-    mov r2, #2
-    mov r6, r0
-    bl str2nat
-    mov r3, r0
-    mov r0, r6
-    mov r6, #0
-    ldr r4, tst_results_addr
-    ldr r5, [r4, r6]
-    cmp r3, r5
+    ldr r0, tst_str0_addr           ; vou buscar o endereço do tst_str0
+    mov r1, #2 
+    bl str2nat                 
+    ldr r6, tst_results_addr        ; vou buscar o endereço do tst_results
+    ldr r7, [r6, #0]                ; tst_results [0]
+    cmp r0, r7                      ; str2nat(tst_str0,2) != tst_results [0]
     beq main_if_cond2
-    mov r6, #1
-    orr r0, r0, r6                       ; bla = bla | 1
+    mov r4, #1                         
+    orr r5, r5, r4                  ; error |= 1
+    ldr r4, error_addr              ; vou buscar o endereço do error
+    strb r5, [r4, #0]               ; escrevo o valor da operação no error
 
 main_if_cond2:
-    ldr r1, tst_str1_addr
-    mov r2, #8
-    mov r6, r0
-    bl str2nat
-    mov r3, r0
-    mov r0, r6
-    mov r6, #1
-    ldr r4, tst_results_addr
-    ldr r5, [r4, r6]
-    cmp r3, r5
+    ldr r0, tst_str1_addr           ; vou buscar o endereço do tst_str0
+    mov r1, #8 
+    bl str2nat                 
+    ldr r6, tst_results_addr        ; vou buscar o endereço do tst_results
+    ldr r7, [r6, #2]                ; tst_results [0]
+    cmp r0, r7                      ; str2nat(tst_str0,2) != tst_results [0]
     beq main_if_cond3
-    mov r6, #2
-    orr r0, r0, r6                       ; bla = bla | 1
+    mov r4, #2                         
+    orr r5, r5, r4                  ; error |= 1
+    ldr r4, error_addr              ; vou buscar o endereço do error
+    strb r5, [r4, #0]               ; escrevo o valor da operação no error
 
 main_if_cond3:
-    ldr r1, tst_str1_addr
-    mov r2, #16
-    mov r6, r0
-    bl str2nat
-    mov r3, r0
-    mov r0, r6
-    mov r6, #2
-    ldr r4, tst_results_addr
-    ldr r5, [r4, r6]
-    cmp r3, r5
+    ldr r0, tst_str2_addr           ; vou buscar o endereço do tst_str0
+    mov r1, #16 
+    bl str2nat                 
+    ldr r6, tst_results_addr        ; vou buscar o endereço do tst_results
+    ldr r7, [r6, #4]                ; tst_results [0]
+    cmp r0, r7                      ; str2nat(tst_str0,2) != tst_results [0]
     beq main_return
-    mov r6, #4
-    orr r0, r0, r6                       ; bla = bla | 1
+    mov r4, #4                         
+    orr r5, r5, r4                  ; error |= 1
+    ldr r4, error_addr              ; vou buscar o endereço do error
+    strb r5, [r4, #0]               ; escrevo o valor da operação no error
 
 main_return:
     mov r0, #0
-    pop r6
-    pop r5
-    pop r4
     pop pc 
     b .
 
 
 ; addresses for indirect jumps
+
+error_addr:
+    .word error
+
 tst_str0_addr:
     .word tst_str0
 
@@ -125,63 +122,81 @@ tst_str2_addr:
 tst_results_addr:
     .word tst_results
 
-error_addr:
-    .word error
+
 
 ; ---------------------------------------------
 ; uint16_t str2nat(char numeral [] , uint16_t radix)
 ; r0 = &numeral[0], r1 = radix, r2 = number, r3 = error
-; r4 = idx, r5 = temp, r6 = temp, r7 = temp
+; r4 = idx, r5 = tmp, r6 = temp, r7 = temp, r8 = temp
 
-    push lr
+    
 str2nat:
     push r4
     push r5
     push r6
     push r7
+    push r8
 
     mov r2, #0                ; number = 0
     mov r3, #0                ; error = 0
-    mov r4, #0                ; idx = 0
-    mov r5, #0                ; tmp = 0  ? 
-    mov r6, #0                ; temp = 0 
+    mov r4, #0                ; idx = 0  
+    
 
 str2nat_loop:
+    mov r6, #0                ; temp = 0 
     cmp r3, r6                ; error == 0 
     bne str2nat_return
-    lsl r6, r4, #1 
-    ldr r6, [r0, r6] 
+    ;lsl r6, r4, #1 
+    ldrb r6, [r0, r4]
+    ;mov r6, r6 
     mov r7, #'\0'             ; temp = '\0'
     cmp r6, r7  
-    bne str2nat_return
+    beq str2nat_return
+    mov r7, r0
     mov r0, r6
+    mov r6, r3                ; guardar valor do error
+    mov r8, r2
+    push lr
     bl char2nat
-    ; r0 = number (char2nat)
-    mov r5, r0          
+    pop lr
+    mov r2, r8
+    mov r3, r6                ; restaurar valor do error 
+    mov r5, r0  
+    mov r0, r7        
     mov r7, #NAN & 0xFF       ; temp = NAN
     movt r7, #NAN & 0xFF
     cmp r5, r7
-    bne multiply
-    b if_str2nat
-
-if_str2nat:
+    bne else_str2nat
     mov r2, r7 
     mov r3, #1
+    b str2nat_loop
+else_str2nat:
+    mov r6, r0                ; guardar valor do endereço da str
+    mov r7, r3                ; guardar valor do error
+    mov r0, r2
+    mov r8, r1
+    push lr
+    bl multiply
+    pop lr
+    mov r2, r0
+    mov r3, r7
+    mov r0, r6
+    mov r1, r8
+    add r2, r2, r5
     b if_end_str2nat
 
 multiply:
-    mov r6, #0 
-
+    mov r2, #0
 while:
-    mov r7, #0           
-    cmp r7, r1        
-    bge while_end
-    add r6, r6, r2           ; r2 -> multiplicando
-    sub r1, r1, #1           ; r1 -> multiplicador
+    mov r3, #0
+    cmp r3, r1
+    bhs while_end
+    add r2, r2, r0
+    sub r1, r1, #1
     b while
-
 while_end:
-    add r2, r6, r5           ; r6 -> resultado da multiplicação
+    mov r0, r2
+    mov pc, lr
 
 if_end_str2nat:
     add r4, r4, #1
@@ -190,20 +205,21 @@ if_end_str2nat:
 str2nat_return:
     mov r0, r2
 
+    pop r8
     pop r7
     pop r6
     pop r5
     pop r4
-    pop pc
+    mov pc, lr
 
 ; ---------------------------------------------
 ; uint16_t char2nat(char symbol, uint16_t radix)
 ; r0 = symbol, r1 = radix, r2 = number, r3 = temp
 ; r4 = temp, r5 = temp
 
-    push lr
+    
 char2nat:
-    mov r2, #NAN &0xFF
+    mov r2, #NAN & 0xFF
     movt r2, #NAN & 0xFF
 if:
     mov r3, #'0'
@@ -238,29 +254,32 @@ if_2:
     movt r2, #NAN & 0xFF  
 if_end:
     mov r0, r2          ; return number
-    pop pc
-    b .
+    mov pc, lr
+
 
 
 ; ----------------------------------------------------------------------------
 ; data = INITIALIZED GLOBAL DATA
     .data
 
-tst_str0:
-    .byte  '0', '1', '0', '1', '1'
-    .align 1
-tst_str1:
-    .byte  '7', '0', '9'
-    .align 1
-tst_str2:
-    .byte  '9', 'A', '0', 'F'
-
 tst_results: 
     .word 0x000B, 0x01C9, 0x9A0F   ; 11, 457, 39439
+
+tst_str0:
+    .asciz  "01011"
+    .align 1
+tst_str1:
+    .asciz  "709"
+    .align 1
+tst_str2:
+    .asciz  "9A0F"
+
+
 
 ; ----------------------------------------------------------------------------
 ; bss = NON INITIALIZED GLOBAL DATA
     .section .bss
+
 error:
     .space 1   ; porque são 8 bits 
 
