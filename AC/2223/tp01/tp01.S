@@ -58,10 +58,7 @@ main:
     ldr r4, error_addr              ; movo para r4 o endereço de error
     mov r5, #0
     strb r5, [r4, #0]               ; error = 0
-    ;mov r6, #0
-    ;mov r7, #0
-    ;mov r8, #0
-    ;mov r9, #0
+
 main_if_cond1:
     ldr r0, tst_str0_addr           ; vou buscar o endereço do tst_str0
     mov r1, #2 
@@ -74,7 +71,7 @@ main_if_cond1:
     orr r5, r5, r4                  ; error |= 1
     ldr r4, error_addr              ; vou buscar o endereço do error
     strb r5, [r4, #0]               ; escrevo o valor da operação no error
-
+    
 main_if_cond2:
     ldr r0, tst_str1_addr           ; vou buscar o endereço do tst_str0
     mov r1, #8 
