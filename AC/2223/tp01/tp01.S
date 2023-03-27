@@ -15,9 +15,11 @@
 ;    pode ser representado numa variável do tipo uint16_t (16 bits sem sinal).
 
 ; b) A constante NAN pode significar "Not a Number" - significa que qualquer resultado que seja 
-;    ou igual a esse valor pode ser considerado indefinido ou inválido.
-;    Em termos de requisitos de memória, essa definição requer apenas um espaço de memória 
-;    suficiente para armazenar um valor inteiro sem sinal a 16 bits (uint16_t).
+;    igual a esse valor pode ser considerado indefinido ou inválido.
+;    NAN pode ser uma variável global ou uma constante. Se fosse uma variável global, iria
+;    para a secção ".data" (estaria alocada na memória). Se fosse uma constante (.equ), o
+;    compilador iria procurar no ficheiro as suas ocorrências e substituir pelo seu valor. 
+;    Neste caso é mais correto utilizar uma constante para não desperdiçar memória.
 
 
 
@@ -26,7 +28,7 @@
 .equ STACK_SIZE, 64
 .equ NAN, 0xFFFF
 
-;; ----------------------------------------------------------------------------
+; ----------------------------------------------------------------------------
 ; startup section = PREPARE STACK AND CALL MAIN
     .section startup
     b _start
@@ -141,14 +143,11 @@ str2nat:
     mov r3, #0                ; error = 0
     mov r4, #0                ; idx = 0  
     
-
 str2nat_loop:
     mov r6, #0                ; temp = 0 
     cmp r3, r6                ; error == 0 
-    bne str2nat_return
-    ;lsl r6, r4, #1 
-    ldrb r6, [r0, r4]
-    ;mov r6, r6 
+    bne str2nat_return 
+    ldrb r6, [r0, r4] 
     mov r7, #'\0'             ; temp = '\0'
     cmp r6, r7  
     beq str2nat_return
@@ -182,7 +181,7 @@ else_str2nat:
     mov r3, r7
     mov r0, r6
     mov r1, r8
-    add r2, r2, r5
+    add r2, r2, r5            ; number = number * radix + tmp
     b if_end_str2nat
 
 multiply:
@@ -199,7 +198,7 @@ while_end:
     mov pc, lr
 
 if_end_str2nat:
-    add r4, r4, #1
+    add r4, r4, #1            ; idx++
     b str2nat_loop
 
 str2nat_return:
@@ -267,10 +266,10 @@ tst_results:
 
 tst_str0:
     .asciz  "01011"
-    .align 1
+    .align 1 ; stack anda de 2 em 2 e o array tem size ímpar
 tst_str1:
     .asciz  "709"
-    .align 1
+    .align 1 ; stack anda de 2 em 2 e o array tem size ímpar
 tst_str2:
     .asciz  "9A0F"
 
