@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun Mar 19 12:42:21 2023
+Analysis & Synthesis Status : Successful - Tue Mar 28 13:20:42 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : accessControl
-Top-level Entity Name : key_decode
+Top-level Entity Name : accessControlSystem
 Family : MAX 10
-Total logic elements : 63
-    Total combinational functions : 63
-    Dedicated logic registers : 40
-Total registers : 40
-Total pins : 15
+Total logic elements : 212
+    Total combinational functions : 188
+    Dedicated logic registers : 126
+Total registers : 126
+Total pins : 19
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

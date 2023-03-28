@@ -1,5 +1,5 @@
 
-State Machine - |key_decode|key_control:u_key_control|currentState
+State Machine - |accessControlSystem|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_control:u_key_control|currentState
 Name currentState.STATE_WAITING currentState.STATE_PRESSING currentState.STATE_SCANNING 
 currentState.STATE_SCANNING 0 0 0 
 currentState.STATE_PRESSING 0 1 1 

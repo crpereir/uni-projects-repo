@@ -16,26 +16,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "K[0]",
-					"strict" : false
-				},
-				{
-					"name" : "K[1]",
-					"strict" : false
-				},
-				{
-					"name" : "K[2]",
-					"strict" : false
-				},
-				{
-					"name" : "K[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Kval",
-					"strict" : false
-				},
-				{
 					"name" : "Lines[2]",
 					"strict" : false
 				},
@@ -56,11 +36,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "Kack",
+					"name" : "Mclk",
 					"strict" : false
 				},
 				{
-					"name" : "Mclk",
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
 					"strict" : false
 				}
 			]

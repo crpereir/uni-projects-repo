@@ -51,3 +51,9 @@ object HAL { // Virtualiza o acesso ao sistema UsbPort
 }
 
 
+fun main(){
+    while(true) {
+        val x = HAL.isBit(0x09)
+        if (x) println("hey")
+    }
+}

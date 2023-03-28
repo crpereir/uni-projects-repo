@@ -1,15 +1,15 @@
-Fitter Status : Successful - Sun Mar 19 12:42:30 2023
+Fitter Status : Successful - Tue Mar 28 13:20:50 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : accessControl
-Top-level Entity Name : key_decode
+Top-level Entity Name : accessControlSystem
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 65 / 49,760 ( < 1 % )
-    Total combinational functions : 64 / 49,760 ( < 1 % )
-    Dedicated logic registers : 40 / 49,760 ( < 1 % )
-Total registers : 40
-Total pins : 15 / 360 ( 4 % )
+Total logic elements : 211 / 49,760 ( < 1 % )
+    Total combinational functions : 189 / 49,760 ( < 1 % )
+    Dedicated logic registers : 126 / 49,760 ( < 1 % )
+Total registers : 126
+Total pins : 19 / 360 ( 5 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )

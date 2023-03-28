@@ -1,0 +1,31 @@
+
+set_location_assignment PIN_P11 -to Mclk
+
+set_location_assignment PIN_W5     -to    Lines[0]
+set_location_assignment PIN_AA14   -to    Lines[1]
+set_location_assignment PIN_W12    -to    Lines[2]
+set_location_assignment PIN_AB12   -to    Lines[3]
+set_location_assignment PIN_AB11   -to    Columns[0]
+set_location_assignment PIN_AB10   -to    Columns[1]
+set_location_assignment PIN_AA9    -to    Columns[2]
+
+set_location_assignment PIN_A8 -to Kval
+set_location_assignment PIN_A9 -to K[0]
+set_location_assignment PIN_A10 -to K[1]
+set_location_assignment PIN_B10 -to K[2]
+set_location_assignment PIN_D13 -to K[3]
+
+set_location_assignment PIN_C10 -to reset
+set_location_assignment PIN_C11 -to Kack
+
+set_location_assignment PIN_W8     -to rs
+set_location_assignment PIN_V5     -to en
+
+set_location_assignment PIN_AA15   -to data[0]
+set_location_assignment PIN_W13    -to data[1]
+set_location_assignment PIN_AB13   -to data[2]
+set_location_assignment PIN_Y11    -to data[3]
+set_location_assignment PIN_W11    -to data[4]
+set_location_assignment PIN_AA10   -to data[5]
+set_location_assignment PIN_Y8     -to data[6]
+set_location_assignment PIN_Y7     -to data[7]
