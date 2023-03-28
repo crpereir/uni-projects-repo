@@ -9,7 +9,7 @@ entity accessControlSystem is
         Columns : out std_logic_vector (2 downto 0);    -- colunas
 		  rs: out std_logic;
 		  en: out std_logic;
-		  data: out std_logic_vector (7 downto 0)
+		  data: out std_logic_vector (7 downto 4)
     );
 	 
 end accessControlSystem;
