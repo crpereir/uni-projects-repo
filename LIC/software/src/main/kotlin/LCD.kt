@@ -119,12 +119,13 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         cursor(0,0)
     }
 }
+
+
+
 fun main(){
     HAL.init()
     LCD.init()
     //LCD.cursor(0,10) //avança as linhas
-    LCD.write("hello world")
-    //LCD.write('e')
-
-
+    LCD.write("benfica campeao")
+    Time.sleep(1000)
 }
