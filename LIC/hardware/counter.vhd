@@ -1,5 +1,5 @@
 
---counter for key scan
+--counter 
 
 
 LIBRARY ieee;

@@ -7,7 +7,7 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
     private const val LCD_ENABLE = 0x40 // 0b0100_0000
     private const val LCD_DATA = 0x1E
     private const val CLEAR_DISPLAY = 0x01
-    private var state = true
+    private var state = false
     private const val CMD_DISPLAY_LENGHT = 0x28 //0b0000_1100
     private const val CMD_DISPLAY_ENTRY_MODE = 0x06 // 0b0000_0110
     private const val CMD_DISPLAY_OFF = 0x08 // 0b0000_1000
@@ -21,10 +21,8 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         if (rs) HAL.setBits(LCD_RS) else HAL.clrBits(LCD_RS)
         Time.sleep(1)
         HAL.setBits(LCD_ENABLE)
-
         Time.sleep(1)
         HAL.clrBits(LCD_ENABLE)
-
         Time.sleep(1)
 
     }
@@ -33,9 +31,11 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
     // Escreve um nibble de comando/dados no LCD em série
     // rs: false -> comando; true -> dado
     private fun writeNibbleSerial(rs: Boolean, data: Int) {
-
-
+        val rsToInt = if (rs) 1 else 0
+        val newData = data.shl(1) or rsToInt
+        SerialEmitter.send(SerialEmitter.Destination.LCD,newData)
     }
+
     // Escreve um nibble de comando/dados no LCD
     private fun writeNibble(rs: Boolean, data: Int) {
         if (state) writeNibbleParallel(rs,data) else writeNibbleSerial(rs,data)
@@ -45,7 +45,9 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
     // Escreve um byte de comando/dados no LCD
     private fun writeByte(rs: Boolean, data: Int) {
         writeNibble(rs,data shr 4) // vai escrever um byte no display// fazer shift de 4 bits para a direita para ler a parte alta
+        // Time.sleep(1)
         writeNibble(rs,data and 0x0F) // aqui fazer o and com a  e a mascara para oter o val
+        Time.sleep(2)
     }
 
 
@@ -116,16 +118,23 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
     // Envia comando para limpar o ecrã e posicionar o cursor em (0,0)
     fun clear() {
         writeCMD(CLEAR_DISPLAY)
-        cursor(0,0)
     }
 }
-
-
-
 fun main(){
     HAL.init()
     LCD.init()
-    //LCD.cursor(0,10) //avança as linhas
-    LCD.write("benfica campeao")
-    Time.sleep(1000)
+    LCD.cursor(0,0)
+
+    LCD.write("hey word")
+    Time.sleep(5000)
+    LCD.clear()
+    Time.sleep(200)
+    while (true){
+        LCD.cursor(0,0)
+        LCD.write("0123456789ABCDEF")
+        LCD.cursor(1,0)
+        LCD.write("0123456789ABCDEF")
+    }
+
+
 }

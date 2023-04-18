@@ -1,4 +1,6 @@
 
+
+
 -- Flip Flop D
 -- tem a ver com o registos 
 

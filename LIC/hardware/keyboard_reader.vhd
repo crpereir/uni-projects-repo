@@ -1,3 +1,6 @@
+
+-- keyboard reader
+
 LIBRARY ieee;
 USE ieee.STD_LOGIC_1164.ALL;
 

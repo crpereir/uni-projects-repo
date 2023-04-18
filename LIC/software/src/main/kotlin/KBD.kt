@@ -1,7 +1,13 @@
 import isel.leic.utils.Time
 
+// fazer um while com chamadas consecutivas?
 
-object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’’ ou NONE.
+
+
+//
+
+
+object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ ou NONE.
     const val DVAL_MASK = 0X01
     const val KACK_MASK=0X01
     const val LEDS_MASK=0x1E
@@ -53,4 +59,15 @@ fun main(){
     while(true){
 
     }
+
+
+    /*
+    while (true){ // so parace none quando meto o 0 no bit dval
+        val k= waitKey(10000)
+        println(k)
+    }
+     */
+
+
+
 }

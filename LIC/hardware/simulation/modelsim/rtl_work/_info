@@ -1,0 +1,339 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/simulation/modelsim
+Eadder
+Z1 w1679228904
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 2
+R0
+Z4 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/adder.vhd
+Z5 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/adder.vhd
+l0
+L8 1
+V[enX?1ANg_X251@aEzaz>2
+!s100 WGeYN`>H8f3_KW=7TIQO33
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1680799247
+!i10b 1
+Z8 !s108 1680799247.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/adder.vhd|
+Z10 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/adder.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Aarq
+R2
+R3
+DEx4 work 5 adder 0 22 [enX?1ANg_X251@aEzaz>2
+!i122 2
+l33
+L19 48
+VdG]GZ<R8?W47ff:9IMIn^2
+!s100 z>i]hA6Yd;iKMR1^YmA4i0
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Ecounter
+Z13 w1680597016
+R2
+R3
+!i122 1
+R0
+Z14 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/counter.vhd
+Z15 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/counter.vhd
+l0
+L8 1
+VKoU`2NeN=CaajUj4k;d531
+!s100 HjYjQA9;kM:QT]TZiOAmZ0
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/counter.vhd|
+Z17 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/counter.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 7 counter 0 22 KoU`2NeN=CaajUj4k;d531
+!i122 1
+l45
+L17 50
+V]i^NY[bBT6fV7:1N3g4d_1
+!s100 ad5b2Lz8bRh?5HNf?;42C1
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
+Effd
+Z18 w1680597098
+R2
+R3
+!i122 4
+R0
+Z19 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/FFD.vhd
+Z20 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/FFD.vhd
+l0
+L12 1
+Vl?<5zX_S<eJF76`KfZf7z3
+!s100 iaz39hjdWmGlOIm85A=E93
+R6
+31
+R7
+!i10b 1
+R8
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/FFD.vhd|
+Z22 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/FFD.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 3 ffd 0 22 l?<5zX_S<eJF76`KfZf7z3
+!i122 4
+l24
+L22 7
+VYV=iE206XK27mWHnKD8MX0
+!s100 49g<E0YzSH9=GeVUS==aR0
+R6
+31
+R7
+!i10b 1
+R8
+R21
+R22
+!i113 1
+R11
+R12
+Efulladder
+Z23 w1680597101
+R2
+R3
+!i122 3
+R0
+Z24 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/fulladder.vhd
+Z25 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/fulladder.vhd
+l0
+L9 1
+VzEF=DzX8;:O441;6MnURb1
+!s100 IB?kc_447BX1AW^l7C?Jh3
+R6
+31
+R7
+!i10b 1
+R8
+Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/fulladder.vhd|
+Z27 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/fulladder.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 9 fulladder 0 22 zEF=DzX8;:O441;6MnURb1
+!i122 3
+l20
+L19 5
+VE=;9JI77cZfKeM;fMc<`^3
+!s100 cPl]=e1[QWemdNMG]T1g>1
+R6
+31
+R7
+!i10b 1
+R8
+R26
+R27
+!i113 1
+R11
+R12
+Ereg
+Z28 w1679228704
+R2
+R3
+!i122 0
+R0
+Z29 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/reg.vhd
+Z30 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/reg.vhd
+l0
+L7 1
+V^:8F^74@g?S0OLYOIPEoV3
+!s100 5SaIKa?LM3ALMzTmL7j5D2
+R6
+31
+Z31 !s110 1680799246
+!i10b 1
+Z32 !s108 1680799246.000000
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/reg.vhd|
+Z34 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/reg.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 3 reg 0 22 ^:8F^74@g?S0OLYOIPEoV3
+!i122 0
+l28
+L16 50
+VA2S<`0X=0WCiNock^Uhk`3
+!s100 2>m:?bj:Fi``<6fKzlQ203
+R6
+31
+R31
+!i10b 1
+R32
+R33
+R34
+!i113 1
+R11
+R12
+Eserial_control
+Z35 w1680795290
+R2
+R3
+!i122 7
+R0
+Z36 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_control.vhd
+Z37 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_control.vhd
+l0
+L4 1
+VoXdM?Y?7G;M^>T2P4DQzD2
+!s100 >0[1n]f=Ndf>Ea<R=D?Rm0
+R6
+31
+R7
+!i10b 1
+R8
+Z38 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_control.vhd|
+!s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_control.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 14 serial_control 0 22 oXdM?Y?7G;M^>T2P4DQzD2
+!i122 7
+l26
+L17 62
+V_FTfRM8<dWcgW`WA6704Y3
+!s100 B<9MAzGEdn6eONEg@f^]_3
+R6
+31
+R7
+!i10b 1
+R8
+R38
+Z39 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_control.vhd|
+!i113 1
+R11
+R12
+Eserial_receiver
+Z40 w1680605833
+R2
+R3
+!i122 5
+R0
+Z41 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_receiver.vhd
+Z42 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_receiver.vhd
+l0
+L7 1
+Vi[hz?Bb16;C3^JQLVaS?90
+!s100 ]EhJm<LFH;9ZoWUF^k[?G3
+R6
+31
+R7
+!i10b 1
+R8
+Z43 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_receiver.vhd|
+Z44 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/serial_receiver.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 15 serial_receiver 0 22 i[hz?Bb16;C3^JQLVaS?90
+!i122 5
+l62
+L20 82
+VhB>EVcM??zNMZGEf5bd>92
+!s100 E^Vc@5g;;9BNXVn`3ndge0
+R6
+31
+R7
+!i10b 1
+R8
+R43
+R44
+!i113 1
+R11
+R12
+Eshift_register
+Z45 w1680597037
+R2
+R3
+!i122 6
+R0
+Z46 8C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/shift_register.vhd
+Z47 FC:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/shift_register.vhd
+l0
+L8 1
+VoRR=[DfE<M8TTbLAhQdfP0
+!s100 :b1AN3;ebN@^hnnTUMUAB3
+R6
+31
+R7
+!i10b 1
+R8
+Z48 !s90 -reportprogress|300|-93|-work|work|C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/shift_register.vhd|
+Z49 !s107 C:/Users/carol/OneDrive/Ambiente de Trabalho/Faculdade/uni-projects-repo/LIC/hardware/shift_register.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 14 shift_register 0 22 oRR=[DfE<M8TTbLAhQdfP0
+!i122 6
+l33
+L18 70
+VBJa4;UzlG<8j8[JA5F=3C2
+!s100 7h:lMW]bA^c9CN?MTEzf:2
+R6
+31
+R7
+!i10b 1
+R8
+R48
+R49
+!i113 1
+R11
+R12
