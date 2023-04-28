@@ -1,15 +1,11 @@
+
+/*
 /*, a qual retorna o símbolo mais frequente do ficheiro
 de texto file_name. A função imprime na consola o número de vezes que esse símbolo ocorre no ficheiro.*/
 
-char most_frequent_symbol(char *file_name)
+/*char most_frequent_symbol(char *file_name)
 {
-    printf("%s \n", file_name); // fun print
-    int bestCharFrequency = 0;
-    int currentCharFrequency = 0;
-    char bestChar;
-    FILE *fp; // file pointer que recebe um valor com fopen, incrementa com fgetc e volta a ficar sem valor com fclose
-
-    /*size_t sizeArray = 256;*/
+   
     int arrayOfCharFrequency[256] = {0};
 
     size_t sizeArray = sizeof(arrayOfCharFrequency) / sizeof(arrayOfCharFrequency[0]); // sizeOf(a) devolve o tamanho em bytes e como cada caracter tem o mesmo tamanho divide-se por sizeOf(a[0]) que devolve o tamanho em bytes do primero elemento do array
@@ -41,12 +37,8 @@ char most_frequent_symbol(char *file_name)
 
     printf("n de vezes que %c aparece : %d \n", bestChar, bestCharFrequency);
 
-    /*
-    significado dos %'s em printf:
-    %d- decimal
-    %s - String
-    %c - Char
-
-    */
+    
     return bestChar;
 }
+
+*/
