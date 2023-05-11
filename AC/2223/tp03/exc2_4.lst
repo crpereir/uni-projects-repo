@@ -1,0 +1,119 @@
+P16 assembler v1.4.0 (Mar  6 2023)	.\exc2_4.lst	Thu May 04 22:52:44 2023
+
+Sections
+Index   Name            Address   Size
+0       startup         0000      000A 10
+1       .text           000A      0034 52
+2       .data           003E      0000 0
+3       .bss            003E      0000 0
+4       .stack          003E      0040 64
+
+Symbols
+Name                    Type      Value       Section
+_start                  LABEL     0004 4      startup
+inport_addr             LABEL     0010 16     .text
+INPORT_ADDRESS          ABSOLUTE  FF80 65408  startup
+inport_read             LABEL     000A 10     .text
+line#15                 LABEL     0002 2      startup
+loop                    LABEL     001A 26     .text
+main_addr               LABEL     000A 10     startup
+outport_addr            LABEL     0018 24     .text
+OUTPORT_ADDRESS         ABSOLUTE  FFC0 65472  startup
+outport_write           LABEL     0012 18     .text
+positive                LABEL     003A 58     .text
+STACK_SIZE              ABSOLUTE  0040 64     startup
+tos                     LABEL     007E 126    .stack
+tos_addr                LABEL     0008 8      startup
+
+Code listing
+   1           	; Ficheiro:  lab03.S
+   2           	; Descricao: Programa para a realização da 3a atividade laboratorial de
+   3           	;            Arquitetura de Computadores.
+   4           	; Autor:     Tiago M Dias (tiago.dias@isel.pt)
+   5           	; Data:      29-03-2023
+   6           	
+   7           	;-------------------------------------------------------------
+   8          		.equ	STACK_SIZE, 64                
+   9          		.equ	INPORT_ADDRESS, 0xFF80        
+  10          		.equ	OUTPORT_ADDRESS, 0xFFC0       
+  11           	
+  12           	;--------------------------------------------------------------
+  13           		.section startup
+  14 0000 01 58		b	_start
+  15 0002 FF 5B		b	.
+  16           	_start:
+  17 0004 1D 0C		ldr	sp, tos_addr
+  18 0006 1F 0C		ldr	pc, main_addr
+  19           	
+  20           	tos_addr:
+  21 0008 7E 00		.word	tos
+  22           		
+  23           	main_addr:
+  24          		.word	
+  25           	
+  26           	
+  27           	;-----------------------------------------------------------------------
+  28           		.text
+  29           	
+  30           	inport_read:
+  31 000A 21 0C		ldr	r1, inport_addr
+  32 000C 10 08		ldrb r0, [r1, #0]
+  33 000E 0F B7		mov	pc, lr
+  34           	
+  35           	inport_addr:
+  36 0010 80 FF		.word	INPORT_ADDRESS
+  37           	
+  38           	
+  39           	outport_write:
+  40 0012 21 0C		ldr	r1, outport_addr
+  41 0014 10 28		strb r0, [r1, #0]
+  42 0016 0F B7		mov	pc, lr
+  43           	
+  44           	outport_addr:
+  45 0018 C0 FF		.word	OUTPORT_ADDRESS
+  46           		
+  47           		
+  48           	
+  49           	loop:
+  50 001A A2 60		mov r2, #inport_read
+  51 001C 21 08	    ldrb r1, [r2, #0]           ; Lê o valor do porto de entrada
+  52 001E 13 60		mov r3, #1
+  53 0020 91 81	    add r1, r1, r3    			; Testa o bit zero
+  54 0022 03 60		mov r3, #0
+  55 0024 90 B9	    cmp r1, r3
+  56 0026 F9 43	    beq loop          			; Se for zero, volta ao início do loop
+  57           	    
+  58 0028 20 08	    ldrb r0, [r2, #0] 			; Lê o valor do porto de entrada
+  59 002A 03 68		mov r3,  #0x0080 
+  60 002C 81 C1	    and r1, r0, r3  		; Testa o bit mais significativo para determinar se o número é positivo ou negativo
+  61 002E 03 60	    mov r3, #0
+  62 0030 90 B9		cmp r1, r3
+  63 0032 03 40	    beq positive      		; Se for positivo, vai para positive
+  64           	    
+  65 0034 23 61		mov r3, #outport_write
+  66           	    		       			; Estende o sinal do valor atual para os bits superiores
+  67 0036 30 20	    str r0, [r3, #0]  			; Move o valor estendido para o porto de saída
+  68 0038 F0 5B	    b loop
+  69           	    
+  70           	positive:
+  71 003A 30 28	    strb r0, [r3, #0] 			; Move o valor para o porto de saída, metendo a zero os bits superiores
+  72 003C EE 5B	    b loop
+  73           	
+  74           	
+  75           	;-------------------------------------------------------------------------------------------------
+  76           		.data
+  77           	
+  78           	
+  79           	;--------------------------------------------------------------------------------------------------
+  80           	;global uninitialized data
+  81           	
+  82           		.section .bss
+  83           	
+  84           	;--------------------------------------------------------------------------------------------------
+  85           	;global initialized data
+  86           	
+  87           		.section .stack
+  88 003E 00   		.space	STACK_SIZE
+  88 .... ..
+  88 007D 00
+  89           	tos:
