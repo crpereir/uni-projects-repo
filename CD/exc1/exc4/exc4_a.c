@@ -13,16 +13,25 @@ int count_ones( int val ) {
     return count;
 }
 
-int count_zeros( int val ) {
-    return 32 - count_ones(val);
+int count_zeros(int val) {
+    int count = 0;
+    while (val != 0) {
+        if ((val & 1) == 0) {
+            count++;
+        }
+        val = val >> 1;
+    }
+    return count;
 }
-
 
 int main () {
-    int count1;
-    int count2;
-    count1 = count_ones(19);
-    count2 = count_zeros(19);
-    printf ("ones = %d || zeros = %d \n", count1, count2);
-    //printf ("count = %d \n", count2);
+    int ones;
+    int zeros;
+    int n, value;
+    printf("Choose a decimal number: ");
+    scanf("%d", &n);
+    ones = count_ones(n);
+    zeros = count_zeros(n);
+    printf ("ones = %d || zeros = %d \n", ones, zeros);
 }
+

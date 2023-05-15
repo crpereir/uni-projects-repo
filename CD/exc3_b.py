@@ -1,22 +1,27 @@
-import numpy as np
-from collections import Counter
+import random
+import math
 
+alphabet = ['A', 'B', 'C', 'D' ]
 
-M = 4 #tamanho do alfabeto
-Ns = [10, 100, 1000] #tamanho das sequências
+def generate_sequence(n):
+    return ''.join(random.choices(alphabet, k=n))
 
-for N in Ns:
-    seq = np.random.randint(M, size=N)  #gero a sequencia
-    
-    #calculo a probabilidade da ocorrência de cada símbolo
-    counts = Counter(seq)
-    prob = [counts[i]/N for i in range(M)]
-    
-    #calculo a entropia 
-    H = -sum(p * np.log2(p) for p in prob if p > 0)
-    print(f"Entropia da fonte com alfabeto de tamanho {M} e N={N}: {H:.4f}")
-    
-    # estimar a entropia das sequências
-    freq = [counts[i]/N for i in range(M)]
-    H_est = -sum(p * np.log2(p) for p in freq if p > 0)
-    print(f"Entropia estimada com N={N}: {H_est:.4f}\n")
+def estimate_entropy(sequence):
+    counts = {}
+    for symbol in sequence:
+        counts[symbol] = counts.get(symbol, 0) + 1
+    probs = [count / len(sequence) for count in counts.values()]
+    entropy = -sum(p * math.log2(p) for p in probs)
+    return entropy
+
+N = 1000
+seq = generate_sequence(N)
+
+estimated_entropy = estimate_entropy(seq)
+
+alphabet_size = len(alphabet)
+theoretical_entropy = math.log2(alphabet_size)
+
+print(f"Sequence length: {N}")
+print(f"Estimated entropy: {estimated_entropy:.3f}")
+print(f"Source entropy: {theoretical_entropy:.3f}")
