@@ -1,0 +1,158 @@
+P16 assembler v1.4.0 (Mar  6 2023)	lab03.lst	Wed May 03 14:00:52 2023
+
+Sections
+Index   Name            Address   Size
+0       startup         0000      000C 12
+1       .text           000C      0038 56
+2       .data           0044      0000 0
+3       .bss            0044      0000 0
+4       .stack          0044      0040 64
+
+Symbols
+Name                    Type      Value       Section
+_start                  LABEL     0004 4      startup
+inport_addr             LABEL     0028 40     .text
+INPORT_ADDRESS          ABSOLUTE  FF80 65408  startup
+inport_read             LABEL     0022 34     .text
+line#19                 LABEL     0002 2      startup
+loop                    LABEL     000C 12     .text
+main                    LABEL     000C 12     .text
+main_addr               LABEL     000A 10     startup
+outport_addr            LABEL     0030 48     .text
+OUTPORT_ADDRESS         ABSOLUTE  FFC0 65472  startup
+outport_write           LABEL     002A 42     .text
+sleep                   LABEL     0032 50     .text
+sleep_end               LABEL     0042 66     .text
+sleep_inner_loop        LABEL     003A 58     .text
+sleep_outer_loop        LABEL     0036 54     .text
+STACK_SIZE              ABSOLUTE  0040 64     startup
+tos                     LABEL     0084 132    .stack
+tos_addr                LABEL     0008 8      startup
+
+Code listing
+   1           	; Ficheiro:  lab03.S
+   2           	; Descricao: Programa para a realização da 3a atividade laboratorial de
+   3           	;            Arquitetura de Computadores.
+   4           	; Autor:     Tiago M Dias (tiago.dias@isel.pt)
+   5           	; Data:      29-03-2023
+   6           	
+   7           	; Definicao dos valores dos simbolos utilizados no programa
+   8           	;
+   9          		.equ	STACK_SIZE, 64                ; Dimensao do stack - 64 B
+  10           	; *** Para completar ***
+  11          		.equ	INPORT_ADDRESS, 0xFF80        ; inicio do porto de entrada
+  12          		.equ	OUTPORT_ADDRESS, 0xFFC0       ; inicio do porto de saída
+  13           	
+  14           	; Seccao:    startup
+  15           	; Descricao: Guarda o código de arranque do sistema
+  16           	;
+  17           		.section startup
+  18 0000 01 58		b	_start
+  19 0002 FF 5B		b	.
+  20           	_start:
+  21 0004 1D 0C		ldr	sp, tos_addr
+  22 0006 1F 0C		ldr	pc, main_addr
+  23           	
+  24           	tos_addr:
+  25 0008 84 00		.word	tos
+  26           	main_addr:
+  27 000A 0C 00		.word	main
+  28           	
+  29           	; Seccao:    text
+  30           	; Descricao: Guarda o código do programa
+  31           	;
+  32           		.text
+  33           	
+  34           	; Rotina:    main
+  35           	; Descricao: *** Para completar ***
+  36           	; Entradas:  *** Para completar ***
+  37           	; Saidas:    *** Para completar ***
+  38           	; Efeitos:   *** Para completar ***
+  39           	
+  40           	
+  41           	main:
+  42           	loop:
+  43 000C 0A 5C		bl inport_read
+  44 000E 30 60		mov r0, #0x3
+  45 0010 10 5C		bl sleep	
+  46 0012 00 68		mov r0, #128	
+  47 0014 0A 5C		bl outport_write
+  48           	
+  49           	
+  50 0016 05 5C		bl inport_read
+  51 0018 30 60		mov r0, #0x3
+  52 001A 0B 5C		bl sleep	
+  53 001C 00 60		mov r0, #0	
+  54 001E 05 5C		bl outport_write
+  55           	
+  56 0020 F5 5B		b loop
+  57           	
+  58           	
+  59           	
+  60           	
+  61           	; Rotina:    inport_read
+  62           	; Descricao: *** Para completar ***
+  63           	; Entradas:  -
+  64           	; Saidas:    r0 - *** Para completar ***
+  65           	; Efeitos:   r1 - *** Para completar ***
+  66           	inport_read:
+  67 0022 21 0C		ldr	r1, inport_addr
+  68 0024 10 08		ldrb r0, [r1, #0]
+  69 0026 0F B7		mov	pc, lr
+  70           	
+  71           	inport_addr:
+  72 0028 80 FF		.word	INPORT_ADDRESS
+  73           	
+  74           	; Rotina:    outport_write
+  75           	; Descricao: *** Para completar ***
+  76           	; Entradas:  r0 - *** Para completar ***
+  77           	; Saidas:    -
+  78           	; Efeitos:   r1 - *** Para completar ***
+  79           	outport_write:
+  80 002A 21 0C		ldr	r1, outport_addr
+  81 002C 10 28		strb	r0, [r1, #0]
+  82 002E 0F B7		mov	pc, lr
+  83           	
+  84           	outport_addr:
+  85 0030 C0 FF		.word	OUTPORT_ADDRESS
+  86           	
+  87           	; Rotina:    sleep
+  88           	; Descricao: *** Para completar ***
+  89           	; Entradas:  *** Para completar ***
+  90           	; Saidas:    *** Para completar ***
+  91           	; Efeitos:   *** Para completar ***
+  92           	sleep:
+  93 0032 00 C0		and	r0, r0, r0
+  94 0034 06 40		beq	sleep_end
+  95           	sleep_outer_loop:
+  96 0036 E1 63		mov	r1, #0x3E
+  97 0038 31 70		movt	r1, #0x03
+  98           	sleep_inner_loop:
+  99 003A 91 A8		sub	r1, r1, #1
+ 100 003C FE 47		bne	sleep_inner_loop
+ 101 003E 80 A8		sub	r0, r0, #1
+ 102 0040 FA 47		bne	sleep_outer_loop
+ 103           	sleep_end:
+ 104 0042 0F B7		mov	pc, lr
+ 105           	
+ 106           	
+ 107           	
+ 108           	
+ 109           	; Seccao:    data
+ 110           	; Descricao: Guarda as variáveis globais com um valor inicial definido
+ 111           	;
+ 112           		.data
+ 113           	
+ 114           	; Seccao:    bss
+ 115           	; Descricao: Guarda as variáveis globais sem valor inicial definido
+ 116           	;
+ 117           		.bss
+ 118           	
+ 119           	; Seccao:    stack
+ 120           	; Descricao: Implementa a pilha com o tamanho definido pelo simbolo STACK_SIZE
+ 121           	;
+ 122           		.stack
+ 123 0044 00   		.space	STACK_SIZE
+ 123 .... ..
+ 123 0083 00
+ 124           	tos:
