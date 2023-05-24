@@ -1,4 +1,3 @@
-import KBD.waitKey
 import isel.leic.utils.Time
 
 
@@ -31,10 +30,12 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
 
     // Retorna a tecla premida, caso ocorra antes do ‘timeout’ (representado em milissegundos), ou NONE caso contrário.
     fun waitKey(timeout: Long): Char {
-        val StartTime = Time.getTimeInMillis()
-        while (Time.getTimeInMillis() - StartTime < timeout) {
-            val pressedKey = getKey()
-            if (pressedKey != NONE) return pressedKey
+        var timeout = timeout
+        var k: Char
+        timeout += Time.getTimeInMillis()
+        while (Time.getTimeInMillis() < timeout) {
+            k = getKey()
+            if (k != NONE) return k
         }
         return NONE
     }
