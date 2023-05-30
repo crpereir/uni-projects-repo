@@ -1,0 +1,75 @@
+
+LIBRARY ieee;
+USE ieee.STD_LOGIC_1164.ALL;
+
+entity accessControlSystem_wrapper is
+	port ( 
+        Mclk : in std_logic;
+		  reset : in std_logic;
+		  Lines : in std_logic_vector (3 downto 0);     -- linhas
+        sopen : in std_logic;
+		  sclose : in std_logic;
+		  psensor : in std_logic;
+		  M: in std_logic;
+		  Columns : out std_logic_vector (2 downto 0);    -- colunas
+		  rs: out std_logic;
+		  en: out std_logic;
+		  data: out std_logic_vector (7 downto 4);
+		  D: out std_logic_vector (3 downto 0); 
+		  V: out std_logic_vector (3 downto 0);
+		  leds: out std_logic_vector (5 downto 0);
+		  openclose : out std_logic;
+		  onoff : out std_logic
+		  
+    );
+	 
+end accessControlSystem_wrapper;
+	
+architecture arq of accessControlSystem_wrapper is
+
+component keyboard_reader is 
+	port ( 
+        Mclk : in std_logic;
+		  reset : in std_logic;
+		  Lines : in std_logic_vector (3 downto 0);     -- linhas
+        sopen : in std_logic;
+		  sclose : in std_logic;
+		  psensor : in std_logic;
+		  M: in std_logic;
+		  Columns : out std_logic_vector (2 downto 0);    -- colunas
+		  rs: out std_logic;
+		  en: out std_logic;
+		  data: out std_logic_vector (7 downto 4);
+		  D: out std_logic_vector (3 downto 0); 
+		  V: out std_logic_vector (3 downto 0);
+		  leds: out std_logic_vector (5 downto 0);
+		  openclose : out std_logic;
+		  onoff : out std_logic
+		  
+    );  
+end component;
+
+
+
+component door_mecanism PORT(	MCLK 			: in std_logic;
+		RST			: in std_logic;
+		onOff			: in std_logic;
+		openClose	: in std_logic;
+		v			: in std_logic_vector(3 downto 0);
+		Pswitch		: in std_logic;
+		Sopen			: out std_logic;
+		Sclose		: out std_logic;
+		Pdetector	: out std_logic;
+		HEX0			: out std_logic_vector(7 downto 0);
+		HEX1			: out std_logic_vector(7 downto 0);
+		HEX2			: out std_logic_vector(7 downto 0);
+		HEX3			: out std_logic_vector(7 downto 0);
+		HEX4			: out std_logic_vector(7 downto 0);
+		HEX5			: out std_logic_vector(7 downto 0)
+		);
+	 
+end component;
+
+ 
+ 
+end arq;
