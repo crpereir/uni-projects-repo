@@ -1,14 +1,21 @@
-
+import TUI.clearLCD
+import Users.getPassword
+import Users.getUser
+import Users.loadUsers
 import isel.leic.utils.Time
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.PrintWriter
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 
 object App {
 
-    const val USER_ID: Int = 123
+    private const val USER_ID: Int = 123
     private const val USER_PASS = 4321
-    var flag = false
+    private var updatedUser: Users.User? = null
+    private var flag = false
 
     fun entry() {
 
@@ -61,6 +68,10 @@ object App {
                     continue
                 }
 
+                manutencao()
+                if (flag == true) {
+                    break
+                }
                 open()
                 close()
 
@@ -69,10 +80,10 @@ object App {
     }
 
 
-    fun open() {
+    private fun open() {
         LCD.clear()
         TUI.setCursor(0,3)
-        TUI.writeLCD("Hello User")
+        TUI.writeLCD("Hello ${updatedUser?.getName()}")
         Time.sleep(250)
         LCD.clear()
         TUI.setCursor(0,6)
@@ -115,12 +126,47 @@ object App {
         }
     }
 
-}
+    fun updateUserList() {
+        val printWriter = PrintWriter(File("USERS.txt"))
+        for (user in Users.userlist) {
+            user!!.saveParameters(printWriter)
+            printWriter.println()
+        }
+            printWriter.close()
+    }
 
+    fun generateID(): Int {
+        var iD = (Math.random() * (999 - 1) + 1).toInt()
+        for (user in Users.userlist) {
+            if (iD == user!!.iD) iD = (Math.random() * (999 - 1) + 1).toInt()
+        }
+        return iD
+    }
+
+    fun userInput(): Boolean {
+        val a = TUI.useriD()
+        if (getUser(a) == null) return false
+        val b = TUI.userPIN()
+        val c: Int
+        if (getUser(a) != null) {
+            updatedUser = getUser(a)
+            c = getPassword(a)!!
+            return c == b
+        }
+        return false
+    }
+}
 
 fun main(){
     TUI.init()
+    loadUsers()
     DoorMechanism.init()
     DoorMechanism.close(15)
-    App.entry()
+    while (true) {
+        clearLCD()
+        TUI.init()
+        if (App.userInput()) {
+            App.entry()
+        }
+    }
 }
