@@ -1,84 +1,79 @@
-import java.io.PrintWriter
-
-
 object Users {
-    var userlist: ArrayList<User?> = ArrayList()
-    fun loadUsers() {
-        // função do FileAccess probably que faz load dos users FileAccess.load()
-    }
 
+    var userlist: HashMap<String, User> = HashMap()
+
+    fun loadUser (): HashMap<String, User> {
+        val read = FileAccess.read("USERS.txt")
+        addID(read)
+        return userlist
+    }
+    fun addID (read: HashSet<User>) {
+        for (user in read) {
+            val id = if (user.id < 10) {
+                "00${user.id}"
+            } else if (user.id in 10..99) {
+                "0${user.id}"
+            } else {
+                "${user.id}"
+            }
+            userlist[id] = user
+        }
+    }
     fun getiD(id: Int): Int? {
         for (user in userlist) {
-            if (user!!.iD == id) return user.iD
+            if (user.value.id == id) return user.value.id
         }
         return null
     }
-
-    fun searchUser(id: Int): String? {
-        for (user in userlist) {
-            if (user!!.iD == id) return user.name
-        }
-        return null
-    }
-
-    fun getUser(id: Int?): User? {
-        for (user in userlist) {
-            if (user != null) {
-                if (user.getiD() == id) return user
-            }
-        }
-        return null
-    }
-
     fun getName(name: String): String? {
         for (user in userlist) {
-            if (user!!.name == name) return user.name
+            if (user.value.name == name) return user.value.name
         }
         return null
     }
-
     fun getPassword(password: Int?): Int? {
         for (user in userlist) {
-            if (user!!.password == password) return user.password
+            if (user.value.password == password) return user.value.password
         }
         return null
     }
 
-
-    class User {
-        private val identification = 0
-        private val pass = 0
-        private val user: String? = null
-        private val timespent = 0
-        var iD: Int
-            private set
-        var password: Int
-            private set
-        var name: String
-            private set
-        var time: Int
-            private set
-
-        constructor(iD: Int, password: Int, name: String, time: Int) {
-            this.password = password
-            this.name = name
-            this.iD = iD
-            this.time = time
-        }
-
-        fun getiD(): Int = identification
-        fun getName(): String? = user
-        fun getPass(): Int = pass
-        fun getTime(): Int = timespent
-
-        fun addTime(time: Long) {
-            this.time += time.toInt()
-        }
-
-        fun saveParameters(pw: PrintWriter) =
-            pw.print("$iD; $name; $time")
-
+    fun write(file: String, mapa: HashMap<String, User>){
+        FileAccess.write(file, mapa)
     }
+    class User {
+        val id: Int
+        val password: Int
+        val name: String
+        var mensagem: String?
 
+        constructor(str: String) {
+            val list = str.split(";")
+            //println(list)
+            id = list[0].toInt()
+            password = list[1].toInt()
+            name = list[2]
+            mensagem = if (list.size == 5) {
+                list[3]
+            } else {
+                " "
+            }
+            //println(id)
+            //println(password)
+            //println(name)
+            //println(mensagem)
+        }
 
+        constructor(id: Int, password: Int, name: String, mensagem: String = "") {
+            this.id = id
+            this.name = name
+            this.password = password
+            this.mensagem = mensagem
+        }
+    }
+}
+
+fun main () {
+    Users.User("0;1249;Alan Turing;Turing machine is ready;")
+    Users.User("1;2072;George Boole;")
 }

@@ -1,24 +1,20 @@
-import TUI.clearLCD
+import Users.getName
 import Users.getPassword
-import Users.getUser
-import Users.loadUsers
+import Users.write
 import isel.leic.utils.Time
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.PrintWriter
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import java.time.*
+import java.time.format.*
+import java.util.*
+import kotlin.system.exitProcess
 
 
 object App {
 
-    private const val USER_ID: Int = 123
-    private const val USER_PASS = 4321
-    private var updatedUser: Users.User? = null
+    private val list = Users.loadUser()
     private var flag = false
 
-    fun entry() {
 
+    fun entry() {
         while (true) {
             TUI.clearLCD()
             TUI.setCursor(0, 0)
@@ -28,7 +24,7 @@ object App {
             TUI.setCursor(1, 0)
 
             val useriD = TUI.useriD()
-
+            val userPIN = TUI.userPIN()
             if (useriD == null) {
                 manutencao()
                 if (flag == true) {
@@ -37,7 +33,7 @@ object App {
                 continue
             }
 
-            if (useriD != USER_ID) {
+            if (useriD != Users.getiD(id = useriD)) {
                 TUI.setCursor(1,0)
                 TUI.writeLCD("                ")
                 TUI.setCursor(1,0)
@@ -56,7 +52,7 @@ object App {
                 TUI.setCursor(1,0)
                 TUI.writeLCD("PIN:")
 
-                if (TUI.userPIN() != USER_PASS) {
+                if (TUI.userPIN() != getPassword(password = userPIN)) {
                     LCD.clear()
                     TUI.setCursor(0,2)
                     TUI.writeLCD("Login Failed")
@@ -79,11 +75,10 @@ object App {
         }
     }
 
-
     private fun open() {
         LCD.clear()
         TUI.setCursor(0,3)
-        TUI.writeLCD("Hello ${updatedUser?.getName()}")
+        //TUI.writeLCD("Hello ${updatedUser?.name}")
         Time.sleep(250)
         LCD.clear()
         TUI.setCursor(0,6)
@@ -100,9 +95,7 @@ object App {
         TUI.writeLCD("Door Open")
         Time.sleep(500)
     }
-
-
-    fun close () {
+    private fun close () {
         TUI.setCursor(1,2)
         TUI.writeLCD("Closing Door")
         Time.sleep(500)
@@ -113,8 +106,7 @@ object App {
         TUI.writeLCD("Door Close")
         Time.sleep(250)
     }
-
-    fun manutencao() {
+    private fun manutencao() {
         if (M.manutencao()) {
             flag = true
             LCD.clear()
@@ -126,47 +118,101 @@ object App {
         }
     }
 
-    fun updateUserList() {
-        val printWriter = PrintWriter(File("USERS.txt"))
-        for (user in Users.userlist) {
-            user!!.saveParameters(printWriter)
-            printWriter.println()
+    fun getFirstIDAvailable(): String {
+        var id = 0
+        var i = "000"
+        while (id < list.size) {
+            if ( i !in list ) {
+                return i
+            }
+            id++
+            i = if (id < 10) {
+                "00${id}"
+            } else if (id in 10..99) {
+                "0${id}"
+            } else {
+                "$id"
+            }
         }
-            printWriter.close()
+        return i
     }
 
-    fun generateID(): Int {
-        var iD = (Math.random() * (999 - 1) + 1).toInt()
-        for (user in Users.userlist) {
-            if (iD == user!!.iD) iD = (Math.random() * (999 - 1) + 1).toInt()
-        }
-        return iD
-    }
 
-    fun userInput(): Boolean {
-        val a = TUI.useriD()
-        if (getUser(a) == null) return false
-        val b = TUI.userPIN()
-        val c: Int
-        if (getUser(a) != null) {
-            updatedUser = getUser(a)
-            c = getPassword(a)!!
-            return c == b
+
+    fun commands() {
+        println("Turn M key to off, to terminate the maintenance mode.")
+        println("Commands: NEW, DEL, MSG, or OFF")
+        while (M.manutencao()) {
+            print("Maintenance> ")
+            val str = readln()
+            val password: Int
+            when (str) {
+                "NEW" -> {
+                    print("User name? ")
+                    val name = readln()
+                    print("PIN?")
+                    password = readln().toInt()
+                    val id = getFirstIDAvailable()
+                    val user = Users.User(id.toInt(), password, name)
+                    list.put(id, user)
+                    println("Adding user ${user.id}:${user.name}")
+                    /*list.forEach{
+                        println("${it.value.id}   ${it.value.name}")
+                    }*/
+                }
+
+                "DEL" -> {
+                    print("UIN? ")
+                    val uin = readln()
+                    val user = list.get(uin)
+                    if (user != null) {
+                        println("Remove user ${user.id}:${user.name}")
+                    }
+                    print("Y/N? ")
+                    val read = readln()
+                    if (read == "Y" || read == "y")
+                        if (user != null) {
+                            println("User ${user.id}:${user.name} removed.")
+                        }
+                    else
+                        println("Command aborted.")
+                    if (user != null) {
+                        list.remove(uin)
+
+                    }
+                    list.forEach{
+                        println("${it.value.id}   ${it.value.name}")
+                    }
+                }
+
+                "MSG" -> {
+                    print("UIN? ")
+                    val uin = readln()
+                    val user = list.get(uin)
+                    print("Message? ")
+                    val read = readln()
+                    if (user != null) {
+                        println("The message $read has been associated to ${user.id}:${user.name}")
+                    }
+                    if (user != null) {
+                        user.mensagem = "$read;"
+                    }
+                }
+
+                "OFF" -> {
+                    write("USERS.txt", Users.userlist)
+                    exitProcess(0)
+                }
+            }
         }
-        return false
     }
 }
 
 fun main(){
     TUI.init()
-    loadUsers()
+    App.entry()
     DoorMechanism.init()
     DoorMechanism.close(15)
-    while (true) {
-        clearLCD()
-        TUI.init()
-        if (App.userInput()) {
-            App.entry()
-        }
-    }
+    App.commands()
 }
+

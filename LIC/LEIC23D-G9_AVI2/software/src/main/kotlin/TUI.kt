@@ -81,6 +81,7 @@ object TUI {
         KBD.init()
         LCD.init()
         LCD.cursor(0, 0)
+        //writeStr("batatas")
     }
 
     fun setCursor(line: Int, column: Int) {
