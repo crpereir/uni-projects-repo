@@ -159,21 +159,14 @@ object App {
 
     fun getFirstIDAvailable(): String {
         var id = 0
-        var i = "000"
+        //var i = "000"
         while (id < userlist.size) {
-            if ( i !in userlist ) {
-                return i
+            if ( id.toString() !in userlist ) {
+                return id.toString()
             }
             id++
-            i = if (id < 10) {
-                "00${id}"
-            } else if (id in 10..99) {
-                "0${id}"
-            } else {
-                "$id"
-            }
         }
-        return i
+        return id.toString()
     }
 
 
@@ -233,6 +226,7 @@ object App {
                         println("The message $read has been associated to ${user.id}:${user.name}")
                         userlist[user.id.toString()]?.mensagem = read
                     }
+                    println(" ")
                 }
 
                 "OFF" -> {
