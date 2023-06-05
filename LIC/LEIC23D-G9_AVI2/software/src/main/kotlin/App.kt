@@ -1,21 +1,31 @@
+import LOG.writeLog
 import Users.getName
 import Users.getPassword
+import Users.userlist
 import Users.write
 import isel.leic.utils.Time
 import java.time.*
 import java.time.format.*
 import java.util.*
+import kotlin.collections.HashMap
 import kotlin.system.exitProcess
 
 
 object App {
 
-    private val list = Users.loadUser()
+    private val list:HashMap<String,Users.User> = Users.loadUser()
     private var flag = false
-
-
+    val logIn= emptyList<LOG.log>().toMutableList()
+// bug quando metemos id e apagamos ele vai para id em vez de apagar, permanece na passe mas aparece id
+// bug de vez em quando, quando meto o user 009 ele nao abre a porta mas nao aperece a porta a abrir
+    // quando clickamos enter temos que voltar
     fun entry() {
         while (true) {
+            list.forEach{
+                println("${it.value.id}   ${it.value.name} ${it.value.password}")
+            }
+
+
             TUI.clearLCD()
             TUI.setCursor(0, 0)
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
@@ -24,7 +34,9 @@ object App {
             TUI.setCursor(1, 0)
 
             val useriD = TUI.useriD()
-            val userPIN = TUI.userPIN()
+
+            val teste= list["00"+useriD.toString()]?.password
+
             if (useriD == null) {
                 manutencao()
                 if (flag == true) {
@@ -33,6 +45,7 @@ object App {
                 continue
             }
 
+// com user valido nao entra aqui
             if (useriD != Users.getiD(id = useriD)) {
                 TUI.setCursor(1,0)
                 TUI.writeLCD("                ")
@@ -46,13 +59,15 @@ object App {
                 Time.sleep(2500)
                 continue
             } else {
-
+               // println("here")
                 TUI.setCursor(1,0)
                 TUI.writeLCD("                ")
                 TUI.setCursor(1,0)
                 TUI.writeLCD("PIN:")
+                val userPIN = TUI.userPIN()
 
-                if (TUI.userPIN() != getPassword(password = userPIN)) {
+                if (userPIN != teste || userPIN==null) {
+
                     LCD.clear()
                     TUI.setCursor(0,2)
                     TUI.writeLCD("Login Failed")
@@ -69,6 +84,9 @@ object App {
                     break
                 }
                 open()
+                val myUser= list.get("00" + useriD.toString())
+                getUser(myUser?.name, useriD.toInt(), current)
+                println(logIn)
                 close()
 
             }
@@ -139,12 +157,13 @@ object App {
 
 
 
+
     fun commands() {
         println("Turn M key to off, to terminate the maintenance mode.")
         println("Commands: NEW, DEL, MSG, or OFF")
         while (M.manutencao()) {
             print("Maintenance> ")
-            val str = readln()
+            val str = readln().uppercase()
             val password: Int
             when (str) {
                 "NEW" -> {
@@ -155,12 +174,13 @@ object App {
                     val id = getFirstIDAvailable()
                     val user = Users.User(id.toInt(), password, name)
                     list.put(id, user)
+                    println( list.put(id, user)?.name)
                     println("Adding user ${user.id}:${user.name}")
-                    /*list.forEach{
+                    list.forEach{
                         println("${it.value.id}   ${it.value.name}")
-                    }*/
+                    }
                 }
-
+                // aqui deteta bem a passe,users e nome
                 "DEL" -> {
                     print("UIN? ")
                     val uin = readln()
@@ -180,9 +200,7 @@ object App {
                         list.remove(uin)
 
                     }
-                    list.forEach{
-                        println("${it.value.id}   ${it.value.name}")
-                    }
+
                 }
 
                 "MSG" -> {
@@ -195,15 +213,26 @@ object App {
                         println("The message $read has been associated to ${user.id}:${user.name}")
                     }
                     if (user != null) {
-                        user.mensagem = "$read;"
+                        user.mensagem = read
                     }
                 }
 
                 "OFF" -> {
                     write("USERS.txt", Users.userlist)
+                    writeLog("LOG.txt", logIn)
                     exitProcess(0)
+
                 }
             }
+        }
+    }
+    //criar uma classe log que recebe um nome do tipo string , um UIne uma string que e uma data
+    // criei uma variavel que e mutable list, na funcao new register
+    fun getUser(name:String?,uid:Int,date:String){
+    val new=LOG.log(uid,name,date)
+        logIn+=new
+        logIn.forEach {
+            println(it.uid)
         }
     }
 }

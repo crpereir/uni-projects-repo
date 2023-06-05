@@ -58,7 +58,7 @@ object Users {
             } else {
                 " "
             }
-            //println(id)
+
             //println(password)
             //println(name)
             //println(mensagem)
@@ -69,7 +69,9 @@ object Users {
             this.name = name
             this.password = password
             this.mensagem = mensagem
+            println( this.password)
         }
+
     }
 }
 

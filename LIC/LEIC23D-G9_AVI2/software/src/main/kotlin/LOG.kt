@@ -4,6 +4,15 @@ import java.time.LocalDate
 import java.time.LocalTime
 
 object LOG {
-    private var logfile = "LOG.txt"
+    class log(
+        val uid:Int,
+        val name:String?,
+        val data:String
+    )
+
+
+fun writeLog(file:String,lista:MutableList<log>){
+    FileAccess.writeLog(file, lista)
+}
 
 }
