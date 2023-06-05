@@ -9,7 +9,7 @@ object FileAccess {
             BufferedReader(FileReader(fileName))
     fun createWriter(fileName: String?): PrintWriter =
             PrintWriter(fileName)
-// sabe que sao os 10 users
+
     fun read (file: String): HashSet<Users.User> {
         val br = createReader(file)
         var line: String?
@@ -36,7 +36,7 @@ object FileAccess {
     fun writeLog(file: String, mapa: MutableList<LOG.log>) {
         val pw = createWriter(file)
         for (log in mapa) {
-            val writer = "${log.name},${log.uid},${log.data} "
+            val writer = "${log.data}  ${log.uid} "
             pw.println(writer)
         }
         pw.close()

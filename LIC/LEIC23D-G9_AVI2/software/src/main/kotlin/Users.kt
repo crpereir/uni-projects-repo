@@ -7,16 +7,10 @@ object Users {
         addID(read)
         return userlist
     }
+
     fun addID (read: HashSet<User>) {
         for (user in read) {
-            val id = if (user.id < 10) {
-                "00${user.id}"
-            } else if (user.id in 10..99) {
-                "0${user.id}"
-            } else {
-                "${user.id}"
-            }
-            userlist[id] = user
+            userlist[user.id.toString()] = user
         }
     }
     fun getiD(id: Int): Int? {
@@ -37,10 +31,9 @@ object Users {
         }
         return null
     }
+    fun write(file: String, mapa: HashMap<String, User>) =
+            FileAccess.write(file, mapa)
 
-    fun write(file: String, mapa: HashMap<String, User>){
-        FileAccess.write(file, mapa)
-    }
     class User {
         val id: Int
         val password: Int
@@ -58,7 +51,6 @@ object Users {
             } else {
                 " "
             }
-
             //println(password)
             //println(name)
             //println(mensagem)
@@ -69,9 +61,8 @@ object Users {
             this.name = name
             this.password = password
             this.mensagem = mensagem
-            println( this.password)
+            //println(this.password)
         }
-
     }
 }
 

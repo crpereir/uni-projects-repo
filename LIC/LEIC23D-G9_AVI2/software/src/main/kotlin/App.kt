@@ -1,6 +1,7 @@
 import LOG.writeLog
 import Users.getName
 import Users.getPassword
+import Users.loadUser
 import Users.userlist
 import Users.write
 import isel.leic.utils.Time
@@ -13,18 +14,19 @@ import kotlin.system.exitProcess
 
 object App {
 
-    private val list:HashMap<String,Users.User> = Users.loadUser()
+    //private val list: HashMap<String,Users.User> = Users.loadUser()
     private var flag = false
-    val logIn= emptyList<LOG.log>().toMutableList()
-// bug quando metemos id e apagamos ele vai para id em vez de apagar, permanece na passe mas aparece id
-// bug de vez em quando, quando meto o user 009 ele nao abre a porta mas nao aperece a porta a abrir
+    val logIn = emptyList<LOG.log>().toMutableList()
+
+    // bug quando metemos id e apagamos ele vai para id em vez de apagar, permanece na passe mas aparece id
+    // bug de vez em quando, quando meto o user 009 ele nao abre a porta mas nao aperece a porta a abrir
     // quando clickamos enter temos que voltar
     fun entry() {
+        userlist = loadUser()
         while (true) {
-            list.forEach{
-                println("${it.value.id}   ${it.value.name} ${it.value.password}")
-            }
-
+            /*list.forEach{
+                println("${it.value.id} ${it.value.password} ${it.value.name} ")
+            }*/
 
             TUI.clearLCD()
             TUI.setCursor(0, 0)
@@ -35,7 +37,7 @@ object App {
 
             val useriD = TUI.useriD()
 
-            val teste= list["00"+useriD.toString()]?.password
+            //val teste = list["00" + useriD.toString()]?.password
 
             if (useriD == null) {
                 manutencao()
@@ -45,8 +47,16 @@ object App {
                 continue
             }
 
-// com user valido nao entra aqui
+
+            //println(Users.getiD(id = useriD))
+            //println("------------------------")
+            //println(useriD.toString())
+            //println(userlist[useriD.toString()])
+
+
+            // com user valido nao entra aqui
             if (useriD != Users.getiD(id = useriD)) {
+
                 TUI.setCursor(1,0)
                 TUI.writeLCD("                ")
                 TUI.setCursor(1,0)
@@ -66,7 +76,7 @@ object App {
                 TUI.writeLCD("PIN:")
                 val userPIN = TUI.userPIN()
 
-                if (userPIN != teste || userPIN==null) {
+                if ((userPIN != userlist[useriD.toString()]?.password) || (userPIN == null)) {
 
                     LCD.clear()
                     TUI.setCursor(0,2)
@@ -80,27 +90,36 @@ object App {
                 }
 
                 manutencao()
+
                 if (flag == true) {
                     break
                 }
-                open()
-                val myUser= list.get("00" + useriD.toString())
-                getUser(myUser?.name, useriD.toInt(), current)
-                println(logIn)
-                close()
 
+                logIn.add(LOG.log(current,useriD))
+                open(userlist[useriD.toString()]!!)
+
+                close()
             }
         }
     }
 
-    private fun open() {
+    private fun open(user: Users.User) {
         LCD.clear()
-        TUI.setCursor(0,3)
-        //TUI.writeLCD("Hello ${updatedUser?.name}")
+        TUI.setCursor(0,1)
+        TUI.writeStr("${user.name}")
         Time.sleep(250)
         LCD.clear()
         TUI.setCursor(0,6)
-        TUI.writeLCD("User")
+        if (user.mensagem != "") {
+            LCD.clear()
+            TUI.writeStr("${user.mensagem}")
+        }
+        //TUI.writeLCD("${user.name}")
+        //LCD.clear()
+
+        Time.sleep(1000)
+        LCD.clear()
+
         TUI.setCursor(1,1)
         TUI.writeLCD("Opening Door..")
         Time.sleep(500)
@@ -113,6 +132,7 @@ object App {
         TUI.writeLCD("Door Open")
         Time.sleep(500)
     }
+
     private fun close () {
         TUI.setCursor(1,2)
         TUI.writeLCD("Closing Door")
@@ -124,6 +144,7 @@ object App {
         TUI.writeLCD("Door Close")
         Time.sleep(250)
     }
+
     private fun manutencao() {
         if (M.manutencao()) {
             flag = true
@@ -139,8 +160,8 @@ object App {
     fun getFirstIDAvailable(): String {
         var id = 0
         var i = "000"
-        while (id < list.size) {
-            if ( i !in list ) {
+        while (id < userlist.size) {
+            if ( i !in userlist ) {
                 return i
             }
             id++
@@ -156,8 +177,6 @@ object App {
     }
 
 
-
-
     fun commands() {
         println("Turn M key to off, to terminate the maintenance mode.")
         println("Commands: NEW, DEL, MSG, or OFF")
@@ -169,22 +188,22 @@ object App {
                 "NEW" -> {
                     print("User name? ")
                     val name = readln()
-                    print("PIN?")
+                    print("PIN? ")
                     password = readln().toInt()
                     val id = getFirstIDAvailable()
                     val user = Users.User(id.toInt(), password, name)
-                    list.put(id, user)
-                    println( list.put(id, user)?.name)
+                    userlist.put(id, user)
+                    println( userlist.put(id, user)?.name)
                     println("Adding user ${user.id}:${user.name}")
-                    list.forEach{
+                    userlist.forEach{
                         println("${it.value.id}   ${it.value.name}")
                     }
                 }
-                // aqui deteta bem a passe,users e nome
+
                 "DEL" -> {
                     print("UIN? ")
                     val uin = readln()
-                    val user = list.get(uin)
+                    val user = userlist.get(uin)
                     if (user != null) {
                         println("Remove user ${user.id}:${user.name}")
                     }
@@ -197,7 +216,7 @@ object App {
                     else
                         println("Command aborted.")
                     if (user != null) {
-                        list.remove(uin)
+                        userlist.remove(uin)
 
                     }
 
@@ -205,43 +224,32 @@ object App {
 
                 "MSG" -> {
                     print("UIN? ")
-                    val uin = readln()
-                    val user = list.get(uin)
+                    val uin = readln().toInt()
+                    val user = userlist.get(uin.toString())
+                    println(user)
                     print("Message? ")
                     val read = readln()
                     if (user != null) {
                         println("The message $read has been associated to ${user.id}:${user.name}")
-                    }
-                    if (user != null) {
-                        user.mensagem = read
+                        userlist[user.id.toString()]?.mensagem = read
                     }
                 }
 
                 "OFF" -> {
-                    write("USERS.txt", Users.userlist)
+                    write("USERS.txt", userlist)
                     writeLog("LOG.txt", logIn)
                     exitProcess(0)
-
                 }
             }
-        }
-    }
-    //criar uma classe log que recebe um nome do tipo string , um UIne uma string que e uma data
-    // criei uma variavel que e mutable list, na funcao new register
-    fun getUser(name:String?,uid:Int,date:String){
-    val new=LOG.log(uid,name,date)
-        logIn+=new
-        logIn.forEach {
-            println(it.uid)
         }
     }
 }
 
 fun main(){
     TUI.init()
-    App.entry()
     DoorMechanism.init()
     DoorMechanism.close(15)
+    App.entry()
     App.commands()
 }
 
