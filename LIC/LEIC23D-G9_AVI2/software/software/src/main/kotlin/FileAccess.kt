@@ -28,7 +28,7 @@ object FileAccess {
     fun write(file: String, mapa: HashMap<String, Users.User>) {
         val pw = createWriter(file)
         for (dados in mapa) {
-            val writer = "${dados.value.id};${dados.value.password};${dados.value.name};${dados.value.mensagem}"
+            val writer = "${dados.value.id};${dados.value.password};${dados.value.name};${dados.value.mensagem};"
             pw.println(writer)
         }
         pw.close()

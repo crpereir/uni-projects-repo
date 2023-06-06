@@ -1,4 +1,0 @@
-0;1249;Alan Turing; 
-1;2072;George Boole; 
-2;0;Maurice Karnaugh; 
-3;0;Kathleen Booth; 

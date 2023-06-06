@@ -8,6 +8,10 @@ object Users {
         return userlist
     }
 
+    fun read (file: String): HashSet<Users.User> =
+        FileAccess.read(file)
+
+
     fun addID (read: HashSet<User>) {
         for (user in read) {
             userlist[user.id.toString()] = user
@@ -31,12 +35,13 @@ object Users {
         }
         return null
     }
+
     fun write(file: String, mapa: HashMap<String, User>) =
             FileAccess.write(file, mapa)
 
     class User {
         val id: Int
-        val password: Int
+        var password: Int
         val name: String
         var mensagem: String?
 
@@ -46,10 +51,11 @@ object Users {
             id = list[0].toInt()
             password = list[1].toInt()
             name = list[2]
+            println(list.size)
             mensagem = if (list.size == 5) {
                 list[3]
             } else {
-                " "
+                ""
             }
             //println(password)
             //println(name)

@@ -11,22 +11,14 @@ import java.util.*
 import kotlin.collections.HashMap
 import kotlin.system.exitProcess
 
-
+var flag = false
 object App {
 
-    //private val list: HashMap<String,Users.User> = Users.loadUser()
-    private var flag = false
     val logIn = emptyList<LOG.log>().toMutableList()
 
-    // bug quando metemos id e apagamos ele vai para id em vez de apagar, permanece na passe mas aparece id
-    // bug de vez em quando, quando meto o user 009 ele nao abre a porta mas nao aperece a porta a abrir
-    // quando clickamos enter temos que voltar
     fun entry() {
         userlist = loadUser()
         while (true) {
-            /*list.forEach{
-                println("${it.value.id} ${it.value.password} ${it.value.name} ")
-            }*/
 
             TUI.clearLCD()
             TUI.setCursor(0, 0)
@@ -36,9 +28,7 @@ object App {
             TUI.setCursor(1, 0)
 
             val useriD = TUI.useriD()
-
-            //val teste = list["00" + useriD.toString()]?.password
-
+            println(flag)
             if (useriD == null) {
                 manutencao()
                 if (flag == true) {
@@ -60,7 +50,7 @@ object App {
                 TUI.setCursor(1,0)
                 TUI.writeLCD("                ")
                 TUI.setCursor(1,0)
-                TUI.writeLCD("PIN:")
+                TUI.writeLCD("PIN:????")
                 Time.sleep(100)
                 TUI.userPIN()
                 LCD.clear()
@@ -69,15 +59,13 @@ object App {
                 Time.sleep(2500)
                 continue
             } else {
-               // println("here")
                 TUI.setCursor(1,0)
                 TUI.writeLCD("                ")
                 TUI.setCursor(1,0)
-                TUI.writeLCD("PIN:")
+                TUI.writeLCD("PIN:????")
                 val userPIN = TUI.userPIN()
 
                 if ((userPIN != userlist[useriD.toString()]?.password) || (userPIN == null)) {
-
                     LCD.clear()
                     TUI.setCursor(0,2)
                     TUI.writeLCD("Login Failed")
@@ -103,23 +91,54 @@ object App {
         }
     }
 
+    fun deleteMensage(uid:String){
+        TUI.clearLCD()
+        TUI.setCursor(0,3)
+        TUI.writeLCD("Clear Msg.")
+        TUI.setCursor(1,5)
+        TUI.writeLCD("(YES=*)")
+        Time.sleep(2000)
+        TUI.clearLCD()
+        val key= TUI.readInt(5000).toChar()
+        if ( key == '*'){
+            TUI.setCursor(0,4)
+            TUI.writeLCD("Msg has been")
+            TUI.setCursor(1,5)
+            TUI.writeLCD("cleared!")
+            Time.sleep(2000)
+
+                if (userlist[uid]?.mensagem != null) {
+                    userlist[uid]?.mensagem = ""
+                    // loadUser()
+                }
+
+            } else{
+                TUI.clearLCD()
+                TUI.setCursor(0,3)
+                TUI.writeLCD("msg has been")
+                TUI.setCursor(1,5)
+                TUI.writeLCD("helded!")
+            }
+
+    }
+
     private fun open(user: Users.User) {
-        LCD.clear()
-        TUI.setCursor(0,1)
+        TUI.clearLCD()
+        TUI.setCursor(0,0)
         TUI.writeStr("${user.name}")
-        Time.sleep(250)
-        LCD.clear()
-        TUI.setCursor(0,6)
+        //Time.sleep(2500)
+        //TUI.setCursor(0,6)
+        //println(userlist[user.mensagem])
         if (user.mensagem != "") {
-            LCD.clear()
+            //print("hey")
+            TUI.clearLCD()
             TUI.writeStr("${user.mensagem}")
+            if (TUI.readInt(5000).toChar() == '*') deleteMensage(user.id.toString())
         }
         //TUI.writeLCD("${user.name}")
-        //LCD.clear()
 
-        Time.sleep(1000)
-        LCD.clear()
-
+        if (TUI.readInt(5000).toChar() == '#') changePassword(user.id.toString())
+        TUI.clearLCD()
         TUI.setCursor(1,1)
         TUI.writeLCD("Opening Door..")
         Time.sleep(500)
@@ -133,13 +152,61 @@ object App {
         Time.sleep(500)
     }
 
+    private fun changePassword(uid:String){
+        TUI.clearLCD()
+        TUI.setCursor(0,3)
+        TUI.writeLCD("Change PIN?")
+        TUI.setCursor(1,5)
+        TUI.writeLCD("(YES=*)")
+        Time.sleep(2000)
+        TUI.clearLCD()
+        val key= TUI.readInt(5000).toChar()
+        if ( key == '*'){
+            TUI.setCursor(0,4)
+            TUI.writeLCD("Insert New")
+            TUI.setCursor(1,0)
+            TUI.writeLCD("PIN:")
+            Time.sleep(2000)
+
+            val newPassword= TUI.userPIN()
+            TUI.clearLCD()
+            TUI.setCursor(0,2)
+            TUI.writeLCD("Re-Insert New")
+            TUI.setCursor(1,0)
+            TUI.writeLCD("PIN:")
+            val confirmPassword = TUI.userPIN()
+            if (newPassword==confirmPassword){
+                TUI.clearLCD()
+                TUI.setCursor(0,3)
+                TUI.writeLCD("PIN has been")
+                TUI.setCursor(1,5)
+                TUI.writeLCD("changed!")
+                Time.sleep(1000)
+                TUI.clearLCD()
+                if (newPassword != null) {
+                    userlist[uid]?.password = newPassword
+                   // loadUser()
+                }
+            } else{
+                TUI.clearLCD()
+                TUI.setCursor(0,3)
+                TUI.writeLCD("PIN has been")
+                TUI.setCursor(1,5)
+                TUI.writeLCD("helded!")
+            }
+
+
+
+        }
+    }
+
     private fun close () {
         TUI.setCursor(1,2)
         TUI.writeLCD("Closing Door")
         Time.sleep(500)
         DoorMechanism.close(2)
         while (DoorMechanism.finished() != true) {}
-        LCD.clear()
+        TUI.clearLCD()
         TUI.setCursor(1,3)
         TUI.writeLCD("Door Close")
         Time.sleep(250)
@@ -148,12 +215,11 @@ object App {
     private fun manutencao() {
         if (M.manutencao()) {
             flag = true
-            LCD.clear()
+            TUI.clearLCD()
             TUI.setCursor(0,1)
             TUI.writeLCD("Out Of Service")
             TUI.setCursor(1,5)
             TUI.writeLCD("Wait")
-
         }
     }
 
@@ -176,11 +242,18 @@ object App {
         while (M.manutencao()) {
             print("Maintenance> ")
             val str = readln().uppercase()
-            val password: Int
+            var password: Int
+            println("here")
+
             when (str) {
                 "NEW" -> {
                     print("User name? ")
-                    val name = readln()
+                    var name = readln()
+                    while (name.length > 16) {
+                        println("The $name has more than 16 chars")
+                        print("User name? ")
+                        name = readln()
+                    }
                     print("PIN? ")
                     password = readln().toInt()
                     val id = getFirstIDAvailable()
@@ -189,7 +262,7 @@ object App {
                     println( userlist.put(id, user)?.name)
                     println("Adding user ${user.id}:${user.name}")
                     userlist.forEach{
-                        println("${it.value.id}   ${it.value.name}")
+                    println("${it.value.id}   ${it.value.name}")
                     }
                 }
 
@@ -225,16 +298,20 @@ object App {
                     if (user != null) {
                         println("The message $read has been associated to ${user.id}:${user.name}")
                         userlist[user.id.toString()]?.mensagem = read
+                        //println(userlist[user.id.toString()]?.mensagem)
                     }
-                    println(" ")
+                    //println(" ")
+
                 }
 
                 "OFF" -> {
                     write("USERS.txt", userlist)
                     writeLog("LOG.txt", logIn)
+                    //ADICIONAR 1000 USERS
                     exitProcess(0)
                 }
             }
+
         }
     }
 }
@@ -243,7 +320,11 @@ fun main(){
     TUI.init()
     DoorMechanism.init()
     DoorMechanism.close(15)
-    App.entry()
-    App.commands()
+    while (true) {
+        App.entry()
+        App.commands()
+        flag = false
+
+    }
 }
 

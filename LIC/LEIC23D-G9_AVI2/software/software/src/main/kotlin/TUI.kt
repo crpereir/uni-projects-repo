@@ -46,8 +46,8 @@ object TUI {
                 pass.isNotEmpty() && char == '*' -> {
                     pass = ""
                     LCD.cursor(1,0)
-                    writeStr("ID:   ")
-                    LCD.cursor(1,3)
+                    writeStr("PIN:????")
+                    LCD.cursor(1,4)
                 }
                 char == '*' -> break
                 else -> {

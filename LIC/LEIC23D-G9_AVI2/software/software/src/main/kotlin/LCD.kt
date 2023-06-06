@@ -31,6 +31,7 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         val rsToInt = if (rs) 1 else 0
         val newData = data.shl(1) or rsToInt
         SerialEmitter.send(SerialEmitter.Destination.LCD,newData)
+        Time.sleep(2)
     }
 
     // Escreve um nibble de comando/dados no LCD
@@ -42,9 +43,7 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
     // Escreve um byte de comando/dados no LCD
     private fun writeByte(rs: Boolean, data: Int) {
         writeNibble(rs,data shr 4) // vai escrever um byte no display// fazer shift de 4 bits para a direita para ler a parte alta
-        Time.sleep(10)
         writeNibble(rs,data and 0x0F) // aqui fazer o and com a  e a mascara para oter o val
-        Time.sleep(20)
     }
 
 
