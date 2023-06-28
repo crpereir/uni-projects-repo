@@ -89,39 +89,26 @@ $$;
     
 
 --alinea h)
-create or replace procedure associar_Cracha (id int, idt varchar(10), nome varchar) 
-language plpgsql    
+create or replace procedure associarCracha(
+    jogador_id integer,
+    jogo_idt varchar(10),
+    cracha_nome varchar
+)
 as $$
+declare
+    pontos_totais integer;
 begin
-	set transaction isolation level repeatable read;
-     if (
-        select p.pontuacao 
-        from pontuacaomultijogador p 
-	  		join jogador j on j.id = p.id 
-			join compra c on c.idjogador = j.id 
-			join cracha a on c.idtjogo = a.idt
-			join jogos o on o.idt = a.idt
-		where j.id = $1 
-        order by p.pontuacao desc 
-        limit 1 
-    ) < (
-     	select a.lim_pontos
-	  	from pontuacaomultijogador p 
-	  		join jogador j on j.id = p.id
-			join compra c on c.idjogador  = j.id 
-			join cracha a on c.idtjogo = a.idt
-			join jogos o on o.idt = a.idt
-		where a.nome = $3 and p.id  = j.id 
-		order by a.lim_pontos desc
-		limit 1
-        
-    ) then
-        raise exception ' O jogador não atingiu o limite de pontos para obter este crachá.';
-    else 
-    	insert into associarcracha (id, idt, nome) values (id, idt, nome);
+    select pontuacaototal into pontos_totais
+    from PontosJogoPorJogador(jogo_idt)
+    where idjogador = jogador_id;
+
+    if pontos_totais >= (select lim_pontos from CRACHA where jidt = jogo_idt and nome = cracha_nome) then
+        insert into ASSOCIARCRACHA (jid, jidt, nome)
+        values (jogador_id, jogo_idt, cracha_nome);
     end if;
 end;
-$$;
+$$ language plpgsql;
+
 
 --alinea i)
 create or replace procedure iniciarConversa(
