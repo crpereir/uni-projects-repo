@@ -20,8 +20,8 @@ void setbits(unsigned long data[], unsigned index, unsigned length, unsigned lon
 	unsigned long mask = (1UL << length) - 1;
 	val <<= bit;
 	
-	data[elem] ^= (data[elem] & (mask << bit));
-	data[elem] ^= val;
+	data[elem] ^= (data[elem] & (mask << bit)); 	// limpa os bits numa dada posição
+	data[elem] ^= val;								// mete os bits na posição pedida
 	
 	/*
 	unsigned long mask_inverse = ~(mask << bit);
@@ -37,8 +37,8 @@ int main() {
 	unsigned long res = getbits(data, 29, 8);
 	printf("getbits result: 0x%016lx\n", res);
 	
-	setbits(data, 29, 8, 1);
-	printf("setbits result: 0x%016lx\n", data[0]);
+	setbits(data, 60, 8, 0xDD);
+	printf("result after setbits: 0x%016lx\n", data[0]);
 	
 	for(unsigned long i = 0; i < sizeof(data) / sizeof(unsigned long); i++) {
 		printf("%lx\n", data[i]);
