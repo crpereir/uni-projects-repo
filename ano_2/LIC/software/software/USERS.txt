@@ -1,6 +1,0 @@
-0;1249;Alan Turing;Turing machine is ready;
-1;2072;George Boole;;
-2;0;Maurice Karnaugh;;
-3;0;Kathleen Booth;;
-4;1234;xpto;otpx;
-5;0;ZE MANEL;NABO OH NABO;
