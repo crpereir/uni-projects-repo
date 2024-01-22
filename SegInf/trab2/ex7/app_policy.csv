@@ -1,0 +1,9 @@
+p, free, tasks, read
+p, premium, tasks, write
+
+g, premium, free
+g, admin, premium
+
+g, carolinappereir@gmail.com, admin
+g, jguilhermebonacho@gmail.com, premium
+g, istandregoncalves@gmail.com, free
