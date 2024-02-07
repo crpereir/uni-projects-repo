@@ -1,0 +1,36 @@
+<head>
+    <title>{{name}} - Details</title>
+</head>
+
+<script type="application/ecmascript" src="/public/js/seca.js">
+</script>
+
+<section>
+    <h1>{{name}}</h1>
+    <form method="GET" action="/auth/site/groups/{{id}}/edit">
+        <button type="submit" value="Submit"><img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png"style="width:15px;height:15px;"></button>
+    </form>
+    <button type="submit" id="delete_group"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"style="width:15px;height:15px;"></button>
+    <p>Description: {{description}}</p>
+    <h3>Events</h3>
+    <a href="/auth/site/groups/{{id}}/events">Add event to group</a>
+    <hr>
+    <p>{{#if noEvents}}This group has no events{{/if}}</p>
+    {{#each events}}
+        <h3><a href="/site/events/{{eventId}}">{{eventName}}</a></h3>
+        <p>Date: {{eventDate}}</p>
+        <p>Segment: {{eventSegment}}</p>
+        <p>Genre: {{eventGenre}}</p>
+        <button type="submit" id="delete_event{{@index}}" value="Submit"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"style="width:15px;height:15px;"></button>
+        <script type="application/ecmascript">
+            deleteEventFromGroup('delete_event{{@index}}', '{{../token}}', '{{../id}}', '{{eventId}}')
+        </script>
+        <hr>
+    {{/each}}
+</section>
+
+<script type="application/ecmascript" src="/public/js/seca.js">
+</script>
+<script type="application/ecmascript">
+    deleteGroup('{{token}}', '{{id}}')
+</script>

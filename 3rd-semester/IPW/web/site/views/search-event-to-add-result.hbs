@@ -1,0 +1,23 @@
+<head>
+    <title>Results</title>
+</head>
+
+<script type="application/ecmascript" src="/public/js/seca.js">
+</script>
+
+<section>
+    <h1>Results for {{searchedName}}</h1>
+    {{#if noResults}}No results for {{searchedName}}{{/if}}
+    <p><a href="/auth/site/groups/{{gId}}">Cancel</a></p>   
+    <ul>
+        {{#each searchedEvents}}
+        <li> 
+            <h4>{{name}}</h4>
+            <button type="submit" id="add_event{{@index}}"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/14_Add-512.png" style="width:15px;height:15px;"></button>
+            <script type="application/ecmascript">
+                addEventToGroup('add_event{{@index}}', '{{../token}}', '{{../gId}}', '{{id}}')
+            </script>
+        </li>
+        {{/each}}   
+    </ul>
+</section>

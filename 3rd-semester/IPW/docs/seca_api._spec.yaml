@@ -1,0 +1,535 @@
+openapi: 3.0.1
+info:
+  title: SECA API
+  description: This is a simple API for managing events and create groups of events.
+    
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - description: Localhost server for testing API
+    url: http://localhost:1909
+
+security:
+  - bearerAuth: []
+tags:
+- name: Events
+- name: Groups
+- name: Users
+paths:
+  /users:
+    description: The resource that contains all users
+    post:
+      tags:
+      - Users
+      summary: adds a user
+      description: Adds a user to the system
+      operationId: addUser
+      security: []
+      requestBody:
+        description: Username of the user to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+        required: true
+      responses:
+        201:
+          description: User Created
+          content:
+            application/json:
+              schema:
+                required:
+                - token
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  username:
+                    type: string
+                    example: "McDonalds"
+                  token:
+                    type: string
+                    format: uuid
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+        401:
+          description: User invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/401Unauthorized'
+  /groups:
+    description: Resource that contains all Groups of an user
+    get:
+      tags:
+      - Groups
+      summary: Get all groups of an user
+      description: By passing in the appropriate options, you can search for available groups of an user
+      operationId: getAllGroups
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        200:
+          description: Get all groups 
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'   
+    post:
+      tags:
+      - Groups
+      summary: Adds a group
+      description: Adds a group to the system of an user
+      operationId: addGroup
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        description: Information needed to add a group
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupRequest'
+        required: true
+      responses:
+        201:
+          description: Group created
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+  /groups/{groupId}:
+    description: The resource that represents one Group
+    get:
+      tags:
+      - Groups
+      summary: Get a group given its id
+      operationId: getGroupDetails
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+          format: uuid
+      - name: groupId
+        in: path
+        description: Id of a group that is gonna be fetched
+        required: true
+        schema:
+          type: integer
+          minimum: 0
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupDetails'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+        404:
+          $ref: '#/components/responses/404NotFound'           
+    put:
+      tags:
+      - Groups
+      summary: Edits a group
+      description: Edits a Group in the system
+      operationId: editGroup
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: groupId
+        in: path
+        description: Id of the group to be edited
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        description: Updated information for the group
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupRequest'
+        required: true
+      responses:
+        200:
+          description: Get all groups 
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+        404:
+          $ref: "#/components/responses/404NotFound"
+    delete:
+      tags:
+      - Groups
+      summary: Delete a group by ID
+      description: Delete a group by ID
+      operationId: deleteGroup
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: groupId
+        in: path
+        description: Id of the group to be deleted
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Get all groups 
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+        404:
+          $ref: "#/components/responses/404NotFound" 
+  /groups/{groupId}/events/{eventId}: 
+    description: The resource that represents a single event from a group
+    put:
+      tags:
+      - Groups
+      summary: Adds an event to a group or replaces one that already exists
+      description: Adds an event to a group or replaces one that already exists
+      operationId: addEventToGroup
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: groupId
+        in: path
+        description: Id of the group 
+        required: true
+        schema:
+          type: integer
+      - name: eventId
+        in: path
+        description: Id of the event to be added
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewGroupEventAdded'
+        201:
+          description: Event added to group
+          content: 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewGroupEventAdded'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+        404:
+          $ref: "#/components/responses/404NotFound"    
+    delete:
+      tags:
+      - Groups
+      summary: Delete an event of a group by Id
+      description: Delete an event of a group by Id
+      operationId: deleteGroupEvent
+      security:
+        - bearerAuth: []
+      parameters:
+      - name: groupId
+        in: path
+        description: Id of the group 
+        required: true
+        schema:
+          type: integer
+      - name: eventId
+        in: path
+        description: Id of the event to be deleted
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupEventDeleted'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+        404:
+          $ref: "#/components/responses/404NotFound"
+  /events: 
+    description: Resource that contains all the Events
+    get:
+      tags:
+      - Events
+      summary: Get events with a specified name 
+      description: Get events with a specified name 
+      operationId: getEventsByName
+      parameters:
+        - name: name
+          in: query
+          description: Name of the event to search
+          schema:
+            type: string
+            example: McDonalds the Musical
+          required: true  
+        - name: s
+          in: query
+          description: Size of one page
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+        - name: p
+          in: query
+          description: Number of pages
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+      responses:
+        200:
+          description: Get all events with specified name
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+  /events/popular:
+    description: Resource that contains all the popular Events
+    get:
+      tags:
+      - Events
+      summary: Get popular Events  
+      description: Get most popular Events
+      operationId: getPopularEvents
+      parameters:
+        - name: s
+          in: query
+          description: size of one page
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+        - name: p
+          in: query
+          description: number of pages
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+      responses:
+        200:
+          description: Get all events with specified name
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        400:
+          description: Invalid input, object invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/400BadRequest'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    GroupRequest:
+      required:
+      - name
+      - description
+      type: object
+      properties:
+        name:
+          type: string
+          example: Study Http
+        description:
+          type: string
+          example: To develop web applications, knowing HTTP is fundamental
+    Group:
+      allOf: 
+        - $ref: "#/components/schemas/GroupRequest"
+        - type: object
+          required:
+          - id
+          - events
+          - userId
+          properties:
+            id:
+              type: integer
+              minimum: 1
+            userId:
+              type: integer
+              example: 1
+            events:
+              type: array
+              example: [Event1, Event2, Event3]     
+    GroupDetails:
+      allOf: 
+          - $ref: "#/components/schemas/GroupRequest"
+          - type: object
+            properties:
+              events:
+                type: array
+                example: [{event1Name: array, event1Date: array, event1Segment: object, event1Genre: object}, {event2Name: array, event2Date: array, event2Segment: object, event2Genre: object}] 
+    GroupEvent:
+      properties:
+        eventDetails:
+          type: object
+          example: 
+            detail1: 4
+            detail2: "Taco Bell"
+            detail3: "..."          
+    UserRequest:
+      type: object
+      required:
+      - username
+      properties:
+        username:
+          type: string
+          example: antonio.silva
+    NewGroupEventAdded:
+      required:
+        - addedEvent
+      type: object
+      properties:
+        addedEvent:
+          $ref: '#/components/schemas/GroupEvent'
+    GroupEventDeleted:
+      required:
+        - deletedEvent
+      type: object
+      properties:
+        deletedEvent:
+          $ref: '#/components/schemas/GroupEvent'
+    Event:
+      properties:
+        events:
+          type: array
+          example: [{event1detail1: 4, event1detail2: {}, event1detail3: "..."}, {event2detail1: Burger King, event2detail2: "..."}]  
+    MissingParameter:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "Missing required parameter"
+    InvalidBody:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "Invalid body content"
+    NotFound:
+      type: string
+      example: "Something not found"
+    Unauthorized: 
+      type: object
+      properties:
+        uri:
+          type: string
+          format: uri
+          example: "/groups/1"
+        description:
+          type: string
+          example: "User not authorized"
+          
+  responses: 
+    404NotFound:
+      description: "Resource not found"
+      content: 
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/NotFound"
+            example: "Group with id 1 not found"
+    401Unauthorized:
+      description: "Not authorized to acess the resource"
+      content: 
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/Unauthorized"
+    400BadRequest:
+      description: "Invalid request because of a missing parameter or invalid body content"
+      content: 
+        application/json:
+          schema: 
+            oneOf:
+              - $ref: "#/components/schemas/MissingParameter"
+              - $ref: "#/components/schemas/InvalidBody"
