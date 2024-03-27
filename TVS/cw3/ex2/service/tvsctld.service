@@ -1,0 +1,12 @@
+[Unit]
+Description=Tvsctld Service.
+Requires=tvsctld.socket
+
+[Service]
+ExecStart=/opt/isel/tvs/tvsctld/bin/tvsctld 
+Restart=no
+User=root
+Group=root
+
+[Install]
+Also=tvsctld.socket

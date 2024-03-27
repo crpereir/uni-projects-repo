@@ -1,0 +1,41 @@
+
+name: "tvsapp"
+
+services:
+
+  entry:
+    image: nginx:alpine
+    volumes:
+     - ./config/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+     - "2023:80"
+    networks:
+     - load-balancing
+     
+  webapp:
+    image: tvsapp
+    environment:
+     - ELASTIC_URL=http://datastore:9200
+    depends_on:
+     - datastore
+    networks:
+     - load-balancing
+     - data-access
+
+  datastore:
+    image: elasticsearch:8.11.1
+    volumes:
+     - data:/usr/share/elasticsearch/data
+    environment:
+     - discovery.type=single-node
+     - xpack.security.enabled=false
+    networks:
+     - data-access
+
+volumes:
+  data:
+  
+networks:
+  load-balancing: {}
+  data-access: {}
+    
