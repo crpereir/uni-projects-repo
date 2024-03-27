@@ -1,0 +1,10 @@
+ex7:
+
+	>jwe enc isel-leic-seginf Alice_1.cer
+	>jwe dec <jwe token> Alice_1.pfx
+	>jwe dec <jwe token> Bob_1.pfx		-> Error
+
+	>jwe enc ipl-isel-leic-seginf Bob_2.cer
+	>jwe dec <jwe token> Bob_2.pfx
+	>jwe dec <jwe token> Alice_2.pfx		-> Error
+
