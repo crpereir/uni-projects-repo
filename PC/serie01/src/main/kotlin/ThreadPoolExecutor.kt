@@ -1,6 +1,7 @@
 package org.example
 
 
+import java.util.concurrent.BlockingQueue
 import java.util.concurrent.RejectedExecutionException
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
@@ -14,7 +15,7 @@ class ThreadPoolExecutor(
     private val lock = ReentrantLock()
     private val condition = lock.newCondition()
     private val workers = mutableListOf<Thread>()
-    private val tasks = mutableListOf<Runnable>()
+    private val tasks = BlockingMessageQueue<Runnable>(maxThreadPoolSize)
     private var shutDown = false
 
     init {
@@ -23,42 +24,24 @@ class ThreadPoolExecutor(
 
     @Throws(RejectedExecutionException::class)
     fun execute(runnable: Runnable): Unit {
-        lock.withLock {
-            if (shutDown) {
-                throw RejectedExecutionException("ThreadPoolExecutor is shutdown")
-            }
+        tasks.tryEnqueue(runnable, Duration.INFINITE)
 
-            // (1)
-            if (workers.size < maxThreadPoolSize) {
-                val worker = Thread {
-                    while(true) {
-                        val task: Runnable
-                        lock.withLock {
-                            if (tasks.isEmpty()) {
-                                if (shutDown){
-                                    workers.remove(Thread.currentThread())
-                                }
-                                try {
-                                    if (keepAliveTime.isPositive()) {                  // (2) - CORRIGIR
-                                        workers.remove(Thread.currentThread())
-                                    }
-                                } catch (ie: InterruptedException) {
-                                    throw ie
-                                }
-                                if (tasks.isEmpty()){
-                                    workers.remove(Thread.currentThread())
-                                }
-                            }
-                            task = tasks.removeAt(0)
-                        }
-                        task.run()
-                    }
+        if (shutDown) throw RejectedExecutionException("ThreadPoolExecutor is shutdown")
+        lock.withLock {
+            for (t in workers) {
+                if (!t.isAlive) {
+                    t.run { runnable.run() }
+                    return
                 }
-                workers.add(worker)
-                worker.start()
+            }
+            if (workers.size < maxThreadPoolSize) {
+                val newWorkerThread = Thread {
+                    runnable.run()
+                }
+                workers.add(newWorkerThread)
+                newWorkerThread.start()
             } else {
                 tasks.add(runnable)
-                condition.signal()
             }
         }
     }
