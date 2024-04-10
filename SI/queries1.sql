@@ -3,10 +3,36 @@
 drop table if exists employees;
 drop table if exists departments;
 
+-- Cria a tabela departments
+CREATE TABLE departments (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+-- Insere dados na tabela departments
+INSERT INTO departments (id, name) VALUES (1, 'Departamento 1');
+INSERT INTO departments (id, name) VALUES (2, 'Departamento 2');
+INSERT INTO departments (id, name) VALUES (3, 'Departamento 3');
+
+-- Cria a tabela employees
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(255),
+    salary DECIMAL(10, 2),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+
+-- Insere dados na tabela employees
+INSERT INTO employees (id, name, salary, department_id) VALUES (1, 'Faisca', 5000.00, 1);
+INSERT INTO employees (id, name, salary, department_id) VALUES (2, 'Matte', 6000.00, 2);
+INSERT INTO employees (id, name, salary, department_id) VALUES (3, 'Sally', 7000.00, 3);
+
 create table employees (
     id serial primary key,
     name varchar(50),
-    salary int
+    salary int, 
+    department_id int foreign key
 );
 
 insert into employees (name, salary) values
@@ -92,8 +118,13 @@ where salary > 7000
 -- Exercicio 8
 -- Selecione os departamentos com menos de 5 funcionários.
 
-select name from departments d join employees e on d.id = e.department_id 
+SELECT d.name
+FROM departments d 
+JOIN employees e ON d.id = e.department_id
+GROUP BY d.name
+HAVING COUNT(e.id) < 5;
 
+select * from employees e 
 ----------------------------------------------------------------------------------
 -- Exercicio 9
 -- Selecione os funcionários que ganham mais que a média de seus departamentos.
