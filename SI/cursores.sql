@@ -154,14 +154,87 @@ begin
     end loop;
 end; $$
 
+----------------------------------------------------------------------------
+-- (REPETIDO)
+-- cursor que percorre todos os registos de uma tabela employees e escreve o 
+-- nome de cada funcionário
+do $$
+declare
+    employee_name text;
+    cur cursor for select name from employees;
+begin
+    open cur;
+    loop
+        fetch next from cur into employee_name;
+        exit when not found;
+        raise notice 'name = %', employee_name;
+    end loop;
+    close cur;
+end; $$
+
+----------------------------------------------------------------------------
+-- SÓ USA UM LOOP FOR, NÃO USA CURSORES
+-- loop for para iterar sobre todos os departamentos na tabela departments e
+-- imprimir o nome de cada departamento
+
+do $$
+declare 
+    i departments%ROWTYPE;
+begin
+    for i in select * from departments loop
+        raise notice 'depart_name = %', i.name;
+    end loop;
+end; $$
 
 	
+do $$
+declare 
+	depart_name text;
+	cur cursor for select name from departments;
+begin
+	open cur;
+	loop
+		fetch next from cur into depart_name;
+		exit when not found;
+		raise notice 'depart_name = %', depart_name;
+	end loop;
+	close cur;
+end; $$
+
+----------------------------------------------------------------------------
+-- cursor que escreve o nome de todos os funcionários em cada departamento
+-- o for itera sobre os departamententos
+    
+do $$
+declare 
+    i departments%ROWTYPE;
+    employee_name text;
+    cur cursor(dept_id integer) for select name from employees where department_id = dept_id;
+begin
+    for i in select * from departments loop
+        open cur(dept_id.id);
+        loop
+            fetch next from cur into employee_name;
+            exit when not found;
+            raise notice 'depart_name = %', i.name;
+            raise notice 'employee_name = %', employee_name;
+        end loop;
+        close cur;
+    end loop;
+end; $$
 	
-	
-	
-	
-	
-	
+do $$
+declare 
+    i departments%ROWTYPE;
+    j employees%ROWTYPE,
+begin
+    for i in select * from departments loop
+        raise notice 'depart_name = %', i.name;
+        for j in select * from employees loop
+            raise notice 'employees_name = %', j.name;
+        end loop;
+    end loop;
+end; $$
 	
 	
 	
