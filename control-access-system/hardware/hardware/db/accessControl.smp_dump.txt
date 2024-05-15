@@ -1,0 +1,51 @@
+
+State Machine - |accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|door_controller:u_door_controller|currentState
+Name currentState.state_bit_1 currentState.state_bit_0 
+currentState.STATE_WAITING 0 0 
+currentState.STATE_OPEN 0 1 
+currentState.STATE_CLOSE 1 1 
+currentState.STATE_END 1 0 
+
+State Machine - |accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|serial_control:u_serial_control|currentState
+Name currentState.state_bit_1 currentState.state_bit_0 
+currentState.STATE_CLEAR 0 0 
+currentState.STATE_WHILE 0 1 
+currentState.STATE_VALUE 1 1 
+currentState.STATE_WAIT 1 0 
+
+State Machine - |accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|dispatcher:u_dispatcher|currentState
+Name currentState.state_bit_1 currentState.state_bit_0 
+currentState.STATE_INITIAL 0 0 
+currentState.STATE_WAITING 0 1 
+currentState.STATE_DONE 1 1 
+
+State Machine - |accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|serial_control:u_serial_control|currentState
+Name currentState.state_bit_1 currentState.state_bit_0 
+currentState.STATE_CLEAR 0 0 
+currentState.STATE_WHILE 0 1 
+currentState.STATE_VALUE 1 1 
+currentState.STATE_WAIT 1 0 
+
+State Machine - |accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer|buffercontroller:u_BufferControl|currentState
+Name currentState.state_bit_1 currentState.state_bit_0 
+currentState.STATE_FREE 0 0 
+currentState.STATE_REGISTERING 0 1 
+currentState.STATE_CONSUME 1 1 
+currentState.STATE_DONE 1 0 
+
+State Machine - |accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|ring_controller:u_ring_controller|currentState
+Name currentState.state_bit_2 currentState.state_bit_1 currentState.state_bit_0 
+currentState.STATE_WAITING 0 0 0 
+currentState.STATE_SET_PUT 0 0 1 
+currentState.STATE_WRITING 0 1 1 
+currentState.STATE_PUT 0 1 0 
+currentState.STATE_DAC 1 1 0 
+currentState.STATE_SET_GET 1 1 1 
+currentState.STATE_READING 1 0 1 
+currentState.STATE_GET 1 0 0 
+
+State Machine - |accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_control:u_key_control|currentState
+Name currentState.state_bit_1 currentState.state_bit_0 
+currentState.STATE_SCANNING 0 0 
+currentState.STATE_PRESSING 0 1 
+currentState.STATE_WAITING 1 1 

@@ -1,0 +1,2642 @@
+|accessControlSystem_wrapper
+Mclk => accessControlSystem:u_accesscontrol.Mclk
+Mclk => door_mecanism:u_door_mechanism.MCLK
+reset => accessControlSystem:u_accesscontrol.reset
+reset => door_mecanism:u_door_mechanism.RST
+Lines[0] => accessControlSystem:u_accesscontrol.Lines[0]
+Lines[1] => accessControlSystem:u_accesscontrol.Lines[1]
+Lines[2] => accessControlSystem:u_accesscontrol.Lines[2]
+Lines[3] => accessControlSystem:u_accesscontrol.Lines[3]
+M => accessControlSystem:u_accesscontrol.M
+Columns[0] <= accessControlSystem:u_accesscontrol.Columns[0]
+Columns[1] <= accessControlSystem:u_accesscontrol.Columns[1]
+Columns[2] <= accessControlSystem:u_accesscontrol.Columns[2]
+rs <= accessControlSystem:u_accesscontrol.rs
+en <= accessControlSystem:u_accesscontrol.en
+data[4] <= accessControlSystem:u_accesscontrol.data[4]
+data[5] <= accessControlSystem:u_accesscontrol.data[5]
+data[6] <= accessControlSystem:u_accesscontrol.data[6]
+data[7] <= accessControlSystem:u_accesscontrol.data[7]
+D[0] <= accessControlSystem:u_accesscontrol.D[0]
+D[1] <= accessControlSystem:u_accesscontrol.D[1]
+D[2] <= accessControlSystem:u_accesscontrol.D[2]
+D[3] <= accessControlSystem:u_accesscontrol.D[3]
+V[0] <= accessControlSystem:u_accesscontrol.V[0]
+V[1] <= accessControlSystem:u_accesscontrol.V[1]
+V[2] <= accessControlSystem:u_accesscontrol.V[2]
+V[3] <= accessControlSystem:u_accesscontrol.V[3]
+leds[0] <= accessControlSystem:u_accesscontrol.leds[0]
+leds[1] <= accessControlSystem:u_accesscontrol.leds[1]
+leds[2] <= accessControlSystem:u_accesscontrol.leds[2]
+leds[3] <= accessControlSystem:u_accesscontrol.leds[3]
+leds[4] <= accessControlSystem:u_accesscontrol.leds[4]
+leds[5] <= accessControlSystem:u_accesscontrol.leds[5]
+openclose <= accessControlSystem:u_accesscontrol.openclose
+onoff <= accessControlSystem:u_accesscontrol.onoff
+pswitch => door_mecanism:u_door_mechanism.Pswitch
+HEX0[0] <= door_mecanism:u_door_mechanism.HEX0[0]
+HEX0[1] <= door_mecanism:u_door_mechanism.HEX0[1]
+HEX0[2] <= door_mecanism:u_door_mechanism.HEX0[2]
+HEX0[3] <= door_mecanism:u_door_mechanism.HEX0[3]
+HEX0[4] <= door_mecanism:u_door_mechanism.HEX0[4]
+HEX0[5] <= door_mecanism:u_door_mechanism.HEX0[5]
+HEX0[6] <= door_mecanism:u_door_mechanism.HEX0[6]
+HEX0[7] <= door_mecanism:u_door_mechanism.HEX0[7]
+HEX1[0] <= door_mecanism:u_door_mechanism.HEX1[0]
+HEX1[1] <= door_mecanism:u_door_mechanism.HEX1[1]
+HEX1[2] <= door_mecanism:u_door_mechanism.HEX1[2]
+HEX1[3] <= door_mecanism:u_door_mechanism.HEX1[3]
+HEX1[4] <= door_mecanism:u_door_mechanism.HEX1[4]
+HEX1[5] <= door_mecanism:u_door_mechanism.HEX1[5]
+HEX1[6] <= door_mecanism:u_door_mechanism.HEX1[6]
+HEX1[7] <= door_mecanism:u_door_mechanism.HEX1[7]
+HEX2[0] <= door_mecanism:u_door_mechanism.HEX2[0]
+HEX2[1] <= door_mecanism:u_door_mechanism.HEX2[1]
+HEX2[2] <= door_mecanism:u_door_mechanism.HEX2[2]
+HEX2[3] <= door_mecanism:u_door_mechanism.HEX2[3]
+HEX2[4] <= door_mecanism:u_door_mechanism.HEX2[4]
+HEX2[5] <= door_mecanism:u_door_mechanism.HEX2[5]
+HEX2[6] <= door_mecanism:u_door_mechanism.HEX2[6]
+HEX2[7] <= door_mecanism:u_door_mechanism.HEX2[7]
+HEX3[0] <= door_mecanism:u_door_mechanism.HEX3[0]
+HEX3[1] <= door_mecanism:u_door_mechanism.HEX3[1]
+HEX3[2] <= door_mecanism:u_door_mechanism.HEX3[2]
+HEX3[3] <= door_mecanism:u_door_mechanism.HEX3[3]
+HEX3[4] <= door_mecanism:u_door_mechanism.HEX3[4]
+HEX3[5] <= door_mecanism:u_door_mechanism.HEX3[5]
+HEX3[6] <= door_mecanism:u_door_mechanism.HEX3[6]
+HEX3[7] <= door_mecanism:u_door_mechanism.HEX3[7]
+HEX4[0] <= door_mecanism:u_door_mechanism.HEX4[0]
+HEX4[1] <= door_mecanism:u_door_mechanism.HEX4[1]
+HEX4[2] <= door_mecanism:u_door_mechanism.HEX4[2]
+HEX4[3] <= door_mecanism:u_door_mechanism.HEX4[3]
+HEX4[4] <= door_mecanism:u_door_mechanism.HEX4[4]
+HEX4[5] <= door_mecanism:u_door_mechanism.HEX4[5]
+HEX4[6] <= door_mecanism:u_door_mechanism.HEX4[6]
+HEX4[7] <= door_mecanism:u_door_mechanism.HEX4[7]
+HEX5[0] <= door_mecanism:u_door_mechanism.HEX5[0]
+HEX5[1] <= door_mecanism:u_door_mechanism.HEX5[1]
+HEX5[2] <= door_mecanism:u_door_mechanism.HEX5[2]
+HEX5[3] <= door_mecanism:u_door_mechanism.HEX5[3]
+HEX5[4] <= door_mecanism:u_door_mechanism.HEX5[4]
+HEX5[5] <= door_mecanism:u_door_mechanism.HEX5[5]
+HEX5[6] <= door_mecanism:u_door_mechanism.HEX5[6]
+HEX5[7] <= door_mecanism:u_door_mechanism.HEX5[7]
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol
+Mclk => keyboard_reader:u_keyboard_reader.Mclk
+Mclk => SLCDC:u_SLCDC.MCLK
+Mclk => SDC:u_SDC.MCLK
+reset => keyboard_reader:u_keyboard_reader.reset
+reset => SLCDC:u_SLCDC.reset
+reset => SDC:u_SDC.reset
+Lines[0] => keyboard_reader:u_keyboard_reader.Lines[0]
+Lines[1] => keyboard_reader:u_keyboard_reader.Lines[1]
+Lines[2] => keyboard_reader:u_keyboard_reader.Lines[2]
+Lines[3] => keyboard_reader:u_keyboard_reader.Lines[3]
+sopen => SDC:u_SDC.sopen
+sclose => SDC:u_SDC.sclose
+psensor => SDC:u_SDC.psensor
+M => UsbPort:u_UsbPort.inputPort[6]
+Columns[0] <= keyboard_reader:u_keyboard_reader.Columns[0]
+Columns[1] <= keyboard_reader:u_keyboard_reader.Columns[1]
+Columns[2] <= keyboard_reader:u_keyboard_reader.Columns[2]
+rs <= SLCDC:u_SLCDC.RS
+en <= SLCDC:u_SLCDC.E
+data[4] <= UsbPort:u_UsbPort.outputPort[4]
+data[5] <= <GND>
+data[6] <= <GND>
+data[7] <= <GND>
+D[0] <= SLCDC:u_SLCDC.D[0]
+D[1] <= SLCDC:u_SLCDC.D[1]
+D[2] <= SLCDC:u_SLCDC.D[2]
+D[3] <= SLCDC:u_SLCDC.D[3]
+V[0] <= SDC:u_SDC.V[0]
+V[1] <= SDC:u_SDC.V[1]
+V[2] <= SDC:u_SDC.V[2]
+V[3] <= SDC:u_SDC.V[3]
+leds[0] <= SLCDC:u_SLCDC.D[0]
+leds[1] <= SLCDC:u_SLCDC.D[1]
+leds[2] <= SLCDC:u_SLCDC.D[2]
+leds[3] <= SLCDC:u_SLCDC.D[3]
+leds[4] <= SLCDC:u_SLCDC.RS
+leds[5] <= SLCDC:u_SLCDC.E
+openclose <= SDC:u_SDC.open_close
+onoff <= SDC:u_SDC.onoff
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader
+Mclk => key_decode:u_key_decode.Mclk
+Mclk => ringbuffer:u_ringbuffer.clk
+Mclk => outputbuffer:u_outputbuffer.clk
+reset => key_decode:u_key_decode.reset
+reset => ringbuffer:u_ringbuffer.reset
+reset => outputbuffer:u_outputbuffer.reset
+Kack => outputbuffer:u_outputbuffer.ACK
+Lines[0] => key_decode:u_key_decode.Lines[0]
+Lines[1] => key_decode:u_key_decode.Lines[1]
+Lines[2] => key_decode:u_key_decode.Lines[2]
+Lines[3] => key_decode:u_key_decode.Lines[3]
+Columns[0] <= key_decode:u_key_decode.Columns[0]
+Columns[1] <= key_decode:u_key_decode.Columns[1]
+Columns[2] <= key_decode:u_key_decode.Columns[2]
+Q[0] <= outputbuffer:u_outputbuffer.Q[0]
+Q[1] <= outputbuffer:u_outputbuffer.Q[1]
+Q[2] <= outputbuffer:u_outputbuffer.Q[2]
+Q[3] <= outputbuffer:u_outputbuffer.Q[3]
+Dval <= outputbuffer:u_outputbuffer.Dval
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode
+Mclk => clkdiv:u_clk.clk_in
+reset => key_scan:u_key_scan.reset
+reset => key_control:u_key_control.reset
+Kack => key_control:u_key_control.Kack
+Lines[0] => key_scan:u_key_scan.L[0]
+Lines[1] => key_scan:u_key_scan.L[1]
+Lines[2] => key_scan:u_key_scan.L[2]
+Lines[3] => key_scan:u_key_scan.L[3]
+Columns[0] <= key_scan:u_key_scan.C[0]
+Columns[1] <= key_scan:u_key_scan.C[1]
+Columns[2] <= key_scan:u_key_scan.C[2]
+K[0] <= key_scan:u_key_scan.K[0]
+K[1] <= key_scan:u_key_scan.K[1]
+K[2] <= key_scan:u_key_scan.K[2]
+K[3] <= key_scan:u_key_scan.K[3]
+Kval <= key_control:u_key_control.Kval
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan
+kscan => counter:u_counter.ce
+clk => counter:u_counter.clk
+reset => counter:u_counter.reset
+L[0] => mux:u_mux.A[0]
+L[1] => mux:u_mux.A[1]
+L[2] => mux:u_mux.A[2]
+L[3] => mux:u_mux.A[3]
+K[0] <= counter:u_counter.Q[0]
+K[1] <= counter:u_counter.Q[1]
+K[2] <= counter:u_counter.Q[2]
+K[3] <= counter:u_counter.Q[3]
+C[0] <= dec:u_dec.CL[0]
+C[1] <= dec:u_dec.CL[1]
+C[2] <= dec:u_dec.CL[2]
+kpress <= mux:u_mux.Y
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter
+ce => reg:u_reg.CE
+clk => reg:u_reg.CLK
+Q[0] <= reg:u_reg.Q[0]
+Q[1] <= reg:u_reg.Q[1]
+Q[2] <= reg:u_reg.Q[2]
+Q[3] <= reg:u_reg.Q[3]
+reset => reg:u_reg.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|reg:u_reg|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder
+A[0] => fulladder:u_fulladder0.A
+A[1] => fulladder:u_fulladder1.A
+A[2] => fulladder:u_fulladder2.A
+A[3] => fulladder:u_fulladder3.A
+B[0] => fulladder:u_fulladder0.B
+B[1] => fulladder:u_fulladder1.B
+B[2] => fulladder:u_fulladder2.B
+B[3] => fulladder:u_fulladder3.B
+Cin => fulladder:u_fulladder0.Cin
+S[0] <= fulladder:u_fulladder0.S
+S[1] <= fulladder:u_fulladder1.S
+S[2] <= fulladder:u_fulladder2.S
+S[3] <= fulladder:u_fulladder3.S
+Cout <= fulladder:u_fulladder3.Cout
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder0
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder1
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder2
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|counter:u_counter|adder:u_adder|fulladder:u_fulladder3
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|dec:u_dec
+S[0] => CL.IN0
+S[0] => CL.IN0
+S[0] => CL.IN0
+S[1] => CL.IN1
+S[1] => CL.IN1
+S[1] => CL.IN1
+CL[0] <= CL.DB_MAX_OUTPUT_PORT_TYPE
+CL[1] <= CL.DB_MAX_OUTPUT_PORT_TYPE
+CL[2] <= CL.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_scan:u_key_scan|mux:u_mux
+S[0] => Y.IN0
+S[0] => Y.IN0
+S[0] => Y.IN0
+S[0] => Y.IN0
+S[1] => Y.IN1
+S[1] => Y.IN1
+S[1] => Y.IN1
+S[1] => Y.IN1
+A[0] => Y.IN1
+A[1] => Y.IN1
+A[2] => Y.IN1
+A[3] => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|key_control:u_key_control
+clk => currentState~1.DATAIN
+reset => currentState~3.DATAIN
+Kack => generateNextState.IN0
+Kack => Selector2.IN2
+Kack => Selector0.IN1
+Kpress => Selector1.IN2
+Kpress => Kscan.IN0
+Kpress => Selector0.IN2
+Kpress => generateNextState.IN1
+Kval <= Kval.DB_MAX_OUTPUT_PORT_TYPE
+Kscan <= Kscan.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|key_decode:u_key_decode|clkdiv:u_clk
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer
+D[0] => RAM:u_ram.din[0]
+D[1] => RAM:u_ram.din[1]
+D[2] => RAM:u_ram.din[2]
+D[3] => RAM:u_ram.din[3]
+DAV => ring_controller:u_ring_controller.dAv
+CTS => ring_controller:u_ring_controller.cts
+Q[0] <= RAM:u_ram.dout[0]
+Q[1] <= RAM:u_ram.dout[1]
+Q[2] <= RAM:u_ram.dout[2]
+Q[3] <= RAM:u_ram.dout[3]
+Wreg <= ring_controller:u_ring_controller.wReg
+DAC <= ring_controller:u_ring_controller.dAc
+clk => mac:u_mac.clk
+clk => ring_controller:u_ring_controller.clk
+reset => mac:u_mac.reset
+reset => ring_controller:u_ring_controller.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|RAM:u_ram
+address[0] => ram.RADDR
+address[0] => ram.WADDR
+address[1] => ram.RADDR1
+address[1] => ram.WADDR1
+address[2] => ram.RADDR2
+address[2] => ram.WADDR2
+wr => ram.WE
+din[0] => ram.DATAIN
+din[1] => ram.DATAIN1
+din[2] => ram.DATAIN2
+din[3] => ram.DATAIN3
+dout[0] <= ram.DATAOUT
+dout[1] <= ram.DATAOUT1
+dout[2] <= ram.DATAOUT2
+dout[3] <= ram.DATAOUT3
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac
+put_notGet => mux2X1:u_mux.S
+clk => counter:u_counterPut.clk
+clk => counter:u_counterGet.clk
+clk => mac_counter:u_mac_counter.clk
+reset => counter:u_counterPut.reset
+reset => counter:u_counterGet.reset
+reset => mac_counter:u_mac_counter.reset
+incPut => ce_s.IN0
+incPut => counter:u_counterPut.CE
+incGet => ce_s.IN1
+incGet => counter:u_counterGet.CE
+incGet => mac_counter:u_mac_counter.incGet
+address[0] <= mux2X1:u_mux.Y[0]
+address[1] <= mux2X1:u_mux.Y[1]
+address[2] <= mux2X1:u_mux.Y[2]
+empty <= empty.DB_MAX_OUTPUT_PORT_TYPE
+full <= full.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut
+ce => reg:u_reg.CE
+clk => reg:u_reg.CLK
+Q[0] <= reg:u_reg.Q[0]
+Q[1] <= reg:u_reg.Q[1]
+Q[2] <= reg:u_reg.Q[2]
+Q[3] <= reg:u_reg.Q[3]
+reset => reg:u_reg.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|reg:u_reg
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|reg:u_reg|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|reg:u_reg|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|reg:u_reg|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|reg:u_reg|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|adder:u_adder
+A[0] => fulladder:u_fulladder0.A
+A[1] => fulladder:u_fulladder1.A
+A[2] => fulladder:u_fulladder2.A
+A[3] => fulladder:u_fulladder3.A
+B[0] => fulladder:u_fulladder0.B
+B[1] => fulladder:u_fulladder1.B
+B[2] => fulladder:u_fulladder2.B
+B[3] => fulladder:u_fulladder3.B
+Cin => fulladder:u_fulladder0.Cin
+S[0] <= fulladder:u_fulladder0.S
+S[1] <= fulladder:u_fulladder1.S
+S[2] <= fulladder:u_fulladder2.S
+S[3] <= fulladder:u_fulladder3.S
+Cout <= fulladder:u_fulladder3.Cout
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|adder:u_adder|fulladder:u_fulladder0
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|adder:u_adder|fulladder:u_fulladder1
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|adder:u_adder|fulladder:u_fulladder2
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterPut|adder:u_adder|fulladder:u_fulladder3
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet
+ce => reg:u_reg.CE
+clk => reg:u_reg.CLK
+Q[0] <= reg:u_reg.Q[0]
+Q[1] <= reg:u_reg.Q[1]
+Q[2] <= reg:u_reg.Q[2]
+Q[3] <= reg:u_reg.Q[3]
+reset => reg:u_reg.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|reg:u_reg
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|reg:u_reg|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|reg:u_reg|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|reg:u_reg|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|reg:u_reg|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|adder:u_adder
+A[0] => fulladder:u_fulladder0.A
+A[1] => fulladder:u_fulladder1.A
+A[2] => fulladder:u_fulladder2.A
+A[3] => fulladder:u_fulladder3.A
+B[0] => fulladder:u_fulladder0.B
+B[1] => fulladder:u_fulladder1.B
+B[2] => fulladder:u_fulladder2.B
+B[3] => fulladder:u_fulladder3.B
+Cin => fulladder:u_fulladder0.Cin
+S[0] <= fulladder:u_fulladder0.S
+S[1] <= fulladder:u_fulladder1.S
+S[2] <= fulladder:u_fulladder2.S
+S[3] <= fulladder:u_fulladder3.S
+Cout <= fulladder:u_fulladder3.Cout
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|adder:u_adder|fulladder:u_fulladder0
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|adder:u_adder|fulladder:u_fulladder1
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|adder:u_adder|fulladder:u_fulladder2
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|counter:u_counterGet|adder:u_adder|fulladder:u_fulladder3
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter
+incGet => MUX2x1:u_mux.S
+ce => reg:u_reg.CE
+clk => reg:u_reg.CLK
+reset => reg:u_reg.reset
+Q[0] <= reg:u_reg.Q[0]
+Q[1] <= reg:u_reg.Q[1]
+Q[2] <= reg:u_reg.Q[2]
+Q[3] <= reg:u_reg.Q[3]
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|reg:u_reg
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|reg:u_reg|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|reg:u_reg|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|reg:u_reg|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|reg:u_reg|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|adder:u_adder
+A[0] => fulladder:u_fulladder0.A
+A[1] => fulladder:u_fulladder1.A
+A[2] => fulladder:u_fulladder2.A
+A[3] => fulladder:u_fulladder3.A
+B[0] => fulladder:u_fulladder0.B
+B[1] => fulladder:u_fulladder1.B
+B[2] => fulladder:u_fulladder2.B
+B[3] => fulladder:u_fulladder3.B
+Cin => fulladder:u_fulladder0.Cin
+S[0] <= fulladder:u_fulladder0.S
+S[1] <= fulladder:u_fulladder1.S
+S[2] <= fulladder:u_fulladder2.S
+S[3] <= fulladder:u_fulladder3.S
+Cout <= fulladder:u_fulladder3.Cout
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|adder:u_adder|fulladder:u_fulladder0
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|adder:u_adder|fulladder:u_fulladder1
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|adder:u_adder|fulladder:u_fulladder2
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|adder:u_adder|fulladder:u_fulladder3
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mac_counter:u_mac_counter|mux2X1:u_mux
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+A[0] => Y.IN1
+A[1] => Y.IN1
+A[2] => Y.IN1
+A[3] => Y.IN1
+B[0] => Y.IN1
+B[1] => Y.IN1
+B[2] => Y.IN1
+B[3] => Y.IN1
+Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|mac:u_mac|mux2X1:u_mux
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+S => Y.IN0
+A[0] => Y.IN1
+A[1] => Y.IN1
+A[2] => Y.IN1
+A[3] => Y.IN1
+B[0] => Y.IN1
+B[1] => Y.IN1
+B[2] => Y.IN1
+B[3] => Y.IN1
+Y[0] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[1] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[2] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+Y[3] <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|ringbuffer:u_ringbuffer|ring_controller:u_ring_controller
+dAv => generatenextState.IN0
+dAv => generatenextState.IN0
+dAv => Selector1.IN3
+dAv => generatenextState.IN0
+dAv => generatenextState.IN0
+dAv => Selector0.IN2
+empty => generatenextState.IN1
+empty => generatenextState.IN1
+full => generatenextState.IN1
+full => generatenextState.IN1
+cts => generatenextState.IN1
+cts => generatenextState.IN1
+cts => generatenextState.IN1
+clk => currentState~1.DATAIN
+reset => currentState~3.DATAIN
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+sel_pg <= sel_pg.DB_MAX_OUTPUT_PORT_TYPE
+incPut <= incPut.DB_MAX_OUTPUT_PORT_TYPE
+incGet <= incGet.DB_MAX_OUTPUT_PORT_TYPE
+wReg <= wReg.DB_MAX_OUTPUT_PORT_TYPE
+dAc <= dAc.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer
+Load => buffercontroller:u_BufferControl.Load
+ACK => buffercontroller:u_BufferControl.ACK
+D[0] => reg:u_OutputRegister.F[0]
+D[1] => reg:u_OutputRegister.F[1]
+D[2] => reg:u_OutputRegister.F[2]
+D[3] => reg:u_OutputRegister.F[3]
+Q[0] <= reg:u_OutputRegister.Q[0]
+Q[1] <= reg:u_OutputRegister.Q[1]
+Q[2] <= reg:u_OutputRegister.Q[2]
+Q[3] <= reg:u_OutputRegister.Q[3]
+OBfree <= buffercontroller:u_BufferControl.OBfree
+Dval <= buffercontroller:u_BufferControl.Dval
+clk => buffercontroller:u_BufferControl.clk
+clk => reg:u_OutputRegister.clk
+reset => buffercontroller:u_BufferControl.reset
+reset => reg:u_OutputRegister.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer|buffercontroller:u_BufferControl
+Load => nextState.STATE_REGISTERING.DATAB
+Load => Selector0.IN1
+Load => Selector1.IN1
+ACK => nextState.STATE_DONE.DATAA
+ACK => Selector0.IN2
+ACK => Selector1.IN2
+Wreg <= Wreg.DB_MAX_OUTPUT_PORT_TYPE
+OBfree <= OBfree.DB_MAX_OUTPUT_PORT_TYPE
+Dval <= Dval.DB_MAX_OUTPUT_PORT_TYPE
+clk => currentState~1.DATAIN
+reset => currentState~3.DATAIN
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer|reg:u_OutputRegister
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer|reg:u_OutputRegister|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer|reg:u_OutputRegister|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer|reg:u_OutputRegister|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|keyboard_reader:u_keyboard_reader|outputbuffer:u_outputbuffer|reg:u_OutputRegister|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC
+SDX => serial_receiver:u_serial_receiver.SDX
+SCLK => serial_receiver:u_serial_receiver.SCLK
+MCLK => serial_receiver:u_serial_receiver.MCLK
+MCLK => clkdiv:u_clkdiv.clk_in
+reset => serial_receiver:u_serial_receiver.reset
+reset => dispatcher:u_dispatcher.reset
+not_SS => serial_receiver:u_serial_receiver.not_SS
+E <= dispatcher:u_dispatcher.wrl
+D[0] <= dispatcher:u_dispatcher.dout[1]
+D[1] <= dispatcher:u_dispatcher.dout[2]
+D[2] <= dispatcher:u_dispatcher.dout[3]
+D[3] <= dispatcher:u_dispatcher.dout[4]
+RS <= dispatcher:u_dispatcher.dout[0]
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver
+SDX => shift_register:u_shift_register.data
+SCLK => counter:u_counter.clk
+SCLK => shift_register:u_shift_register.clk
+MCLK => serial_control:u_serial_control.clk
+reset => shift_register:u_shift_register.reset
+reset => serial_control:u_serial_control.reset
+not_SS => serial_control:u_serial_control.enRx
+accept => serial_control:u_serial_control.accept
+D[0] <= shift_register:u_shift_register.D[0]
+D[1] <= shift_register:u_shift_register.D[1]
+D[2] <= shift_register:u_shift_register.D[2]
+D[3] <= shift_register:u_shift_register.D[3]
+D[4] <= shift_register:u_shift_register.D[4]
+DXval <= serial_control:u_serial_control.DXval
+busy <= serial_control:u_serial_control.busy
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter
+ce => reg:u_reg.CE
+clk => reg:u_reg.CLK
+Q[0] <= reg:u_reg.Q[0]
+Q[1] <= reg:u_reg.Q[1]
+Q[2] <= reg:u_reg.Q[2]
+Q[3] <= reg:u_reg.Q[3]
+reset => reg:u_reg.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder
+A[0] => fulladder:u_fulladder0.A
+A[1] => fulladder:u_fulladder1.A
+A[2] => fulladder:u_fulladder2.A
+A[3] => fulladder:u_fulladder3.A
+B[0] => fulladder:u_fulladder0.B
+B[1] => fulladder:u_fulladder1.B
+B[2] => fulladder:u_fulladder2.B
+B[3] => fulladder:u_fulladder3.B
+Cin => fulladder:u_fulladder0.Cin
+S[0] <= fulladder:u_fulladder0.S
+S[1] <= fulladder:u_fulladder1.S
+S[2] <= fulladder:u_fulladder2.S
+S[3] <= fulladder:u_fulladder3.S
+Cout <= fulladder:u_fulladder3.Cout
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder0
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder1
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder2
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder3
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register
+data => FFD:u_ffd0.D
+clk => FFD:u_ffd0.clk
+clk => FFD:u_ffd1.clk
+clk => FFD:u_ffd2.clk
+clk => FFD:u_ffd3.clk
+clk => FFD:u_ffd4.clk
+enable => FFD:u_ffd0.EN
+enable => FFD:u_ffd1.EN
+enable => FFD:u_ffd2.EN
+enable => FFD:u_ffd3.EN
+enable => FFD:u_ffd4.EN
+D[0] <= FFD:u_ffd4.Q
+D[1] <= FFD:u_ffd3.Q
+D[2] <= FFD:u_ffd2.Q
+D[3] <= FFD:u_ffd1.Q
+D[4] <= FFD:u_ffd0.Q
+reset => FFD:u_ffd0.reset
+reset => FFD:u_ffd1.reset
+reset => FFD:u_ffd2.reset
+reset => FFD:u_ffd3.reset
+reset => FFD:u_ffd4.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd4
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|serial_receiver:u_serial_receiver|serial_control:u_serial_control
+enRx => generatenextState.IN0
+enRx => generatenextState.IN0
+enRx => Selector0.IN3
+enRx => wr.IN0
+enRx => Selector1.IN2
+accept => nextState.STATE_WAIT.DATAA
+accept => Selector0.IN2
+accept => Selector2.IN2
+eq5 => generatenextState.IN1
+eq5 => generatenextState.IN1
+clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
+reset => currentState~3.DATAIN
+clk => currentState~1.DATAIN
+busy <= busy.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|dispatcher:u_dispatcher
+dval => nextState.STATE_WAITING.DATAB
+dval => Selector1.IN2
+dval => Selector0.IN1
+din[0] => dout[0].DATAIN
+din[1] => dout[1].DATAIN
+din[2] => dout[2].DATAIN
+din[3] => dout[3].DATAIN
+din[4] => dout[4].DATAIN
+wrl <= wrl.DB_MAX_OUTPUT_PORT_TYPE
+dout[0] <= din[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= din[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= din[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= din[3].DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= din[4].DB_MAX_OUTPUT_PORT_TYPE
+done <= done.DB_MAX_OUTPUT_PORT_TYPE
+clk => currentState~1.DATAIN
+reset => currentState~3.DATAIN
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SLCDC:u_SLCDC|clkdiv:u_clkdiv
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|UsbPort:u_UsbPort
+inputPort[0] => sld_virtual_jtag:b2v_inst.ir_out[0]
+inputPort[1] => sld_virtual_jtag:b2v_inst.ir_out[1]
+inputPort[2] => sld_virtual_jtag:b2v_inst.ir_out[2]
+inputPort[3] => sld_virtual_jtag:b2v_inst.ir_out[3]
+inputPort[4] => sld_virtual_jtag:b2v_inst.ir_out[4]
+inputPort[5] => sld_virtual_jtag:b2v_inst.ir_out[5]
+inputPort[6] => sld_virtual_jtag:b2v_inst.ir_out[6]
+inputPort[7] => sld_virtual_jtag:b2v_inst.ir_out[7]
+outputPort[0] <= sld_virtual_jtag:b2v_inst.ir_in[0]
+outputPort[1] <= sld_virtual_jtag:b2v_inst.ir_in[1]
+outputPort[2] <= sld_virtual_jtag:b2v_inst.ir_in[2]
+outputPort[3] <= sld_virtual_jtag:b2v_inst.ir_in[3]
+outputPort[4] <= sld_virtual_jtag:b2v_inst.ir_in[4]
+outputPort[5] <= sld_virtual_jtag:b2v_inst.ir_in[5]
+outputPort[6] <= sld_virtual_jtag:b2v_inst.ir_in[6]
+outputPort[7] <= sld_virtual_jtag:b2v_inst.ir_in[7]
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|UsbPort:u_UsbPort|sld_virtual_jtag:b2v_inst
+tck <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tck
+tdi <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tdi
+ir_in[0] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[1] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[2] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[3] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[4] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[5] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[6] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[7] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_uir
+tms <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tms
+jtag_state_tlr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_uir
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|UsbPort:u_UsbPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst
+tck <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tck
+tdi <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tdi
+ir_in[0] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[1] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[2] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[3] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[4] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[5] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[6] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[7] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_uir
+tms <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tms
+jtag_state_tlr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_uir
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|UsbPort:u_UsbPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst
+usr_tck <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tck
+usr_tdi <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tdi
+usr_ir_in[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_tdo => adapted_tdo.IN1
+usr_ir_out[0] => adapted_ir_out[0].IN1
+usr_ir_out[1] => adapted_ir_out[1].IN1
+usr_ir_out[2] => adapted_ir_out[2].IN1
+usr_ir_out[3] => adapted_ir_out[3].IN1
+usr_ir_out[4] => adapted_ir_out[4].IN1
+usr_ir_out[5] => adapted_ir_out[5].IN1
+usr_ir_out[6] => adapted_ir_out[6].IN1
+usr_ir_out[7] => adapted_ir_out[7].IN1
+usr_virtual_state_cdr <= virtual_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_sdr <= virtual_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e1dr <= virtual_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_pdr <= virtual_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e2dr <= virtual_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_udr <= virtual_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_virtual_state_uir <= virtual_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+usr_tms <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tms
+usr_jtag_state_tlr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_tlr
+usr_jtag_state_rti <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_rti
+usr_jtag_state_sdrs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdrs
+usr_jtag_state_cdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_jtag_state_sdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdr
+usr_jtag_state_e1dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1dr
+usr_jtag_state_pdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pdr
+usr_jtag_state_e2dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2dr
+usr_jtag_state_udr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_udr
+usr_jtag_state_sirs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sirs
+usr_jtag_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cir
+usr_jtag_state_sir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sir
+usr_jtag_state_e1ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1ir
+usr_jtag_state_pir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pir
+usr_jtag_state_e2ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2ir
+usr_jtag_state_uir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_uir
+raw_tck => raw_tck.IN1
+raw_tms => raw_tms.IN1
+tdi => tdi.IN1
+jtag_state_tlr => jtag_state_tlr.IN1
+jtag_state_rti => jtag_state_rti.IN1
+jtag_state_sdrs => jtag_state_sdrs.IN1
+jtag_state_cdr => jtag_state_cdr.IN1
+jtag_state_sdr => jtag_state_sdr.IN1
+jtag_state_e1dr => jtag_state_e1dr.IN1
+jtag_state_pdr => jtag_state_pdr.IN1
+jtag_state_e2dr => jtag_state_e2dr.IN1
+jtag_state_udr => jtag_state_udr.IN1
+jtag_state_sirs => jtag_state_sirs.IN1
+jtag_state_cir => jtag_state_cir.IN1
+jtag_state_sir => jtag_state_sir.IN1
+jtag_state_e1ir => jtag_state_e1ir.IN1
+jtag_state_pir => jtag_state_pir.IN1
+jtag_state_e2ir => jtag_state_e2ir.IN1
+jtag_state_uir => jtag_state_uir.IN1
+usr1 => usr1.IN1
+clr => clr.IN1
+ena => ena.IN1
+ir_in[0] => ir_in[0].IN1
+ir_in[1] => ir_in[1].IN1
+ir_in[2] => ir_in[2].IN1
+ir_in[3] => ir_in[3].IN1
+ir_in[4] => ir_in[4].IN1
+ir_in[5] => ir_in[5].IN1
+ir_in[6] => ir_in[6].IN1
+ir_in[7] => ir_in[7].IN1
+tdo <= sld_jtag_endpoint_adapter:jtag_signal_adapter.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|UsbPort:u_UsbPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter
+raw_tck => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tck
+raw_tms => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tms
+tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdi
+vir_tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.vir_tdi
+jtag_state_tlr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_tlr
+jtag_state_rti => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_rti
+jtag_state_sdrs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdrs
+jtag_state_cdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1dr
+jtag_state_pdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pdr
+jtag_state_e2dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2dr
+jtag_state_udr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_udr
+jtag_state_sirs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sirs
+jtag_state_cir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cir
+jtag_state_sir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sir
+jtag_state_e1ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1ir
+jtag_state_pir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pir
+jtag_state_e2ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2ir
+jtag_state_uir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_uir
+usr1 => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.usr1
+clr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.clr
+ena => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ena
+ir_in[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[7]
+tdo <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[7]
+adapted_tck <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tck
+adapted_tms <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tms
+adapted_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdi
+adapted_vir_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_vir_tdi
+adapted_jtag_state_tlr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_tlr
+adapted_jtag_state_rti <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_rti
+adapted_jtag_state_sdrs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdrs
+adapted_jtag_state_cdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cdr
+adapted_jtag_state_sdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdr
+adapted_jtag_state_e1dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1dr
+adapted_jtag_state_pdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pdr
+adapted_jtag_state_e2dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2dr
+adapted_jtag_state_udr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_udr
+adapted_jtag_state_sirs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sirs
+adapted_jtag_state_cir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cir
+adapted_jtag_state_sir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sir
+adapted_jtag_state_e1ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1ir
+adapted_jtag_state_pir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pir
+adapted_jtag_state_e2ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2ir
+adapted_jtag_state_uir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_uir
+adapted_usr1 <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_usr1
+adapted_clr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_clr
+adapted_ena <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ena
+adapted_ir_in[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[0]
+adapted_ir_in[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[1]
+adapted_ir_in[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[2]
+adapted_ir_in[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[3]
+adapted_ir_in[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[4]
+adapted_ir_in[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[5]
+adapted_ir_in[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[6]
+adapted_ir_in[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[7]
+adapted_tdo => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdo
+adapted_ir_out[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[0]
+adapted_ir_out[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[1]
+adapted_ir_out[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[2]
+adapted_ir_out[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[3]
+adapted_ir_out[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[4]
+adapted_ir_out[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[5]
+adapted_ir_out[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[6]
+adapted_ir_out[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[7]
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|UsbPort:u_UsbPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
+raw_tck => adapted_tck.DATAIN
+raw_tms => adapted_tms.DATAIN
+tdi => adapted_tdi.DATAIN
+vir_tdi => adapted_vir_tdi.DATAIN
+jtag_state_tlr => adapted_jtag_state_tlr.DATAIN
+jtag_state_rti => adapted_jtag_state_rti.DATAIN
+jtag_state_sdrs => adapted_jtag_state_sdrs.DATAIN
+jtag_state_cdr => adapted_jtag_state_cdr.DATAIN
+jtag_state_sdr => adapted_jtag_state_sdr.DATAIN
+jtag_state_e1dr => adapted_jtag_state_e1dr.DATAIN
+jtag_state_pdr => adapted_jtag_state_pdr.DATAIN
+jtag_state_e2dr => adapted_jtag_state_e2dr.DATAIN
+jtag_state_udr => adapted_jtag_state_udr.DATAIN
+jtag_state_sirs => adapted_jtag_state_sirs.DATAIN
+jtag_state_cir => adapted_jtag_state_cir.DATAIN
+jtag_state_sir => adapted_jtag_state_sir.DATAIN
+jtag_state_e1ir => adapted_jtag_state_e1ir.DATAIN
+jtag_state_pir => adapted_jtag_state_pir.DATAIN
+jtag_state_e2ir => adapted_jtag_state_e2ir.DATAIN
+jtag_state_uir => adapted_jtag_state_uir.DATAIN
+usr1 => adapted_usr1.DATAIN
+clr => adapted_clr.DATAIN
+ena => adapted_ena.DATAIN
+ir_in[0] => adapted_ir_in[0].DATAIN
+ir_in[1] => adapted_ir_in[1].DATAIN
+ir_in[2] => adapted_ir_in[2].DATAIN
+ir_in[3] => adapted_ir_in[3].DATAIN
+ir_in[4] => adapted_ir_in[4].DATAIN
+ir_in[5] => adapted_ir_in[5].DATAIN
+ir_in[6] => adapted_ir_in[6].DATAIN
+ir_in[7] => adapted_ir_in[7].DATAIN
+tdo <= adapted_tdo.DB_MAX_OUTPUT_PORT_TYPE
+ir_out[0] <= adapted_ir_out[0].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[1] <= adapted_ir_out[1].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[2] <= adapted_ir_out[2].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[3] <= adapted_ir_out[3].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[4] <= adapted_ir_out[4].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[5] <= adapted_ir_out[5].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[6] <= adapted_ir_out[6].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[7] <= adapted_ir_out[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tck <= raw_tck.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tms <= raw_tms.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdi <= tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_vir_tdi <= vir_tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_tlr <= jtag_state_tlr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_rti <= jtag_state_rti.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdrs <= jtag_state_sdrs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cdr <= jtag_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdr <= jtag_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1dr <= jtag_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pdr <= jtag_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2dr <= jtag_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_udr <= jtag_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sirs <= jtag_state_sirs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cir <= jtag_state_cir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sir <= jtag_state_sir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1ir <= jtag_state_e1ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pir <= jtag_state_pir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2ir <= jtag_state_e2ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_uir <= jtag_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_usr1 <= usr1.DB_MAX_OUTPUT_PORT_TYPE
+adapted_clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ena <= ena.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[0] <= ir_in[0].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[1] <= ir_in[1].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[2] <= ir_in[2].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[3] <= ir_in[3].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[4] <= ir_in[4].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[5] <= ir_in[5].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[6] <= ir_in[6].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[7] <= ir_in[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdo => tdo.DATAIN
+adapted_ir_out[0] => ir_out[0].DATAIN
+adapted_ir_out[1] => ir_out[1].DATAIN
+adapted_ir_out[2] => ir_out[2].DATAIN
+adapted_ir_out[3] => ir_out[3].DATAIN
+adapted_ir_out[4] => ir_out[4].DATAIN
+adapted_ir_out[5] => ir_out[5].DATAIN
+adapted_ir_out[6] => ir_out[6].DATAIN
+adapted_ir_out[7] => ir_out[7].DATAIN
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC
+SDX => serial_receiver:u_serial_receiver.SDX
+SCLK => serial_receiver:u_serial_receiver.SCLK
+MCLK => serial_receiver:u_serial_receiver.MCLK
+MCLK => clkdiv:u_clkdiv.clk_in
+reset => serial_receiver:u_serial_receiver.reset
+reset => door_controller:u_door_controller.reset
+not_SS => serial_receiver:u_serial_receiver.not_SS
+onoff <= door_controller:u_door_controller.onoff
+V[0] <= door_controller:u_door_controller.dout[1]
+V[1] <= door_controller:u_door_controller.dout[2]
+V[2] <= door_controller:u_door_controller.dout[3]
+V[3] <= door_controller:u_door_controller.dout[4]
+open_close <= door_controller:u_door_controller.dout[0]
+sopen => door_controller:u_door_controller.sopen
+sclose => door_controller:u_door_controller.sclose
+psensor => door_controller:u_door_controller.psensor
+busy <= serial_receiver:u_serial_receiver.busy
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver
+SDX => shift_register:u_shift_register.data
+SCLK => counter:u_counter.clk
+SCLK => shift_register:u_shift_register.clk
+MCLK => serial_control:u_serial_control.clk
+reset => shift_register:u_shift_register.reset
+reset => serial_control:u_serial_control.reset
+not_SS => serial_control:u_serial_control.enRx
+accept => serial_control:u_serial_control.accept
+D[0] <= shift_register:u_shift_register.D[0]
+D[1] <= shift_register:u_shift_register.D[1]
+D[2] <= shift_register:u_shift_register.D[2]
+D[3] <= shift_register:u_shift_register.D[3]
+D[4] <= shift_register:u_shift_register.D[4]
+DXval <= serial_control:u_serial_control.DXval
+busy <= serial_control:u_serial_control.busy
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter
+ce => reg:u_reg.CE
+clk => reg:u_reg.CLK
+Q[0] <= reg:u_reg.Q[0]
+Q[1] <= reg:u_reg.Q[1]
+Q[2] <= reg:u_reg.Q[2]
+Q[3] <= reg:u_reg.Q[3]
+reset => reg:u_reg.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg
+F[0] => FFD:u_FFD0.D
+F[1] => FFD:u_FFD1.D
+F[2] => FFD:u_FFD2.D
+F[3] => FFD:u_FFD3.D
+CE => FFD:u_FFD0.EN
+CE => FFD:u_FFD1.EN
+CE => FFD:u_FFD2.EN
+CE => FFD:u_FFD3.EN
+reset => FFD:u_FFD0.reset
+reset => FFD:u_FFD1.reset
+reset => FFD:u_FFD2.reset
+reset => FFD:u_FFD3.reset
+clk => FFD:u_FFD0.clk
+clk => FFD:u_FFD1.clk
+clk => FFD:u_FFD2.clk
+clk => FFD:u_FFD3.clk
+Q[0] <= FFD:u_FFD0.Q
+Q[1] <= FFD:u_FFD1.Q
+Q[2] <= FFD:u_FFD2.Q
+Q[3] <= FFD:u_FFD3.Q
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|reg:u_reg|FFD:u_FFD3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder
+A[0] => fulladder:u_fulladder0.A
+A[1] => fulladder:u_fulladder1.A
+A[2] => fulladder:u_fulladder2.A
+A[3] => fulladder:u_fulladder3.A
+B[0] => fulladder:u_fulladder0.B
+B[1] => fulladder:u_fulladder1.B
+B[2] => fulladder:u_fulladder2.B
+B[3] => fulladder:u_fulladder3.B
+Cin => fulladder:u_fulladder0.Cin
+S[0] <= fulladder:u_fulladder0.S
+S[1] <= fulladder:u_fulladder1.S
+S[2] <= fulladder:u_fulladder2.S
+S[3] <= fulladder:u_fulladder3.S
+Cout <= fulladder:u_fulladder3.Cout
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder0
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder1
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder2
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|counter:u_counter|adder:u_adder|fulladder:u_fulladder3
+A => S.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+Cin => S.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register
+data => FFD:u_ffd0.D
+clk => FFD:u_ffd0.clk
+clk => FFD:u_ffd1.clk
+clk => FFD:u_ffd2.clk
+clk => FFD:u_ffd3.clk
+clk => FFD:u_ffd4.clk
+enable => FFD:u_ffd0.EN
+enable => FFD:u_ffd1.EN
+enable => FFD:u_ffd2.EN
+enable => FFD:u_ffd3.EN
+enable => FFD:u_ffd4.EN
+D[0] <= FFD:u_ffd4.Q
+D[1] <= FFD:u_ffd3.Q
+D[2] <= FFD:u_ffd2.Q
+D[3] <= FFD:u_ffd1.Q
+D[4] <= FFD:u_ffd0.Q
+reset => FFD:u_ffd0.reset
+reset => FFD:u_ffd1.reset
+reset => FFD:u_ffd2.reset
+reset => FFD:u_ffd3.reset
+reset => FFD:u_ffd4.reset
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd0
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd1
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd2
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd3
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|shift_register:u_shift_register|FFD:u_ffd4
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+reset => Q.IN0
+set => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|serial_receiver:u_serial_receiver|serial_control:u_serial_control
+enRx => generatenextState.IN0
+enRx => generatenextState.IN0
+enRx => Selector0.IN3
+enRx => wr.IN0
+enRx => Selector1.IN2
+accept => nextState.STATE_WAIT.DATAA
+accept => Selector0.IN2
+accept => Selector2.IN2
+eq5 => generatenextState.IN1
+eq5 => generatenextState.IN1
+clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
+reset => currentState~3.DATAIN
+clk => currentState~1.DATAIN
+busy <= busy.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|door_controller:u_door_controller
+dval => generatenextState.IN0
+dval => generatenextState.IN0
+dval => Selector3.IN3
+dval => Selector0.IN2
+din[0] => generatenextState.IN1
+din[0] => generatenextState.IN0
+din[0] => generatenextState.IN1
+din[1] => dout[1].DATAIN
+din[2] => dout[2].DATAIN
+din[3] => dout[3].DATAIN
+din[4] => dout[4].DATAIN
+sopen => generatenextState.IN1
+sopen => nextState.OUTPUTSELECT
+sopen => nextState.OUTPUTSELECT
+sopen => Selector1.IN2
+sopen => onoff.IN0
+sclose => onoff.IN1
+sclose => generatenextState.IN0
+psensor => nextState.OUTPUTSELECT
+psensor => nextState.OUTPUTSELECT
+psensor => Selector1.IN3
+psensor => onoff.IN0
+psensor => generatenextState.IN1
+onoff <= onoff.DB_MAX_OUTPUT_PORT_TYPE
+dout[0] <= dout[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= din[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= din[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= din[3].DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= din[4].DB_MAX_OUTPUT_PORT_TYPE
+done <= done.DB_MAX_OUTPUT_PORT_TYPE
+reset => currentState~3.DATAIN
+clk => currentState~1.DATAIN
+
+
+|accessControlSystem_wrapper|accessControlSystem:u_accesscontrol|SDC:u_SDC|clkdiv:u_clkdiv
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism
+MCLK => CLKDIV:UCLK.clk_in
+RST => counter_pl:U6.RST
+RST => ShiftRegister_lr:U7.reset
+onOff => counter_pl:U6.CE
+onOff => ShiftRegister_lr:U7.en
+openClose => ShiftRegister_lr:U7.shiftLeft
+v[0] => counter_pl:U6.din[1]
+v[1] => counter_pl:U6.din[2]
+v[2] => counter_pl:U6.din[3]
+v[3] => counter_pl:U6.din[4]
+Pswitch => Pdetector.DATAIN
+Sopen <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+Sclose <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+Pdetector <= Pswitch.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= door_emulation_seg:U0.dOut[0]
+HEX0[1] <= door_emulation_seg:U0.dOut[1]
+HEX0[2] <= door_emulation_seg:U0.dOut[2]
+HEX0[3] <= door_emulation_seg:U0.dOut[3]
+HEX0[4] <= door_emulation_seg:U0.dOut[4]
+HEX0[5] <= door_emulation_seg:U0.dOut[5]
+HEX0[6] <= door_emulation_seg:U0.dOut[6]
+HEX0[7] <= door_emulation_seg:U0.dOut[7]
+HEX1[0] <= door_emulation_seg:U1.dOut[0]
+HEX1[1] <= door_emulation_seg:U1.dOut[1]
+HEX1[2] <= door_emulation_seg:U1.dOut[2]
+HEX1[3] <= door_emulation_seg:U1.dOut[3]
+HEX1[4] <= door_emulation_seg:U1.dOut[4]
+HEX1[5] <= door_emulation_seg:U1.dOut[5]
+HEX1[6] <= door_emulation_seg:U1.dOut[6]
+HEX1[7] <= door_emulation_seg:U1.dOut[7]
+HEX2[0] <= door_emulation_seg:U2.dOut[0]
+HEX2[1] <= door_emulation_seg:U2.dOut[1]
+HEX2[2] <= door_emulation_seg:U2.dOut[2]
+HEX2[3] <= door_emulation_seg:U2.dOut[3]
+HEX2[4] <= door_emulation_seg:U2.dOut[4]
+HEX2[5] <= door_emulation_seg:U2.dOut[5]
+HEX2[6] <= door_emulation_seg:U2.dOut[6]
+HEX2[7] <= door_emulation_seg:U2.dOut[7]
+HEX3[0] <= door_emulation_seg:U3.dOut[0]
+HEX3[1] <= door_emulation_seg:U3.dOut[1]
+HEX3[2] <= door_emulation_seg:U3.dOut[2]
+HEX3[3] <= door_emulation_seg:U3.dOut[3]
+HEX3[4] <= door_emulation_seg:U3.dOut[4]
+HEX3[5] <= door_emulation_seg:U3.dOut[5]
+HEX3[6] <= door_emulation_seg:U3.dOut[6]
+HEX3[7] <= door_emulation_seg:U3.dOut[7]
+HEX4[0] <= door_emulation_seg:U4.dOut[0]
+HEX4[1] <= door_emulation_seg:U4.dOut[1]
+HEX4[2] <= door_emulation_seg:U4.dOut[2]
+HEX4[3] <= door_emulation_seg:U4.dOut[3]
+HEX4[4] <= door_emulation_seg:U4.dOut[4]
+HEX4[5] <= door_emulation_seg:U4.dOut[5]
+HEX4[6] <= door_emulation_seg:U4.dOut[6]
+HEX4[7] <= door_emulation_seg:U4.dOut[7]
+HEX5[0] <= door_emulation_seg:U5.dOut[0]
+HEX5[1] <= door_emulation_seg:U5.dOut[1]
+HEX5[2] <= door_emulation_seg:U5.dOut[2]
+HEX5[3] <= door_emulation_seg:U5.dOut[3]
+HEX5[4] <= door_emulation_seg:U5.dOut[4]
+HEX5[5] <= door_emulation_seg:U5.dOut[5]
+HEX5[6] <= door_emulation_seg:U5.dOut[6]
+HEX5[7] <= door_emulation_seg:U5.dOut[7]
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|clkdiv:UCLK
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6
+CLK => register_D_E_R_value:U2.CLK
+RST => register_D_E_R_value:U2.RST
+CE => register_D_E_R_value:U2.EN
+pl => cnt_atual_pl[4].OUTPUTSELECT
+pl => cnt_atual_pl[3].OUTPUTSELECT
+pl => cnt_atual_pl[2].OUTPUTSELECT
+pl => cnt_atual_pl[1].OUTPUTSELECT
+pl => cnt_atual_pl[0].OUTPUTSELECT
+din[0] => cnt_atual_pl[0].DATAB
+din[1] => cnt_atual_pl[1].DATAB
+din[2] => cnt_atual_pl[2].DATAB
+din[3] => cnt_atual_pl[3].DATAB
+din[4] => cnt_atual_pl[4].DATAB
+Q[0] <= register_D_E_R_value:U2.Q[0]
+Q[1] <= register_D_E_R_value:U2.Q[1]
+Q[2] <= register_D_E_R_value:U2.Q[2]
+Q[3] <= register_D_E_R_value:U2.Q[3]
+Q[4] <= register_D_E_R_value:U2.Q[4]
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6|adder_rc:U1
+A[0] => full_adder:SC:0:U1.A
+A[1] => full_adder:SC:1:U1.A
+A[2] => full_adder:SC:2:U1.A
+A[3] => full_adder:SC:3:U1.A
+A[4] => full_adder:SC:4:U1.A
+B[0] => full_adder:SC:0:U1.B
+B[1] => full_adder:SC:1:U1.B
+B[2] => full_adder:SC:2:U1.B
+B[3] => full_adder:SC:3:U1.B
+B[4] => full_adder:SC:4:U1.B
+Ci => full_adder:SC:0:U1.Cin
+S[0] <= full_adder:SC:0:U1.S
+S[1] <= full_adder:SC:1:U1.S
+S[2] <= full_adder:SC:2:U1.S
+S[3] <= full_adder:SC:3:U1.S
+S[4] <= full_adder:SC:4:U1.S
+Co <= full_adder:SC:4:U1.Cout
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6|adder_rc:U1|full_adder:\SC:0:U1
+A => S.IN0
+A => Cout.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+B => Cout.IN0
+Cin => S.IN1
+Cin => Cout.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6|adder_rc:U1|full_adder:\SC:1:U1
+A => S.IN0
+A => Cout.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+B => Cout.IN0
+Cin => S.IN1
+Cin => Cout.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6|adder_rc:U1|full_adder:\SC:2:U1
+A => S.IN0
+A => Cout.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+B => Cout.IN0
+Cin => S.IN1
+Cin => Cout.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6|adder_rc:U1|full_adder:\SC:3:U1
+A => S.IN0
+A => Cout.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+B => Cout.IN0
+Cin => S.IN1
+Cin => Cout.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6|adder_rc:U1|full_adder:\SC:4:U1
+A => S.IN0
+A => Cout.IN0
+A => Cout.IN0
+B => S.IN1
+B => Cout.IN1
+B => Cout.IN0
+Cin => S.IN1
+Cin => Cout.IN1
+Cin => Cout.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|counter_pl:U6|register_D_E_R_value:U2
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+RST => Q[0]~reg0.ALOAD
+RST => Q[1]~reg0.ALOAD
+RST => Q[2]~reg0.ALOAD
+RST => Q[3]~reg0.ALOAD
+RST => Q[4]~reg0.ALOAD
+EN => Q[0]~reg0.ENA
+EN => Q[1]~reg0.ENA
+EN => Q[2]~reg0.ENA
+EN => Q[3]~reg0.ENA
+EN => Q[4]~reg0.ENA
+RST_value[0] => Q[0]~reg0.ADATA
+RST_value[1] => Q[1]~reg0.ADATA
+RST_value[2] => Q[2]~reg0.ADATA
+RST_value[3] => Q[3]~reg0.ADATA
+RST_value[4] => Q[4]~reg0.ADATA
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|ShiftRegister_lr:U7
+clk => register_D_E_R_value:U1.CLK
+reset => register_D_E_R_value:U1.RST
+sin_left => dataShift_in[0].DATAB
+sin_right => dataShift_in[8].DATAA
+en => register_D_E_R_value:U1.EN
+shiftLeft => dataShift_in[8].OUTPUTSELECT
+shiftLeft => dataShift_in[7].OUTPUTSELECT
+shiftLeft => dataShift_in[6].OUTPUTSELECT
+shiftLeft => dataShift_in[5].OUTPUTSELECT
+shiftLeft => dataShift_in[4].OUTPUTSELECT
+shiftLeft => dataShift_in[3].OUTPUTSELECT
+shiftLeft => dataShift_in[2].OUTPUTSELECT
+shiftLeft => dataShift_in[1].OUTPUTSELECT
+shiftLeft => dataShift_in[0].OUTPUTSELECT
+rst_value[0] => register_D_E_R_value:U1.RST_value[0]
+rst_value[1] => register_D_E_R_value:U1.RST_value[1]
+rst_value[2] => register_D_E_R_value:U1.RST_value[2]
+rst_value[3] => register_D_E_R_value:U1.RST_value[3]
+rst_value[4] => register_D_E_R_value:U1.RST_value[4]
+rst_value[5] => register_D_E_R_value:U1.RST_value[5]
+rst_value[6] => register_D_E_R_value:U1.RST_value[6]
+rst_value[7] => register_D_E_R_value:U1.RST_value[7]
+rst_value[8] => register_D_E_R_value:U1.RST_value[8]
+Dout[0] <= register_D_E_R_value:U1.Q[0]
+Dout[1] <= register_D_E_R_value:U1.Q[1]
+Dout[2] <= register_D_E_R_value:U1.Q[2]
+Dout[3] <= register_D_E_R_value:U1.Q[3]
+Dout[4] <= register_D_E_R_value:U1.Q[4]
+Dout[5] <= register_D_E_R_value:U1.Q[5]
+Dout[6] <= register_D_E_R_value:U1.Q[6]
+Dout[7] <= register_D_E_R_value:U1.Q[7]
+Dout[8] <= register_D_E_R_value:U1.Q[8]
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|ShiftRegister_lr:U7|register_D_E_R_value:U1
+CLK => Q[0]~reg0.CLK
+CLK => Q[1]~reg0.CLK
+CLK => Q[2]~reg0.CLK
+CLK => Q[3]~reg0.CLK
+CLK => Q[4]~reg0.CLK
+CLK => Q[5]~reg0.CLK
+CLK => Q[6]~reg0.CLK
+CLK => Q[7]~reg0.CLK
+CLK => Q[8]~reg0.CLK
+RST => Q[0]~reg0.ALOAD
+RST => Q[1]~reg0.ALOAD
+RST => Q[2]~reg0.ALOAD
+RST => Q[3]~reg0.ALOAD
+RST => Q[4]~reg0.ALOAD
+RST => Q[5]~reg0.ALOAD
+RST => Q[6]~reg0.ALOAD
+RST => Q[7]~reg0.ALOAD
+RST => Q[8]~reg0.ALOAD
+EN => Q[0]~reg0.ENA
+EN => Q[1]~reg0.ENA
+EN => Q[2]~reg0.ENA
+EN => Q[3]~reg0.ENA
+EN => Q[4]~reg0.ENA
+EN => Q[5]~reg0.ENA
+EN => Q[6]~reg0.ENA
+EN => Q[7]~reg0.ENA
+EN => Q[8]~reg0.ENA
+RST_value[0] => Q[0]~reg0.ADATA
+RST_value[1] => Q[1]~reg0.ADATA
+RST_value[2] => Q[2]~reg0.ADATA
+RST_value[3] => Q[3]~reg0.ADATA
+RST_value[4] => Q[4]~reg0.ADATA
+RST_value[5] => Q[5]~reg0.ADATA
+RST_value[6] => Q[6]~reg0.ADATA
+RST_value[7] => Q[7]~reg0.ADATA
+RST_value[8] => Q[8]~reg0.ADATA
+D[0] => Q[0]~reg0.DATAIN
+D[1] => Q[1]~reg0.DATAIN
+D[2] => Q[2]~reg0.DATAIN
+D[3] => Q[3]~reg0.DATAIN
+D[4] => Q[4]~reg0.DATAIN
+D[5] => Q[5]~reg0.DATAIN
+D[6] => Q[6]~reg0.DATAIN
+D[7] => Q[7]~reg0.DATAIN
+D[8] => Q[8]~reg0.DATAIN
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= Q[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= Q[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[8] <= Q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|door_emulation_seg:U0
+d[0] => Equal0.IN3
+d[0] => Equal1.IN3
+d[0] => Equal2.IN3
+d[0] => Equal3.IN2
+d[0] => Equal4.IN3
+d[0] => Equal5.IN3
+d[0] => Equal6.IN3
+d[0] => Equal7.IN3
+d[1] => Equal0.IN2
+d[1] => Equal1.IN2
+d[1] => Equal2.IN1
+d[1] => Equal3.IN1
+d[1] => Equal4.IN2
+d[1] => Equal5.IN2
+d[1] => Equal6.IN2
+d[1] => Equal7.IN2
+d[2] => Equal0.IN1
+d[2] => Equal1.IN0
+d[2] => Equal2.IN0
+d[2] => Equal3.IN0
+d[2] => Equal4.IN1
+d[2] => Equal5.IN1
+d[2] => Equal6.IN1
+d[2] => Equal7.IN1
+d[3] => Equal0.IN0
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN3
+d[3] => Equal4.IN0
+d[3] => Equal5.IN0
+d[3] => Equal6.IN0
+d[3] => Equal7.IN0
+dOut[0] <= <VCC>
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= <VCC>
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|door_emulation_seg:U1
+d[0] => Equal0.IN3
+d[0] => Equal1.IN3
+d[0] => Equal2.IN3
+d[0] => Equal3.IN2
+d[0] => Equal4.IN3
+d[0] => Equal5.IN3
+d[0] => Equal6.IN3
+d[0] => Equal7.IN3
+d[1] => Equal0.IN2
+d[1] => Equal1.IN2
+d[1] => Equal2.IN1
+d[1] => Equal3.IN1
+d[1] => Equal4.IN2
+d[1] => Equal5.IN2
+d[1] => Equal6.IN2
+d[1] => Equal7.IN2
+d[2] => Equal0.IN1
+d[2] => Equal1.IN0
+d[2] => Equal2.IN0
+d[2] => Equal3.IN0
+d[2] => Equal4.IN1
+d[2] => Equal5.IN1
+d[2] => Equal6.IN1
+d[2] => Equal7.IN1
+d[3] => Equal0.IN0
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN3
+d[3] => Equal4.IN0
+d[3] => Equal5.IN0
+d[3] => Equal6.IN0
+d[3] => Equal7.IN0
+dOut[0] <= <VCC>
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= <VCC>
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|door_emulation_seg:U2
+d[0] => Equal0.IN3
+d[0] => Equal1.IN3
+d[0] => Equal2.IN3
+d[0] => Equal3.IN2
+d[0] => Equal4.IN3
+d[0] => Equal5.IN3
+d[0] => Equal6.IN3
+d[0] => Equal7.IN3
+d[1] => Equal0.IN2
+d[1] => Equal1.IN2
+d[1] => Equal2.IN1
+d[1] => Equal3.IN1
+d[1] => Equal4.IN2
+d[1] => Equal5.IN2
+d[1] => Equal6.IN2
+d[1] => Equal7.IN2
+d[2] => Equal0.IN1
+d[2] => Equal1.IN0
+d[2] => Equal2.IN0
+d[2] => Equal3.IN0
+d[2] => Equal4.IN1
+d[2] => Equal5.IN1
+d[2] => Equal6.IN1
+d[2] => Equal7.IN1
+d[3] => Equal0.IN0
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN3
+d[3] => Equal4.IN0
+d[3] => Equal5.IN0
+d[3] => Equal6.IN0
+d[3] => Equal7.IN0
+dOut[0] <= <VCC>
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= <VCC>
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|door_emulation_seg:U3
+d[0] => Equal0.IN3
+d[0] => Equal1.IN3
+d[0] => Equal2.IN3
+d[0] => Equal3.IN2
+d[0] => Equal4.IN3
+d[0] => Equal5.IN3
+d[0] => Equal6.IN3
+d[0] => Equal7.IN3
+d[1] => Equal0.IN2
+d[1] => Equal1.IN2
+d[1] => Equal2.IN1
+d[1] => Equal3.IN1
+d[1] => Equal4.IN2
+d[1] => Equal5.IN2
+d[1] => Equal6.IN2
+d[1] => Equal7.IN2
+d[2] => Equal0.IN1
+d[2] => Equal1.IN0
+d[2] => Equal2.IN0
+d[2] => Equal3.IN0
+d[2] => Equal4.IN1
+d[2] => Equal5.IN1
+d[2] => Equal6.IN1
+d[2] => Equal7.IN1
+d[3] => Equal0.IN0
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN3
+d[3] => Equal4.IN0
+d[3] => Equal5.IN0
+d[3] => Equal6.IN0
+d[3] => Equal7.IN0
+dOut[0] <= <VCC>
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= <VCC>
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|door_emulation_seg:U4
+d[0] => Equal0.IN3
+d[0] => Equal1.IN3
+d[0] => Equal2.IN3
+d[0] => Equal3.IN2
+d[0] => Equal4.IN3
+d[0] => Equal5.IN3
+d[0] => Equal6.IN3
+d[0] => Equal7.IN3
+d[1] => Equal0.IN2
+d[1] => Equal1.IN2
+d[1] => Equal2.IN1
+d[1] => Equal3.IN1
+d[1] => Equal4.IN2
+d[1] => Equal5.IN2
+d[1] => Equal6.IN2
+d[1] => Equal7.IN2
+d[2] => Equal0.IN1
+d[2] => Equal1.IN0
+d[2] => Equal2.IN0
+d[2] => Equal3.IN0
+d[2] => Equal4.IN1
+d[2] => Equal5.IN1
+d[2] => Equal6.IN1
+d[2] => Equal7.IN1
+d[3] => Equal0.IN0
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN3
+d[3] => Equal4.IN0
+d[3] => Equal5.IN0
+d[3] => Equal6.IN0
+d[3] => Equal7.IN0
+dOut[0] <= <VCC>
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= <VCC>
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|accessControlSystem_wrapper|door_mecanism:u_door_mechanism|door_emulation_seg:U5
+d[0] => Equal0.IN3
+d[0] => Equal1.IN3
+d[0] => Equal2.IN3
+d[0] => Equal3.IN2
+d[0] => Equal4.IN3
+d[0] => Equal5.IN3
+d[0] => Equal6.IN3
+d[0] => Equal7.IN3
+d[1] => Equal0.IN2
+d[1] => Equal1.IN2
+d[1] => Equal2.IN1
+d[1] => Equal3.IN1
+d[1] => Equal4.IN2
+d[1] => Equal5.IN2
+d[1] => Equal6.IN2
+d[1] => Equal7.IN2
+d[2] => Equal0.IN1
+d[2] => Equal1.IN0
+d[2] => Equal2.IN0
+d[2] => Equal3.IN0
+d[2] => Equal4.IN1
+d[2] => Equal5.IN1
+d[2] => Equal6.IN1
+d[2] => Equal7.IN1
+d[3] => Equal0.IN0
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN3
+d[3] => Equal4.IN0
+d[3] => Equal5.IN0
+d[3] => Equal6.IN0
+d[3] => Equal7.IN0
+dOut[0] <= <VCC>
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= <VCC>
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+

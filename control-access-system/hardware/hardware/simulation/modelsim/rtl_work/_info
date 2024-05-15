@@ -1,0 +1,568 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Public/projeto-lic/hardware/simulation/modelsim
+Eadder
+Z1 w1684825534
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 8
+R0
+Z4 8C:/Users/Public/projeto-lic/hardware/adder.vhd
+Z5 FC:/Users/Public/projeto-lic/hardware/adder.vhd
+l0
+L8 1
+V[enX?1ANg_X251@aEzaz>2
+!s100 WGeYN`>H8f3_KW=7TIQO33
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1685292842
+!i10b 1
+Z8 !s108 1685292842.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/adder.vhd|
+Z10 !s107 C:/Users/Public/projeto-lic/hardware/adder.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Aarq
+R2
+R3
+DEx4 work 5 adder 0 22 [enX?1ANg_X251@aEzaz>2
+!i122 8
+l33
+L19 48
+VdG]GZ<R8?W47ff:9IMIn^2
+!s100 z>i]hA6Yd;iKMR1^YmA4i0
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eclkdiv
+Z13 w1684825535
+Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R2
+R3
+!i122 7
+R0
+Z15 8C:/Users/Public/projeto-lic/hardware/clkdiv.vhd
+Z16 FC:/Users/Public/projeto-lic/hardware/clkdiv.vhd
+l0
+L8 1
+VXDoaZ3_Ma040=MFB?dE;c1
+!s100 @Sdf7ANkbF0A9jc2=>=Wa3
+R6
+31
+R7
+!i10b 1
+R8
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/clkdiv.vhd|
+Z18 !s107 C:/Users/Public/projeto-lic/hardware/clkdiv.vhd|
+!i113 1
+R11
+R12
+Abhv
+R14
+R2
+R3
+DEx4 work 6 clkdiv 0 22 XDoaZ3_Ma040=MFB?dE;c1
+!i122 7
+l21
+L15 23
+V]odAQPP9`lhiYFQ>c4oo:2
+!s100 c8LA>k68>]Tg?1bWkiCc62
+R6
+31
+R7
+!i10b 1
+R8
+R17
+R18
+!i113 1
+R11
+R12
+Ecounter
+R13
+R2
+R3
+!i122 6
+R0
+Z19 8C:/Users/Public/projeto-lic/hardware/counter.vhd
+Z20 FC:/Users/Public/projeto-lic/hardware/counter.vhd
+l0
+L8 1
+VKoU`2NeN=CaajUj4k;d531
+!s100 HjYjQA9;kM:QT]TZiOAmZ0
+R6
+31
+R7
+!i10b 1
+R8
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/counter.vhd|
+Z22 !s107 C:/Users/Public/projeto-lic/hardware/counter.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 7 counter 0 22 KoU`2NeN=CaajUj4k;d531
+!i122 6
+l45
+L17 50
+V]i^NY[bBT6fV7:1N3g4d_1
+!s100 ad5b2Lz8bRh?5HNf?;42C1
+R6
+31
+R7
+!i10b 1
+R8
+R21
+R22
+!i113 1
+R11
+R12
+Edec
+R13
+R2
+R3
+!i122 1
+R0
+Z23 8C:/Users/Public/projeto-lic/hardware/dec.vhd
+Z24 FC:/Users/Public/projeto-lic/hardware/dec.vhd
+l0
+L7 1
+VjgAzP=7_IJ4=;k1L=PLR01
+!s100 d5FOVgbBWhHRR4DSRSRz]1
+R6
+31
+Z25 !s110 1685292841
+!i10b 1
+Z26 !s108 1685292841.000000
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/dec.vhd|
+Z28 !s107 C:/Users/Public/projeto-lic/hardware/dec.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 3 dec 0 22 jgAzP=7_IJ4=;k1L=PLR01
+!i122 1
+l17
+L16 8
+VV>>MNdGYhRkN2OP>VVF_;2
+!s100 N^bQLOR;RLFcKdI8_;XRF2
+R6
+31
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 1
+R11
+R12
+Effd
+R13
+R2
+R3
+!i122 11
+R0
+Z29 8C:/Users/Public/projeto-lic/hardware/FFD.vhd
+Z30 FC:/Users/Public/projeto-lic/hardware/FFD.vhd
+l0
+L12 1
+Vl?<5zX_S<eJF76`KfZf7z3
+!s100 iaz39hjdWmGlOIm85A=E93
+R6
+31
+R7
+!i10b 1
+R8
+Z31 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/FFD.vhd|
+Z32 !s107 C:/Users/Public/projeto-lic/hardware/FFD.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 3 ffd 0 22 l?<5zX_S<eJF76`KfZf7z3
+!i122 11
+l24
+L22 7
+VYV=iE206XK27mWHnKD8MX0
+!s100 49g<E0YzSH9=GeVUS==aR0
+R6
+31
+R7
+!i10b 1
+R8
+R31
+R32
+!i113 1
+R11
+R12
+Efulladder
+R13
+R2
+R3
+!i122 10
+R0
+Z33 8C:/Users/Public/projeto-lic/hardware/fulladder.vhd
+Z34 FC:/Users/Public/projeto-lic/hardware/fulladder.vhd
+l0
+L9 1
+VzEF=DzX8;:O441;6MnURb1
+!s100 IB?kc_447BX1AW^l7C?Jh3
+R6
+31
+R7
+!i10b 1
+R8
+Z35 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/fulladder.vhd|
+Z36 !s107 C:/Users/Public/projeto-lic/hardware/fulladder.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 9 fulladder 0 22 zEF=DzX8;:O441;6MnURb1
+!i122 10
+l20
+L19 5
+VE=;9JI77cZfKeM;fMc<`^3
+!s100 cPl]=e1[QWemdNMG]T1g>1
+R6
+31
+R7
+!i10b 1
+R8
+R35
+R36
+!i113 1
+R11
+R12
+Ekey_control
+R13
+R2
+R3
+!i122 9
+R0
+Z37 8C:/Users/Public/projeto-lic/hardware/key_control.vhd
+Z38 FC:/Users/Public/projeto-lic/hardware/key_control.vhd
+l0
+L7 1
+VY17TMcUzVP8`:0e<;ZC6c3
+!s100 `Y=DKj5gXOlDF<4P3=3G<0
+R6
+31
+R7
+!i10b 1
+R8
+Z39 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/key_control.vhd|
+Z40 !s107 C:/Users/Public/projeto-lic/hardware/key_control.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 11 key_control 0 22 Y17TMcUzVP8`:0e<;ZC6c3
+!i122 9
+l30
+L19 50
+V?mUVHbQTcLLJEgk4IaL712
+!s100 ?YlknWO_[G`FBLO_Vl>cU2
+R6
+31
+R7
+!i10b 1
+R8
+R39
+R40
+!i113 1
+R11
+R12
+Ekey_decode
+Z41 w1685035712
+R2
+R3
+!i122 5
+R0
+Z42 8C:/Users/Public/projeto-lic/hardware/key_decode.vhd
+Z43 FC:/Users/Public/projeto-lic/hardware/key_decode.vhd
+l0
+L7 1
+V[0E>oiS4<YdVZ@0AO1UU40
+!s100 QZj=l50;i4:3=JzB5iCbK0
+R6
+31
+R7
+!i10b 1
+R8
+Z44 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/key_decode.vhd|
+Z45 !s107 C:/Users/Public/projeto-lic/hardware/key_decode.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 10 key_decode 0 22 [0E>oiS4<YdVZ@0AO1UU40
+!i122 5
+l56
+L21 63
+VC6SFD3bCbL`03:?KjFA=41
+!s100 H_1YTYjnMR0l1d??zg;U?0
+R6
+31
+R7
+!i10b 1
+R8
+R44
+R45
+!i113 1
+R11
+R12
+Ekey_scan
+R13
+R2
+R3
+!i122 4
+R0
+Z46 8C:/Users/Public/projeto-lic/hardware/key_scan.vhd
+Z47 FC:/Users/Public/projeto-lic/hardware/key_scan.vhd
+l0
+L8 1
+VeRghTFd;Heaj;GEAkYz@X0
+!s100 4WnZWWJXdgJjZ3bjbTSO@2
+R6
+31
+R7
+!i10b 1
+R8
+Z48 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/key_scan.vhd|
+Z49 !s107 C:/Users/Public/projeto-lic/hardware/key_scan.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 8 key_scan 0 22 eRghTFd;Heaj;GEAkYz@X0
+!i122 4
+l60
+L22 80
+V7NDVH<k9GZnZ;0]NhoYef0
+!s100 66U73L3ZQkYn0@MP[n79h1
+R6
+31
+R7
+!i10b 1
+R8
+R48
+R49
+!i113 1
+R11
+R12
+Ekeyboard_reader
+R13
+R2
+R3
+!i122 12
+R0
+Z50 8C:/Users/Public/projeto-lic/hardware/keyboard_reader.vhd
+Z51 FC:/Users/Public/projeto-lic/hardware/keyboard_reader.vhd
+l0
+L7 1
+VjSg]]>]m`1ECVQ0[Tb5^W0
+!s100 o7Df6<jNF]DZRX0n0IUEE1
+R6
+31
+R7
+!i10b 1
+R8
+Z52 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/keyboard_reader.vhd|
+Z53 !s107 C:/Users/Public/projeto-lic/hardware/keyboard_reader.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 15 keyboard_reader 0 22 jSg]]>]m`1ECVQ0[Tb5^W0
+!i122 12
+l69
+L20 87
+V7bl8W^0^BNPjLT@7NizAZ2
+!s100 ]ZTDlZf<P[V6S3TKmEiOK3
+R6
+31
+R7
+!i10b 1
+R8
+R52
+R53
+!i113 1
+R11
+R12
+Emux
+R13
+R2
+R3
+!i122 3
+R0
+Z54 8C:/Users/Public/projeto-lic/hardware/mux.vhd
+Z55 FC:/Users/Public/projeto-lic/hardware/mux.vhd
+l0
+L7 1
+V8:6LX8m>I812[HiUGT1[11
+!s100 `eYe8?bR60]k5Y4<=AjUX1
+R6
+31
+R7
+!i10b 1
+R8
+Z56 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/mux.vhd|
+Z57 !s107 C:/Users/Public/projeto-lic/hardware/mux.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 3 mux 0 22 8:6LX8m>I812[HiUGT1[11
+!i122 3
+l18
+L17 9
+VB=d]SPbGbZIC:`Af9cQ]:1
+!s100 UT9dY7:lPV>?_YGJRhVM50
+R6
+31
+R7
+!i10b 1
+R8
+R56
+R57
+!i113 1
+R11
+R12
+Ereg
+R13
+R2
+R3
+!i122 2
+R0
+Z58 8C:/Users/Public/projeto-lic/hardware/reg.vhd
+Z59 FC:/Users/Public/projeto-lic/hardware/reg.vhd
+l0
+L7 1
+V^:8F^74@g?S0OLYOIPEoV3
+!s100 5SaIKa?LM3ALMzTmL7j5D2
+R6
+31
+R25
+!i10b 1
+R26
+Z60 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/reg.vhd|
+Z61 !s107 C:/Users/Public/projeto-lic/hardware/reg.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 3 reg 0 22 ^:8F^74@g?S0OLYOIPEoV3
+!i122 2
+l28
+L16 50
+VA2S<`0X=0WCiNock^Uhk`3
+!s100 2>m:?bj:Fi``<6fKzlQ203
+R6
+31
+R25
+!i10b 1
+R26
+R60
+R61
+!i113 1
+R11
+R12
+Ering_controller
+R13
+R2
+R3
+!i122 0
+R0
+Z62 8C:/Users/Public/projeto-lic/hardware/ring_controller.vhd
+Z63 FC:/Users/Public/projeto-lic/hardware/ring_controller.vhd
+l0
+L4 1
+VfJ[j<G[6PcJzk?mQj[6bk2
+!s100 ?>23Pf=jkbSh>;?OS_ziL2
+R6
+31
+R25
+!i10b 1
+R26
+Z64 !s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/ring_controller.vhd|
+Z65 !s107 C:/Users/Public/projeto-lic/hardware/ring_controller.vhd|
+!i113 1
+R11
+R12
+Aarq
+R2
+R3
+DEx4 work 15 ring_controller 0 22 fJ[j<G[6PcJzk?mQj[6bk2
+!i122 0
+l33
+L23 77
+VS8Vj_hAY0;e[ARcA4:M@f0
+!s100 ec8nOgLDBR2H:[M_>IDSE3
+R6
+31
+R25
+!i10b 1
+R26
+R64
+R65
+!i113 1
+R11
+R12
+Eusbport
+w1684825536
+R2
+R3
+!i122 13
+R0
+8C:/Users/Public/projeto-lic/hardware/UsbPort.vhd
+FC:/Users/Public/projeto-lic/hardware/UsbPort.vhd
+l0
+L25 1
+VH<Ia8`dE_cdIGLca01JFN3
+!s100 hl94EPOkeW;iYO_Coen0c3
+R6
+31
+R7
+!i10b 1
+R8
+!s90 -reportprogress|300|-93|-work|work|C:/Users/Public/projeto-lic/hardware/UsbPort.vhd|
+!s107 C:/Users/Public/projeto-lic/hardware/UsbPort.vhd|
+!i113 1
+R11
+R12

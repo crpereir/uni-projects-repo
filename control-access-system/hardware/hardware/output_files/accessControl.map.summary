@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue May 30 09:23:43 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : accessControl
+Top-level Entity Name : accessControlSystem_wrapper
+Family : MAX 10
+Total logic elements : 478
+    Total combinational functions : 444
+    Dedicated logic registers : 244
+Total registers : 244
+Total pins : 81
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0
