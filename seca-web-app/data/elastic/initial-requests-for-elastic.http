@@ -1,0 +1,50 @@
+### Get an index groups in elastic
+GET http://localhost:9200/groups
+
+### Create an index groups in elastic
+PUT http://localhost:9200/groups
+
+### Delete an index groups in elastic
+DELETE http://localhost:9200/groups
+
+### Get all documents in elastic from groups index
+GET http://localhost:9200/groups/_search
+
+### Get an index users in elastic
+GET http://localhost:9200/users
+
+### Create an index users in elastic
+PUT http://localhost:9200/users
+
+### Delete an index users in elastic
+DELETE http://localhost:9200/users
+
+### Get all documents in elastic from users index
+GET http://localhost:9200/users/_search
+
+### Create a document in groups index in elastic
+POST http://localhost:9200/groups/_doc?refresh=wait_for
+Content-Type: application/json
+
+{
+    "name": "McDonalds",
+  "description": "Im hungry",
+  "events": [],
+  "userId": "qTAdbowBghp7JqxZP9eu" //This user id will not exist, its just an example
+}
+
+### Create a document in users index in elastic
+POST http://localhost:9200/users/_doc/?refresh=wait_for
+Content-Type: application/json
+
+{
+    "name": "username",
+    "password": "password",
+    "token": "23553253fds"
+}
+
+### Map groups index
+GET http://localhost:9200/groups/_mapping
+
+### Map users index
+GET http://localhost:9200/users/_mapping

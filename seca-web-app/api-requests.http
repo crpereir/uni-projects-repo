@@ -1,0 +1,61 @@
+@token = b351d48c-1fc0-4cbf-a184-52c9138b0305
+
+### GET getEventsByName
+GET http://localhost:1909/events/search/name?name=P!NK&s=1&p=1
+
+### GET getPopularEvents
+GET http://localhost:1909/events/search/popular?s=3&p=1
+
+### GET getAllGroups
+GET http://localhost:1909/groups
+Authorization: Bearer {{token}}
+
+### GET getGroupDetails
+GET http://localhost:1909/groups/2
+Authorization: Bearer {{token}}
+
+### POST addGroup   
+POST http://localhost:1909/groups
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "batatões",
+    "description": "com cebolões"
+} 
+
+### PUT editGroup
+PUT http://localhost:1909/groups/2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "batatas",
+    "description": "com cebolas"
+} 
+
+### DELETE deleteGroup
+DELETE http://localhost:1909/groups/3
+Authorization: Bearer {{token}}
+
+### PUT addEventToGroup
+PUT http://localhost:1909/groups/2/events/G5v0Z9Yc3zOy3
+Authorization: Bearer {{token}}
+
+### DELETE deleteGroupEvent
+DELETE http://localhost:1909/groups/2/events/G5v0Z9Yc3zOy3
+Authorization: Bearer {{token}}
+
+### POST addUser    
+POST http://localhost:1909/users
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "username": "Mcqueen"
+}
+
+
+### GET eventDetails
+GET http://localhost:1909/events/G5v0Z9Yc3zOy3
+Authorization: Bearer {{token}}
