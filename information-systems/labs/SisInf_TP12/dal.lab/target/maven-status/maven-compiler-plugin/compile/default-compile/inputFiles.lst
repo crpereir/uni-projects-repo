@@ -1,0 +1,17 @@
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/Course.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/IRepository.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/IContext.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/ICountry.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/ICourse.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/ICourseDataMapper.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/App.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/IStudentRepository.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/JPAContext.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/ICountryRepository.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/IDataMapper.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/Country.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/IStudent.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/ICourseRepository.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/IStudentDataMapper.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/Student.java
+/Users/datia/Data/Clouds/PersonalDrive/Isel/Aulas/SisInf/2023-2024-2/labs/TP12/dal.lab/src/main/java/isel/sisinf/dal/lab/repo/ICountryDataMapper.java
