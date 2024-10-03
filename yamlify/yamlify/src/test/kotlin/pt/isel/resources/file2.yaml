@@ -1,0 +1,16 @@
+
+  name: Jose Carioca
+  nr: 1214398
+  address:
+    street: Rua Azul
+    nr: 12
+    city: Porto
+  from: Tamega
+  grades:
+    -
+      subject: TDS
+      classification: 20
+    - 
+      subject: LAE
+      classification: 18
+  birth: 2004-05-26

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pt.isel.YamlParserReflectTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2024-06-11T11:04:30" hostname="cocas" time="0.082">
+  <properties/>
+  <testcase name="parseStudentWithMissingProperties()" classname="pt.isel.YamlParserReflectTest" time="0.008"/>
+  <testcase name="parseSequenceOfStudentsWithAddressesAndGrades()" classname="pt.isel.YamlParserReflectTest" time="0.014"/>
+  <testcase name="parseSequenceOfInts()" classname="pt.isel.YamlParserReflectTest" time="0.002"/>
+  <testcase name="parseSequenceOfStudents()" classname="pt.isel.YamlParserReflectTest" time="0.009"/>
+  <testcase name="parseStudentWithAddress()" classname="pt.isel.YamlParserReflectTest" time="0.002"/>
+  <testcase name="parseStudent()" classname="pt.isel.YamlParserReflectTest" time="0.001"/>
+  <testcase name="parseSequenceOfStrings()" classname="pt.isel.YamlParserReflectTest" time="0.001"/>
+  <testcase name="yaml to date()" classname="pt.isel.YamlParserReflectTest" time="0.026"/>
+  <testcase name="yaml to time()" classname="pt.isel.YamlParserReflectTest" time="0.005"/>
+  <testcase name="parseClassroom()" classname="pt.isel.YamlParserReflectTest" time="0.003"/>
+  <testcase name="parseSequenceOfStudentsWithAddresses()" classname="pt.isel.YamlParserReflectTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

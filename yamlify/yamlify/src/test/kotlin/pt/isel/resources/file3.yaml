@@ -1,0 +1,33 @@
+-
+  name: Maria Candida
+  nr: 873435
+  address:
+    street: Rua Rosa
+    nr: 78
+    city: Lisbon
+  from: Oleiros
+  grades:
+    -
+      subject: LAE
+      classification: 18
+    -
+      subject: PDM
+      classification: 15
+    -
+      subject: PC
+      classification: 19
+-
+  name: Jose Carioca
+  nr: 1214398
+  address:
+    street: Rua Azul
+    nr: 12
+    city: Porto
+  from: Tamega
+  grades:
+    -
+      subject: TDS
+      classification: 20
+    -
+      subject: LAE
+      classification: 18

@@ -1,0 +1,30 @@
+export const elements = [
+    "html",
+    "head",
+    "title",
+    "body",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "div",
+    "p",
+    "a",
+    "ul",
+    "li",
+    "img",
+    "span",
+    "form",
+    "input",
+    "button",
+    "table",
+    "select",
+    "option",
+    "tr",
+    "td",
+    "label"
+];
+
+export default elements;

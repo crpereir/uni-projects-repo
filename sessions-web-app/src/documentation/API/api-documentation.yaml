@@ -1,0 +1,177 @@
+openapi: 3.0.0
+info:
+  title: Sessions API
+  version: 0.1.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /sessions:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionCreationRequest'
+      responses:
+        '201':
+          description: Session created successfully
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Session deleted successfully
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+    put:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sessionID:
+                  type: integer
+                playerID:
+                  type: integer
+      responses:
+        '200':
+          description: Player added successfully
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Session details
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+  /games:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GameCreationRequest'
+      responses:
+        '201':
+          description: Game created successfully
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Game details
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+    get:
+      parameters:
+        - name: genre
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: developer
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Games details
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+  /players:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Player created successfully
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+    get:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Player details
+        '400':
+          description: Invalid request
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    SessionCreationRequest:
+      type: object
+      properties:
+        numberOfPlayers:
+          type: integer
+        date:
+          type: string
+        game:
+          type: integer
+        players:
+          type: array
+          items:
+            type: integer
+    GameCreationRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        developer:
+          type: string
+        genres:
+          type: array
+          items:
+            type: string

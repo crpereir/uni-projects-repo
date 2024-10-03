@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pt.isel.YamlParserCojenTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2024-06-11T11:04:30" hostname="cocas" time="0.187">
+  <properties/>
+  <testcase name="parseSequenceOfStudentsWithAddressesAndGrades()" classname="pt.isel.YamlParserCojenTest" time="0.008"/>
+  <testcase name="parseSequenceOfInts()" classname="pt.isel.YamlParserCojenTest" time="0.097"/>
+  <testcase name="parseSequenceOfStudents()" classname="pt.isel.YamlParserCojenTest" time="0.003"/>
+  <testcase name="parseStudentWithAddress()" classname="pt.isel.YamlParserCojenTest" time="0.004"/>
+  <testcase name="parseStudent()" classname="pt.isel.YamlParserCojenTest" time="0.001"/>
+  <testcase name="parseSequenceOfStrings()" classname="pt.isel.YamlParserCojenTest" time="0.036"/>
+  <testcase name="yaml to date()" classname="pt.isel.YamlParserCojenTest" time="0.015"/>
+  <testcase name="yaml to time()" classname="pt.isel.YamlParserCojenTest" time="0.006"/>
+  <testcase name="parseClassroom()" classname="pt.isel.YamlParserCojenTest" time="0.008"/>
+  <testcase name="parseSequenceOfStudentsWithAddresses()" classname="pt.isel.YamlParserCojenTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
